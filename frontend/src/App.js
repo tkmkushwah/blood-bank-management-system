@@ -1,9 +1,11 @@
 import React from 'react'
-import LoginScreen from '../src/screens/LoginScreen'
+import Carousel from './components/CarouselHome'
+import Header from './components/Header'
 const App = () => {
   return (
     <>
-     <LoginScreen />
+     <Header />
+     <Carousel />
     </>
   )
 }

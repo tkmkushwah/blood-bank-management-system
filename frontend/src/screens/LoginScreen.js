@@ -9,7 +9,7 @@ const LoginScreen = () => {
       <div>
         <h3>Login</h3>
         <LoginHead />
-        <img src={usernameIcon} alt="" />
+        <img src={usernameIcon} alt="hello this is image" />
         <input
          
           type="email"
@@ -21,19 +21,17 @@ const LoginScreen = () => {
       </div>
        <img  src={passwordIcon} alt="Password icon"></img>
       <div>
-        <img htmlFor="user-password"></img>
+        <img htmlFor="user-password" alt ="hello is img2"></img>
         <input
           type="password"
           id="user-password"
           name="user-password"
           autoComplete="off"
           placeholder="Password">
-          </input>
+        </input>
       </div>
-
-      <button>Login</button>
+    <button>Login</button>
     </form>
   )
 }
-
 export default LoginScreen

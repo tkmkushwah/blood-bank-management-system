@@ -4,10 +4,19 @@ import Carousel from './components/CarouselHome'
 import Header from './components/Header'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import  { useState, useEffect } from "react";
+
 
 const App = () => {
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    fetch("http://localhost:8000/message")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
   return (
     <>
+     <h1>{message}</h1>
       <BrowserRouter  >
         <Header />
         <Routes>
@@ -19,5 +28,4 @@ const App = () => {
     </>
   )
 }
-
 export default App

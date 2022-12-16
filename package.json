@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tkmkushwah/blood-bank-management-system/issues"
   },
-  "homepage": "https://github.com/tkmkushwah/blood-bank-management-system#readme"
+  "homepage": "https://github.com/tkmkushwah/blood-bank-management-system#readme",
+  "dependencies": {
+    "styled-components": "^5.3.6"
+  }
 }

@@ -1,5 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
+import img1 from '../assets/clauser1.PNG'
+import img2 from '../assets/clauser2.PNG'
+import img3 from '../assets/clauser3.PNG'
 
 function CarouselHome() {
   return (
@@ -7,7 +10,7 @@ function CarouselHome() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src={img1}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -18,7 +21,7 @@ function CarouselHome() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src={img2}
           alt="Second slide"
         />
 
@@ -30,7 +33,7 @@ function CarouselHome() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src={img3}
           alt="Third slide"
         />
 

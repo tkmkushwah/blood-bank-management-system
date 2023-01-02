@@ -4,7 +4,6 @@ import bImg from '../../assets/b_donor_reg.png'
 const Home = () => {
   return (
     <>
-     {/* <HomeCarousel/> */}
       <section className='home'>
         <div className="img">
           <img src={bImg} alt="image" />
@@ -15,6 +14,7 @@ const Home = () => {
           <button>Know Us</button>
         </div>
       </section>
+     <HomeCarousel/> 
     </>
   )
 }

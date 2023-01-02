@@ -1,0 +1,44 @@
+@import "colors";
+.home{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: url("../assets/svg/bg.svg");
+    background-repeat: no-repeat;
+    
+    
+    div {
+            padding-left: 8rem;
+            >h1 {
+                font-size: 4rem;
+                text-transform: uppercase;
+            }
+    
+            >p {
+                font-size: 1.2rem;
+            }
+                          >button {
+                              background-color: white;
+                              color: $lightdark;
+                              border: none;
+                              border-radius: 10px;
+                              padding: 0.5rem 2rem;
+                              font-size: 1.1rem;
+                              text-decoration-style: solid;
+                              margin: 1rem auto;
+                              text-transform: uppercase;
+                              display: flex;
+                              align-items: center;
+                              cursor: pointer;
+            
+                              svg {
+                                  margin-left: 1rem;
+                              }
+            
+                              &:hover {
+                                  color: $dark;
+                              }
+                          }
+        }
+}

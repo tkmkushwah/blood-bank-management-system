@@ -14,6 +14,8 @@ import './styles/app.scss'
 import './styles/footer.scss'
 import './styles/home.scss'
 
+
+
 const App = () => {
 
   return (

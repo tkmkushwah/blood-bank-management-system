@@ -2,7 +2,12 @@ import React from 'react'
 
 const Eligibility = () => {
   return (
-    <div>Eligibility</div>
+    <section className='eligibility'>
+<div className='heading'>
+  <h3>Basic requirements</h3>
+</div>
+
+    </section>
   )
 }
 

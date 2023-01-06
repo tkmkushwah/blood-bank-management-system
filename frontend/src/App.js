@@ -13,6 +13,9 @@ import './styles/header.scss'
 import './styles/app.scss'
 import './styles/footer.scss'
 import './styles/home.scss'
+import './styles/login.scss'
+import DonorLogin from './components/Login/DonorLogin';
+import PatientLogin from './components/Login/PatientLogin';
 
 
 
@@ -28,6 +31,8 @@ const App = () => {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/donor-login' element={<DonorLogin />} />
+          <Route path='/patient-login' element={<PatientLogin />} />
        </Routes>
     <Footer />
     </Router>

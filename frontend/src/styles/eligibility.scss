@@ -1,0 +1,49 @@
+@import "colors";
+.applicationForm {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 25vh;
+  overflow-x: hidden;
+  background-color: $red;
+
+  .mainheading {
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+  section {
+    padding: 8rem;
+    background-color: $mainColor;
+    > h4 {
+      font-size: 4rem;
+    }
+    > input {
+      padding: auto;
+    }
+    > p {
+      font-size: 1.2rem;
+    }
+    > button {
+      background-color: white;
+      color: $lightdark;
+      border: none;
+      border-radius: 10px;
+      padding: 0.5rem 2rem;
+      font-size: 1.1rem;
+      text-decoration-style: solid;
+      margin: 1rem auto;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        color: $dark;
+      }
+    }
+  }
+}

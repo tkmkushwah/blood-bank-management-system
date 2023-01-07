@@ -9,13 +9,16 @@ import Eligibility from './components/About/Eligibility'
 import Contact from './components/Contact/Contact'
 import Login from './components/Login/Login'
 import Gallery from './components/Gallery/Gallery'
+import DonorLogin from './components/Login/DonorLogin';
+import PatientLogin from './components/Login/PatientLogin';
+
 import './styles/header.scss'
 import './styles/app.scss'
 import './styles/footer.scss'
 import './styles/home.scss'
 import './styles/login.scss'
-import DonorLogin from './components/Login/DonorLogin';
-import PatientLogin from './components/Login/PatientLogin';
+import './styles/contact.scss'
+
 
 
 

@@ -4,7 +4,7 @@ const PatientLogin = () => {
   return (
      <section className="login">
   <div className="container">
-  <h2>Choose Account type</h2>
+  <h2>patient login</h2>
   <div className="donRec" >
     
     <div className="patient">
@@ -19,8 +19,9 @@ const PatientLogin = () => {
       <input type="text" name="username" id="username" placeholder='username' /><br />
      
       <input type="password" name="password" placeholder='password' />
+      <button>Login</button>
     </form>
-    <button>Login</button>
+    
  </div>
 </section>
   )

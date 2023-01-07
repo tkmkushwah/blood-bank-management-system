@@ -2,7 +2,7 @@ import React from 'react'
 
 const Gallery = () => {
   return (
-    <div>Gallery page bnao</div>
+    <div>Gallery page </div>
   )
 }
 

@@ -8,7 +8,7 @@ import About from './components/About/About'
 import Eligibility from './components/About/Eligibility'
 import Contact from './components/Contact/Contact'
 import Login from './components/Login/Login'
-import Gallery from './components/Gallery/Gallery'
+// import Gallery from './components/Gallery/Gallery'
 import DonorLogin from './components/Login/DonorLogin';
 import PatientLogin from './components/Login/PatientLogin';
 
@@ -18,6 +18,8 @@ import './styles/footer.scss'
 import './styles/home.scss'
 import './styles/login.scss'
 import './styles/contact.scss'
+import './styles/eligibility.scss'
+import './styles/aboutus.scss'
 
 
 
@@ -31,7 +33,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/eligibility' element={<Eligibility />} />
-          <Route path='/gallery' element={<Gallery />} />
+          {/* <Route path='/gallery' element={<Gallery />} /> */}
           <Route path='/contact' element={<Contact />} />
           <Route path='/login' element={<Login />} />
           <Route path='/donor-login' element={<DonorLogin />} />

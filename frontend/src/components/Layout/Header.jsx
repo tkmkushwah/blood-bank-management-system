@@ -18,7 +18,7 @@ const Header = () => {
             <Link to='/about'>About</Link>
             <Link to='/eligibility'>Eligibility</Link>
             <Link to='/contact'>Contact</Link>
-            <Link to='/gallery'>Gallery</Link>
+            {/* <Link to='/gallery'>Gallery</Link> */}
             <Link to={isAuthenticated? '/me':'login'}>{isAuthenticated?<FaUser/>:<FiLogIn/>}</Link>
         </div>
     </nav>

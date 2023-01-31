@@ -1,8 +1,9 @@
 import React from 'react'
 import {BiDonateBlood} from 'react-icons/bi'
 import {MdOutlineBloodtype} from 'react-icons/md'
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 const Login = () => {
+  const navigate = useNavigate();
   return (
     
 <section className="login">
@@ -18,6 +19,10 @@ const Login = () => {
       <Link to='/patient-login'><BiDonateBlood/> </Link>
       <h3>patient</h3>
     </div>
+  </div>
+  <div className="register">
+    <p>not a user ? create new account</p>
+    <button onClick={() => navigate('/register')}>Register</button>
   </div>
 
   </div>

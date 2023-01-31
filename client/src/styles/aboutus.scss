@@ -11,13 +11,9 @@
         display: flex;
         justify-content: space-between;
         width: 80%;
-        >.logo{
-            >img{
-                
-            }
-        }
         >.about{
             text-align: left;
+            line-height: 1.4rem;
             padding-left: 50px;
         }
        }

@@ -20,9 +20,8 @@ import './styles/login.scss'
 import './styles/contact.scss'
 import './styles/eligibility.scss'
 import './styles/aboutus.scss'
-
-
-
+import './styles/register.scss'
+import Register from './components/Login/Register';
 
 const App = () => {
 
@@ -32,6 +31,7 @@ const App = () => {
        <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/eligibility' element={<Eligibility />} />
           {/* <Route path='/gallery' element={<Gallery />} /> */}
           <Route path='/contact' element={<Contact />} />

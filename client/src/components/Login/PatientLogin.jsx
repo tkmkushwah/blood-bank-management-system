@@ -20,6 +20,7 @@ const PatientLogin = () => {
      
       <input type="password" name="password" placeholder='password' />
       <button>Login</button>
+      
     </form>
     
  </div>

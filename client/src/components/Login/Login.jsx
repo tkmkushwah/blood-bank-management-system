@@ -1,34 +1,60 @@
 import React from 'react'
-import {BiDonateBlood} from 'react-icons/bi'
-import {MdOutlineBloodtype} from 'react-icons/md'
+// import {BiDonateBlood} from 'react-icons/bi'
+// import {MdOutlineBloodtype} from 'react-icons/md'
 import {Link,useNavigate} from 'react-router-dom'
+// import { showLoading, hideLoading } from "../../redux/features/alertSlice";
+// import { useDispatch } from "react-redux";
+import {Form, Input,message} from 'antd'
+import axios  from 'axios';
 const Login = () => {
   const navigate = useNavigate();
-  return (
-    
-<section className="login">
-  <div className="container">
-  <h2>Choose Account type</h2>
-  <div className="donRec" >
-    
-    <div className="donor">
-      <Link to='/donor-login'><MdOutlineBloodtype/></Link>
-      <h3>Donor</h3>
-    </div>
-    <div className="donor">
-      <Link to='/patient-login'><BiDonateBlood/> </Link>
-      <h3>patient</h3>
-    </div>
-  </div>
-  <div className="register">
-    <p>not a user ? create new account</p>
-    <button onClick={() => navigate('/register')}>Register</button>
-  </div>
+  // const dispatch=useDispatch();
+  // It enables us to dispatch any action to the store by adding the action as an argument to the dispatch variable.
 
-  </div>
-</section>
-    
-  )
+  //formHandler
+  const onfinishHandler=async (values) =>{
+    try{
+      // dispatch(showLoading());
+      const res=await axios.post('/api/v1/user/login',values);
+      // window.location.reload();
+      // dispatch(hideLoading());
+if(res.data.success){
+  localStorage.setItem("token",res.data.token);
+  message.success("login successfull");
+  navigate('/')
+}else{
+  message.error(res.data.message);
 }
+    }catch(error){
+      message.error("something went wrong")
+    }
 
-export default Login
+  }
+
+  return (
+    <div className="form-container ">
+      <Form
+        layout="vertical"
+        onFinish={onfinishHandler}
+        className="register-form"
+      >
+        <h3 className="text-center">Login From</h3>
+
+        <Form.Item label="Email" name="email">
+          <Input type="email" required />
+        </Form.Item>
+        <Form.Item label="Password" name="password">
+          <Input type="password" required />
+        </Form.Item>
+        <Link to="/register" className="m-2">
+          Not a user Register here
+        </Link>
+        <button className="btn btn-primary" type="submit">
+          Login
+        </button>
+      </Form>
+    </div>
+  );
+};
+
+export default Login;

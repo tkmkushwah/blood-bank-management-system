@@ -1,10 +1,14 @@
 import React from 'react'
+
 import {MdBloodtype} from 'react-icons/md'
 import {FaUser} from 'react-icons/fa'
 import {FiLogIn} from 'react-icons/fi'
 import {motion} from 'framer-motion'
-import {Link} from 'react-router-dom'
+
+import { Link, NavLink } from "react-router-dom";
 import icon from '../../assets/logo.jpg'
+
+import toast from "react-hot-toast";
 const Header = () => {
     const isAuthenticated=false
   return (

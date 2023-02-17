@@ -30,8 +30,6 @@ const onfinishHandler=async (values)=>{
 }
   const options=[
    { value:'A+',label:'A+'},
-   { value:'A+',label:'A+'},
-   { value:'A+',label:'A+'},
    { value:'A-',label:'A-'},
    { value:'B+',label:'B+'},
    { value:'B-',label:'B-'},
@@ -64,6 +62,9 @@ const onfinishHandler=async (values)=>{
           <Form.Item label="Email" name="email">
             <Input type="email" required />
           </Form.Item>
+          <Form.Item label="Phone" name="phone">
+            <Input type="number" required />
+          </Form.Item>
           <Form.Item label="Password" name="password">
             <Input type="password" required />
           </Form.Item>
@@ -85,12 +86,10 @@ const onfinishHandler=async (values)=>{
              />
 
           </Form.Item>
-          <Form.Item label="Location" name="Location">
+          <Form.Item label="Location" name="address">
             <Input type="string" required />
           </Form.Item>
-          <Form.Item label="Location" name="Location">
-            <Input type="string" required />
-          </Form.Item>
+
           <Link to="/login" className="m-2">
             Already user login here
           </Link>

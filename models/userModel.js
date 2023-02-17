@@ -1,32 +1,44 @@
-import { Schema, model } from "mongoose";
 
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, "name is require"],
-  },
-  email: {
-    type: String,
-    required: [true, "email is require"],
-  },
-  password: {
-    type: String,
-    required: [true, "password is require"],
-  },
-  bloodgroup: {
-    type: Object,
-    required: [true, "Blood group is require"],
-  },
-  DOB: {
-    type: Date,
-    required: [true, "DOB group is require"],
-  },
-  Location: {
-    type: String,
-    required: [true, "Location group is require"],
-  },
-});
+import mongoose from "mongoose";
 
-const userModel = model("users", userSchema);
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: Number,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    DOB: {
+      type: Date,
+      required: [true, "DOB group is require"],
+    },
+    bloodgroup: {
+      type: Object,
+      required: [true, "Blood group is require"],
+    },
+    role: {
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true }
+);
 
-export default userModel;
+export default mongoose.model("users", userSchema);

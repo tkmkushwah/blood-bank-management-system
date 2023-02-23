@@ -12,7 +12,7 @@ const Home = () => {
         </div>
         <div>
           <h1>Blood Donation</h1>
-          <marquee behavior="" direction="">This project is under development</marquee>
+          <marquee behavior="" direction="">This project is under development. </marquee>
           <pre>{JSON.stringify(auth, null, 4)}</pre>
           <p>we are here to provide you best facility</p>
           <button>Know Us</button>

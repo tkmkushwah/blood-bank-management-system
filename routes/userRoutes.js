@@ -15,7 +15,6 @@ router.post('/login',loginController);
 
 
 
-
 //dummy (test) route
 router.get('/test',requireSignIn,isAdmin,testController)
 export default router

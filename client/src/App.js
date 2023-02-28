@@ -22,6 +22,8 @@ import './styles/contact.scss'
 import './styles/eligibility.scss'
 import './styles/aboutus.scss'
 import './styles/register.scss'
+import AdminRoute from './components/routes/AdminRoute';
+import AdminDashborad from './components/Admin/AdminDashborad';
 
 
 
@@ -33,7 +35,11 @@ const App = () => {
         <Route path="/" element={<Home />} />
 
         <Route path="/dashboard" element={<PrivateRoute />}>
-          <Route path="" element={<Dashboard />} />
+          <Route path="user" element={<Dashboard />} />
+        </Route>
+
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashborad />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

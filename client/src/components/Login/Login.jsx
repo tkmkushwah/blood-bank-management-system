@@ -55,6 +55,9 @@ const Login = () => {
         <button className="btn btn-primary" type="submit">
           Login
         </button>
+        <button className="btn btn-primary" type="submit" onClick={()=>{navigate('/forgot-password')}}>
+          Forgot password
+        </button>
       </Form>
     </div>
   );

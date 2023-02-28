@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
@@ -32,6 +31,10 @@ const userSchema = new mongoose.Schema(
     bloodgroup: {
       type: Object,
       required: [true, "Blood group is require"],
+    },
+    answer: {
+      type: String,
+      required: true,
     },
     role: {
       type: Number,

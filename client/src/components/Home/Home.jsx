@@ -2,10 +2,11 @@ import React from 'react'
 import HomeCarousel from './HomeCarousel'
 import bImg from '../../assets/b_donor_reg.png'
 import { useAuth } from "../../context/auth.js";
+import Layout from '../Layout/Layout';
 const Home = () => {
     const [auth, setAuth] = useAuth();
   return (
-    <>
+    <Layout>
       <section className="home">
         <div className="img">
           <img src={bImg} alt="image" />
@@ -18,7 +19,7 @@ const Home = () => {
         </div>
       </section>
       <HomeCarousel />
-    </>
+    </Layout>
   );
 }
 

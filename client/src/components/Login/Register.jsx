@@ -5,6 +5,7 @@ import axios from "axios";
 
 const Register = () => {
 const [date, setDate] = useState('');
+const [answer, setAnswer] = useState('');
 const dateInputRef = useRef(null);
 
 const handleChange = (e) => {
@@ -87,6 +88,9 @@ const onfinishHandler=async (values)=>{
 
           </Form.Item>
           <Form.Item label="Location" name="address">
+            <Input type="string" required />
+          </Form.Item>
+          <Form.Item label="who is your best frient?" name="answer" onChange={(e)=>setAnswer(e.target.value)}>
             <Input type="string" required />
           </Form.Item>
 

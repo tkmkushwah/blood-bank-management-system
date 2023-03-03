@@ -4,7 +4,7 @@ import { Form, Input, message } from "antd";
 import axios from "axios";
 import toast from 'react-hot-toast'
 import { useAuth } from "../../context/auth";
-
+import Layout from '../Layout/Layout'
 
 const Login = () => {
     const [auth, setAuth] = useAuth();
@@ -35,31 +35,39 @@ const Login = () => {
   };
 
   return (
-    <div className="form-container ">
-      <Form
-        layout="vertical"
-        onFinish={onfinishHandler}
-        className="register-form"
-      >
-        <h3 className="text-center">Login From</h3>
+    <Layout>
+      <div className="form-container ">
+        <Form
+          layout="vertical"
+          onFinish={onfinishHandler}
+          className="register-form"
+        >
+          <h3 className="text-center">Login From</h3>
 
-        <Form.Item label="Email" name="email">
-          <Input type="email" required />
-        </Form.Item>
-        <Form.Item label="Password" name="password">
-          <Input type="password" required />
-        </Form.Item>
-        <Link to="/register" className="m-2">
-          Not a user Register here
-        </Link>
-        <button className="btn btn-primary" type="submit">
-          Login
-        </button>
-        <button className="btn btn-primary" type="submit" onClick={()=>{navigate('/forgot-password')}}>
-          Forgot password
-        </button>
-      </Form>
-    </div>
+          <Form.Item label="Email" name="email">
+            <Input type="email" required />
+          </Form.Item>
+          <Form.Item label="Password" name="password">
+            <Input type="password" required />
+          </Form.Item>
+          <Link to="/register" className="m-2">
+            Not a user Register here
+          </Link>
+          <button className="btn btn-primary" type="submit">
+            Login
+          </button>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={() => {
+              navigate("/forgot-password");
+            }}
+          >
+            Forgot password
+          </button>
+        </Form>
+      </div>
+    </Layout>
   );
 };
 

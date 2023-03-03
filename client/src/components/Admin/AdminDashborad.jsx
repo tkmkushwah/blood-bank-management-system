@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from '../Layout/Layout.jsx'
+import DashboardLayout from '../Layout/DashboardLayout.jsx'
 const AdminDashborad = () => {
   return (
-    <Layout>
+    <DashboardLayout>
       <h2>AdminDashborad</h2>
-    </Layout>
+    </DashboardLayout>
   );
 }
 

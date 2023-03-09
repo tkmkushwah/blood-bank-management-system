@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from '../Layout/Layout'
+import DashboardLayout from '../Layout/DashboardLayout'
 const Dashboard = () => {
   return (
-    <Layout title={"Dashboard-BloodBank app"}>
+    <DashboardLayout title={"Dashboard-BloodBank app"}>
       <h2>Dashboard</h2>
-    </Layout>
+    </DashboardLayout>
   );
 }
 

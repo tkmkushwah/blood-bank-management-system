@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Input, message ,Select} from "antd";
 import { Link,useNavigate,Radio } from "react-router-dom";
 import axios from "axios";
+import Layout from '../Layout/Layout';
 
 const Register = () => {
 const [date, setDate] = useState('');
@@ -49,7 +50,7 @@ const onfinishHandler=async (values)=>{
   { value:"Don't know",label:"Don't know"},
    ]
   return (
-    <>
+    <Layout>
       <div className="form-container ">
         <Form
           layout="vertical"
@@ -102,7 +103,7 @@ const onfinishHandler=async (values)=>{
           </button>
         </Form>
       </div>
-    </>
+    </Layout>
   );
 };
 

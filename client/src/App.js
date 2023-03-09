@@ -15,6 +15,7 @@ import PrivateRoute from "./components/routes/Private";
 import Dashboard from './components/user/Dashboard';
 import Register from "./components/Login/Register";
 import ForgotPassword from "./components/Login/ForgotPassword";
+import DashboardLayout from "./components/Layout/DashboardLayout"
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/impact" element={<Impact />} />
         <Route path="/research" element={<Research />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/dashboardlayout" element={<DashboardLayout />} />
 
         <Route path="/donor-login" element={<DonorLogin />} />
         <Route path="/patient-login" element={<PatientLogin />} />

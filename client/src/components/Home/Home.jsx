@@ -3,6 +3,7 @@ import HomeCarousel from './HomeCarousel'
 import bImg from '../../assets/b_donor_reg.png'
 import { useAuth } from "../../context/auth.js";
 import Layout from '../Layout/Layout';
+import { NavLink } from 'react-router-dom';
 const Home = () => {
     const [auth, setAuth] = useAuth();
   return (
@@ -18,12 +19,13 @@ const Home = () => {
           <p>we are here to provide you best facility</p>
           <button>Know Us</button>
           <br/>
-          <ul>
-            <div>
-            <li>Are you eligible?</li>
+          <ul className='container'>
+            <div className='direct'>
+            <li><NavLink to='/Eligibility'>Are you eligible?</NavLink></li>
             </div>
-            <li>Register Here</li>
-            <li></li>
+            <div className='direct'>
+            <li><NavLink to='/register' className='Home-Bottom'>Register Here</NavLink></li>
+            </div>
           </ul>
         </div>
       </section>

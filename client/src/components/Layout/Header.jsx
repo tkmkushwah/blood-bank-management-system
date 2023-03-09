@@ -69,12 +69,12 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <NavLink to="/about" className="nav-link ">
-                  about
+                  About
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/contact" className="nav-link ">
-                  contact
+                  Contact
                 </NavLink>
               </li>
               {!auth?.user ? (

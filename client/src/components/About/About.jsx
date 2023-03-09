@@ -51,7 +51,7 @@ const About = () => {
                 </NavLink>
               </option>
               <option className="learnWhy1">
-                <NavLink to="Research">
+                <NavLink to="/Research">
                   <h4>Blood Donation Research</h4>
                 </NavLink>
               </option>

@@ -1,45 +1,66 @@
-import React from 'react'
-import img1 from '../../assets/b_donor_reg.png'
-import Layout from '../Layout/Layout'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import img1 from "../../assets/b_donor_reg.png";
+import Layout from "../Layout/Layout";
 const About = () => {
   return (
     <Layout>
       <section className="about-us">
-        <h1>ABOUT US</h1>
+        <h1>LEARN</h1>
         <div className="container">
           <div className="logo">
             <img src={img1} alt="dh" />
           </div>
           <div className="about">
-            <h1>BLOOD DONATION</h1>
+            <h1>Learn About Blood Donation</h1>
             <p>
-              A blood donation is a process whereby a person voluntarily has
-              blood drawn to be used for future transfusions when in need at
-              hospitals for treatment procedures that require them. Donation may
-              be of whole blood (blood drawn directly from the body) or of
-              specific components of the blood; such as red blood cells, white
-              blood cells, plasma, and platelets. Blood banks often participate
-              in the process of collecting blood and other procedures such as
-              managing stocks, approving blood requests and updating donation
-              information. <br />
-              The inspiration of this project is to improve blood banks in India
-              and to develop a blood bank information system which focuses on
-              making an online system that is accessible for both donors and
-              administrators. Donors can directly receive information regarding
-              their previous blood donations, including their blood results and
-              donation history, in order to easily schedule their next
-              donations. They can also update the personal information through
-              the system, without having to contact the blood bank registry.
+              If you want to learn more about blood types and the blood donation
               <br />
-              The administrator is also responsible for responding to the
-              hospital’s blood requests and checking the stocks in the blood
-              bank’s inventory.
+              process, you’ve come to the right place. Explore these sections to
+              <br />
+              see the impact of blood donations, discover fun and interesting
+              <br />
+              
+              facts about blood types, and learn how Vitalant is involved in
+              <br />
+              blood donation research.
+              <br />
             </p>
+            <select className="learnWhy">
+              <option className="learnWhy1">
+                <h4>Know More</h4>
+              </option>
+              <option className="learnWhy1">
+                <NavLink to="/Impact">
+                  <h4>Impact of Blood Donation</h4>
+                </NavLink>
+              </option>
+              <option className="learnWhy1">
+                <NavLink to="/Eligibility">
+                  <h4>Eligibility</h4>
+                </NavLink>
+              </option>
+              <option className="learnWhy1">
+                <NavLink to="/BloodTypes">
+                  <h4>Blood Types</h4>
+                </NavLink>
+              </option>
+              <option className="learnWhy1">
+                <NavLink to="/">
+                  <h4>Blood Donation Process</h4>
+                </NavLink>
+              </option>
+              <option className="learnWhy1">
+                <NavLink to="Research">
+                  <h4>Blood Donation Research</h4>
+                </NavLink>
+              </option>
+            </select>
           </div>
         </div>
       </section>
     </Layout>
   );
-}
+};
 
-export default About
+export default About;

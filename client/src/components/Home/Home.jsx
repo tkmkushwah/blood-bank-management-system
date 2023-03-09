@@ -17,6 +17,14 @@ const Home = () => {
           <pre>{JSON.stringify(auth, null, 4)}</pre>
           <p>we are here to provide you best facility</p>
           <button>Know Us</button>
+          <br/>
+          <ul>
+            <div>
+            <li>Are you eligible?</li>
+            </div>
+            <li>Register Here</li>
+            <li></li>
+          </ul>
         </div>
       </section>
       <HomeCarousel />

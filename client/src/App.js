@@ -2,10 +2,13 @@ import React from 'react'
 import { Routes, Route } from "react-router-dom";
 
 import Home from './components/Home/Home';
-import About from './components/About/About'
-import Eligibility from './components/About/Eligibility'
-import Contact from './components/Contact/Contact'
-import Login from './components/Login/Login'
+import About from './components/About/About';
+import Eligibility from './components/About/Eligibility';
+import BloodTypes from './components/About/BloodTypes';
+import Impact from './components/About/Impact';
+import Research from './components/About/Research';
+import Contact from './components/Contact/Contact';
+import Login from './components/Login/Login';
 import DonorLogin from './components/Login/DonorLogin';
 import PatientLogin from './components/Login/PatientLogin';
 import PrivateRoute from "./components/routes/Private";
@@ -48,6 +51,9 @@ const App = () => {
 
         <Route path="/about" element={<About />} />
         <Route path="/eligibility" element={<Eligibility />} />
+        <Route path="/bloodTypes" element={<BloodTypes />} />
+        <Route path="/impact" element={<Impact />} />
+        <Route path="/research" element={<Research />} />
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/donor-login" element={<DonorLogin />} />

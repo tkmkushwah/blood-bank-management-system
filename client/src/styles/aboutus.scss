@@ -1,20 +1,29 @@
 @import "colors";
-.about-us{
-        height: 100vh;
-        width: 100%;
-        background-image: url("../assets/svg/page_bg.svg");
-        background-repeat: norepeat;
-        background-size: cover;
-       text-align: center;
-       >.container{
-        padding: 3rem 1rem;
+.about-us {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../assets/svg/page_bg.svg");
+  background-repeat: norepeat;
+  background-size: cover;
+  text-align: center;
+  > .container {
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    > .about {
+      text-align: left;
+      line-height: 1.4rem;
+      padding-left: 50px;
+      > .learnWhy {
         display: flex;
-        justify-content: space-between;
-        width: 80%;
-        >.about{
-            text-align: left;
-            line-height: 1.4rem;
-            padding-left: 50px;
+        flex-direction: column;
+        > .learnWhy1 {
+          flex-grow: 1;
+          height: 50px;
+          margin: 10px;
         }
-       }
+      }
+    }
+  }
 }

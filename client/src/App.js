@@ -16,6 +16,7 @@ import Dashboard from './components/user/Dashboard';
 import Register from "./components/Login/Register";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import DashboardLayout from "./components/Layout/DashboardLayout"
+import UserRequest from './components/user/UserRequest';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -47,6 +48,8 @@ const App = () => {
         </Route>
 
         <Route path="/login" element={<Login />} />
+        <Route path="/request" element={<UserRequest />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 

@@ -12,33 +12,32 @@ const RecSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    units: {
-      type: String,
-      required: true,
-    },
     phone: {
       type: Number,
       required: true,
     },
-    address: {
+    units: {
       type: String,
       required: true,
-    },
-    DOB: {
-      type: Date,
-      required: [true, "DOB group is require"],
     },
     bloodgroup: {
       type: Object,
       required: [true, "Blood group is require"],
     },
-    doctorapproval: {
-      type: image,
+    DOB: {
+      type: Date,
+      required: [true, "DOB group is require"],
+    },
+    address: {
+      type: String,
       required: true,
     },
-    
+
+    doctorapproval: {
+      type: Buffer,
+    },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("users", userSchema);
+export default mongoose.model("bloodRequests", RecSchema);

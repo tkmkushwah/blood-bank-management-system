@@ -1,12 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Form, Input, message ,Select} from "antd";
-import { Link,useNavigate,Radio } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import axios from "axios";
 import Layout from '../Layout/Layout';
 
 const UserRequest = () => {
-const [date, setDate] = useState('');
-const [answer, setAnswer] = useState('');
+const [setDate] = useState('');
 const dateInputRef = useRef(null);
 
 const handleChange = (e) => {
@@ -17,13 +16,14 @@ const navigate=useNavigate()
 
 const onfinishHandler=async (values)=>{
   try {
-    const res=await axios.post('/api/v1/user/register',values)
+    const res = await axios.post("/api/v1/user/blood-request", values);
+    
     if(res.data.success)
     {
-      message.success('register successfully')
-      navigate('/login');
+      message.success('submitted successfully')
+      navigate("/dashboard/user");
     }else{
-      message.error(res.data.message)
+      message.error("hello"+res.data)
     }
   } catch (error) {
     console.log(error)
@@ -59,16 +59,16 @@ const onfinishHandler=async (values)=>{
         >
           <h3 className="text-center">Request Form</h3>
           <Form.Item label="Name" name="name">
-            <Input type="text" required />
+            <Input type="text"  />
           </Form.Item>
           <Form.Item label="Email" name="email">
-            <Input type="email" required />
+            <Input type="email"  />
           </Form.Item>
           <Form.Item label="Contact Number" name="phone">
-            <Input type="number" required />
+            <Input type="number"  />
           </Form.Item>
           <Form.Item label="Units required" name="units">
-            <Input type="number" required />
+            <Input type="number"  />
           </Form.Item>
           <Form.Item label="Select Blood Group"name='bloodgroup'>
             <Select  >
@@ -89,10 +89,10 @@ const onfinishHandler=async (values)=>{
 
           </Form.Item>
           <Form.Item label="Location" name="address">
-            <Input type="string" required />
+            <Input type="string" />
           </Form.Item>
-          <Form.Item label="Doctor Approval" name="doctorapproval" onChange={(e)=>setAnswer(e.target.value)}>
-            <Input type="file"id="file-input" name="ImageStyle" required />
+          <Form.Item label="Doctor Approval" name="doctorapproval" >
+            <Input type="file"id="file-input" name="ImageStyle"  />
           </Form.Item>
 
           

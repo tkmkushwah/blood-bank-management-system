@@ -36,7 +36,7 @@ const About = () => {
                 </NavLink>
               </option>
               <option className="learnWhy1">
-                <NavLink to="/Eligibility">
+                <NavLink to="/about/Eligibility">
                   <h4>Eligibility</h4>
                 </NavLink>
               </option>

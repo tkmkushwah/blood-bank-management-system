@@ -6,7 +6,7 @@ export const userMenu = [
   },
   {
     name: "Requests",
-    path: "/request",
+    path: "/blood-request",
     icon: "fa-solid fa-list",
   },
   {

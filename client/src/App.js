@@ -17,6 +17,8 @@ import Register from "./components/Login/Register";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import DashboardLayout from "./components/Layout/DashboardLayout"
 import UserRequest from './components/user/UserRequest';
+import AdminRoute from "./components/routes/AdminRoute";
+import AdminDashborad from "./components/Admin/AdminDashborad";
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -27,8 +29,7 @@ import './styles/contact.scss'
 import './styles/eligibility.scss'
 import './styles/aboutus.scss'
 import './styles/register.scss'
-import AdminRoute from './components/routes/AdminRoute';
-import AdminDashborad from './components/Admin/AdminDashborad';
+
 
 
 
@@ -48,16 +49,16 @@ const App = () => {
         </Route>
 
         <Route path="/login" element={<Login />} />
-        <Route path="/request" element={<UserRequest />} />
+        <Route path="/blood-request" element={<UserRequest />} />
 
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route path="/about" element={<About />} />
-        <Route path="/eligibility" element={<Eligibility />} />
-        <Route path="/bloodTypes" element={<BloodTypes />} />
-        <Route path="/impact" element={<Impact />} />
-        <Route path="/research" element={<Research />} />
+        <Route path="/about/eligibility" element={<Eligibility />} />
+        <Route path="/about/bloodTypes" element={<BloodTypes />} />
+        <Route path="/about/impact" element={<Impact />} />
+        <Route path="/about/research" element={<Research />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboardlayout" element={<DashboardLayout />} />
 

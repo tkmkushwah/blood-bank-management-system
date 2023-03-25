@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/layoutStyle.css";
+import "../../styles/layoutStyle.scss";
 import { adminMenu, userMenu } from "../../Data/data.js";
 import Layout from "./Layout.jsx";
 import { Link, useLocation, useNavigate } from "react-router-dom";

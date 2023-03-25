@@ -3,7 +3,7 @@ import Layout from "../Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import "../../styles/AuthStyles.css";
+import "../../styles/AuthStyles.scss";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

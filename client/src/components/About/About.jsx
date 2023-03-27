@@ -20,42 +20,25 @@ const About = () => {
               <br />
               see the impact of blood donations, discover fun and interesting
               <br />
-              
-              facts about blood types, and learn how Vitalant is involved in
+              facts about blood types, and learn how our website is involved in
               <br />
               blood donation research.
               <br />
             </p>
-            <select className="learnWhy">
-              <option className="learnWhy1">
-                <h4>Know More</h4>
-              </option>
-              <option className="learnWhy1">
-                <NavLink to="/Impact">
-                  <h4>Impact of Blood Donation</h4>
-                </NavLink>
-              </option>
-              <option className="learnWhy1">
-                <NavLink to="/Eligibility">
-                  <h4>Eligibility</h4>
-                </NavLink>
-              </option>
-              <option className="learnWhy1">
-                <NavLink to="/BloodTypes">
-                  <h4>Blood Types</h4>
-                </NavLink>
-              </option>
-              <option className="learnWhy1">
-                <NavLink to="/">
-                  <h4>Blood Donation Process</h4>
-                </NavLink>
-              </option>
-              <option className="learnWhy1">
-                <NavLink to="/Research">
-                  <h4>Blood Donation Research</h4>
-                </NavLink>
-              </option>
-            </select>
+
+            <h3   className="deco">Know More</h3>
+            <NavLink to="/Impact"  className="deco">
+              <h4>Impact of Blood Donation</h4>
+            </NavLink>
+            <NavLink to="/Eligibility"  className="deco">
+              <h4>Eligibility</h4>
+            </NavLink>
+            <NavLink to="/BloodTypes"  className="deco">
+              <h4>Blood Types</h4>
+            </NavLink>
+            <NavLink to="/Research"  className="deco">
+              <h4>Blood Donation Research</h4>
+            </NavLink>
           </div>
         </div>
       </section>

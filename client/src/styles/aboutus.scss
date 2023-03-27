@@ -15,14 +15,10 @@
       text-align: left;
       line-height: 1.4rem;
       padding-left: 50px;
-      > .learnWhy {
-        display: flex;
-        flex-direction: column;
-        > .learnWhy1 {
-          flex-grow: 1;
-          height: 50px;
-          margin: 10px;
-        }
+      > .deco {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
       }
     }
   }

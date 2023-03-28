@@ -28,6 +28,8 @@ export const registerController = async (req, res) => {
     });
   }
 };
+
+
 //login handler
 export const loginController = async (req, res) => {
   try {
@@ -64,12 +66,13 @@ export const loginController = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log(error);
+  console.log(error);
     res
       .status(500)
       .send({ message: `error in logincontroller${error.message}` });
   }
 };
+
 // forgot password controller
 export const forgotPasswordController = async (req, res) => {
   try {
@@ -105,8 +108,8 @@ export const forgotPasswordController = async (req, res) => {
       .send({ message: "something went wrong", success: false, error });
   }
 };
-//test controller to protect the routes
 
+//test controller to protect the routes
 export const testController = (req, res) => {
   try {
     res.send("Protected Routes");

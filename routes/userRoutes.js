@@ -6,7 +6,11 @@ import {
   testController,
   createBloodReqCntrlr,
 } from "../controllers/userCtrl.js";
-import { requireSignIn, isAdmin } from "../middleware/authMiddleware.js";
+import {
+  requireSignIn,
+  isAdmin,
+  isDonor,
+} from "../middleware/authMiddleware.js";
 // route objects
 
 const router =express.Router();
@@ -32,6 +36,11 @@ router.get('/user-auth', requireSignIn,(req,res)=>{
 
 //admin route
 router.get('/admin-auth', requireSignIn,isAdmin,(req,res)=>{
+    res.status(200).send({ok:true});
+});
+
+//Donor route
+router.get('/donor-auth', requireSignIn,isDonor,(req,res)=>{
     res.status(200).send({ok:true});
 });
 

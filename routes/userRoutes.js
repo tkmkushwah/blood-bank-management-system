@@ -5,6 +5,7 @@ import {
   forgotPasswordController,
   testController,
   createBloodReqCntrlr,
+  createApplyDonorCntrlr,
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -28,6 +29,8 @@ router.post('/login',loginController);
 router.post('/forgot-password',forgotPasswordController);
 
 router.post("/blood-request",requireSignIn, createBloodReqCntrlr);
+router.post("/apply-donor",requireSignIn, createApplyDonorCntrlr);
+
 
 //user route
 router.get('/user-auth', requireSignIn,(req,res)=>{

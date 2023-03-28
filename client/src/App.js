@@ -15,6 +15,7 @@ import Register from "./components/Login/Register";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import DashboardLayout from "./components/Layout/DashboardLayout"
 import UserRequest from './components/user/UserRequest';
+import ApplyDonor from './components/user/ApplyDonor';
 import AdminRoute from "./components/routes/AdminRoute";
 import AdminDashborad from "./components/Admin/AdminDashborad";
 import DonorDashboard from "./components/Donor/DonorDashboard";
@@ -48,6 +49,9 @@ const App = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/blood-request" element={<UserRequest />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/apply-donor" element={<ApplyDonor />} />
 
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

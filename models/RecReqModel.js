@@ -21,7 +21,7 @@ const RecSchema = new mongoose.Schema(
       required: true,
     },
     bloodgroup: {
-      type: Object,
+      type: String,
       required: [true, "Blood group is require"],
     },
     DOB: {

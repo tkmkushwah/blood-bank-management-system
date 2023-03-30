@@ -5,6 +5,8 @@ import {
   forgotPasswordController,
   testController,
   createBloodReqCntrlr,
+  fetchDonars,
+  Count,
 } from "../controllers/userCtrl.js";
 import { requireSignIn, isAdmin } from "../middleware/authMiddleware.js";
 // route objects
@@ -25,6 +27,7 @@ router.post('/forgot-password',forgotPasswordController);
 
 router.post("/blood-request",requireSignIn, createBloodReqCntrlr);
 
+
 //user route
 router.get('/user-auth', requireSignIn,(req,res)=>{
     res.status(200).send({ok:true});
@@ -37,5 +40,11 @@ router.get('/admin-auth', requireSignIn,isAdmin,(req,res)=>{
 
 //dummy (test) route
 router.get('/test',requireSignIn,isAdmin,testController)
+
+//apis
+router.get("/blood-donars",requireSignIn, fetchDonars);
+router.get("/count",requireSignIn,Count);
+
+
 export default router
 

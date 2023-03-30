@@ -6,6 +6,8 @@ import {
   testController,
   createBloodReqCntrlr,
   createApplyDonorCntrlr,
+  fetchDonars,
+  Count,
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -32,6 +34,7 @@ router.post("/blood-request",requireSignIn, createBloodReqCntrlr);
 router.post("/apply-donor",requireSignIn, createApplyDonorCntrlr);
 
 
+
 //user route
 router.get('/user-auth', requireSignIn,(req,res)=>{
     res.status(200).send({ok:true});
@@ -49,5 +52,11 @@ router.get('/donor-auth', requireSignIn,isDonor,(req,res)=>{
 
 //dummy (test) route
 router.get('/test',requireSignIn,isAdmin,testController)
+
+//apis
+router.get("/blood-donars",requireSignIn, fetchDonars);
+router.get("/count",requireSignIn,Count);
+
+
 export default router
 

@@ -2,7 +2,6 @@ import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import RecReqModel from "../models/RecReqModel.js";
-import ApplyDonerModel from "../models/ApplyDonerModel.js";
 //register callback
 export const registerController = async (req, res) => {
   try {
@@ -29,8 +28,6 @@ export const registerController = async (req, res) => {
     });
   }
 };
-
-
 //login handler
 export const loginController = async (req, res) => {
   try {
@@ -67,13 +64,12 @@ export const loginController = async (req, res) => {
       token,
     });
   } catch (error) {
-  console.log(error);
+    console.log(error);
     res
       .status(500)
       .send({ message: `error in logincontroller${error.message}` });
   }
 };
-
 // forgot password controller
 export const forgotPasswordController = async (req, res) => {
   try {
@@ -109,8 +105,8 @@ export const forgotPasswordController = async (req, res) => {
       .send({ message: "something went wrong", success: false, error });
   }
 };
-
 //test controller to protect the routes
+
 export const testController = (req, res) => {
   try {
     res.send("Protected Routes");
@@ -120,30 +116,60 @@ export const testController = (req, res) => {
   }
 };
 export const createBloodReqCntrlr = async (req, res) => {
+  console.log(req.body)
   try {
     const newUser = new RecReqModel(req.body);
-    await newUser.save();
-    const data=req.body.data;
+    let response = await newUser.save();
+    // const data=req.body.data;
     res.status(201).send({
       success: true,
       message: "new request created",
-      data
+      data:response
     });
   } catch (error) {
     console.log(error);
     res.send({ error });
   }
 };
-export const createApplyDonorCntrlr = async (req, res) => {
+
+export const fetchDonars = async (req, res) => {
+  // console.log(req.body)
   try {
-    const newDonor = new ApplyDonerModel(req.body);
-    await newDonor.save();
-    const data=req.body.data;
-    res.status(201).send({
-      success: true,
-      message: "new request created",
-      data
+    RecReqModel.find({}, function(err, users) {
+      res.send({
+        success:true,
+        data:users
+      });  
     });
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+
+
+export const Count = async (req, res) => {
+  // console.log(req.body)
+  const bloodgroups = ["A+","A-","B+","B-"]
+  async function prepareObj(){
+    let response = {}
+    let arr = await Promise.all(bloodgroups.map( async (item) => {
+      let count = await RecReqModel.count({bloodgroup:item})
+      // console.log(count,"COUNT")
+      response[item] = count
+      return count
+    }))
+    console.log(arr,"ARR")
+    return response 
+  }
+  
+  try {
+    let countObj = await prepareObj()
+    console.log(countObj)
+    res.send({
+      success:true,
+      count:countObj
+    })
   } catch (error) {
     console.log(error);
     res.send({ error });

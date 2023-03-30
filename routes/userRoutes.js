@@ -5,10 +5,15 @@ import {
   forgotPasswordController,
   testController,
   createBloodReqCntrlr,
+  createApplyDonorCntrlr,
   fetchDonars,
   Count,
 } from "../controllers/userCtrl.js";
-import { requireSignIn, isAdmin } from "../middleware/authMiddleware.js";
+import {
+  requireSignIn,
+  isAdmin,
+  isDonor,
+} from "../middleware/authMiddleware.js";
 // route objects
 
 const router =express.Router();
@@ -26,6 +31,8 @@ router.post('/login',loginController);
 router.post('/forgot-password',forgotPasswordController);
 
 router.post("/blood-request",requireSignIn, createBloodReqCntrlr);
+router.post("/apply-donor",requireSignIn, createApplyDonorCntrlr);
+
 
 
 //user route
@@ -35,6 +42,11 @@ router.get('/user-auth', requireSignIn,(req,res)=>{
 
 //admin route
 router.get('/admin-auth', requireSignIn,isAdmin,(req,res)=>{
+    res.status(200).send({ok:true});
+});
+
+//Donor route
+router.get('/donor-auth', requireSignIn,isDonor,(req,res)=>{
     res.status(200).send({ok:true});
 });
 

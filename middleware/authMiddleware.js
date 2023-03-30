@@ -16,7 +16,6 @@ export const requireSignIn = async (req, res, next) => {
 };
 
 //admin access
-
 export const isAdmin = async (req, res, next) => {
   try {
     const user = await  userModel.findById(req.user._id);
@@ -32,5 +31,24 @@ export const isAdmin = async (req, res, next) => {
     res
       .status(401)
       .send({ success: false, message: "error in admin middleware" });
+  }
+};
+
+//donor access
+export const isDonor = async (req, res, next) => {
+  try {
+    const user = await  userModel.findById(req.user._id);
+    if (user.role !== 2) {
+      return res
+        .status(401)
+        .send({ success: false, message: "unautherised access" });
+    } else {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res
+      .status(401)
+      .send({ success: false, message: "error in Donor middleware" });
   }
 };

@@ -131,6 +131,22 @@ export const createBloodReqCntrlr = async (req, res) => {
     res.send({ error });
   }
 };
+export const createApplyDonorCntrlr = async (req, res) => {
+  console.log(req.body);
+  try {
+    const newUser = new RecReqModel(req.body);
+    let response = await newUser.save();
+    // const data=req.body.data;
+    res.status(201).send({
+      success: true,
+      message: "new request created",
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
 
 export const fetchDonars = async (req, res) => {
   // console.log(req.body)
@@ -175,3 +191,4 @@ export const Count = async (req, res) => {
     res.send({ error });
   }
 };
+

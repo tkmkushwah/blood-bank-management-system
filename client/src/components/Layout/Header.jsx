@@ -1,8 +1,6 @@
 import React from 'react'
 
 import {MdBloodtype} from 'react-icons/md'
-import {FaUser} from 'react-icons/fa'
-import {FiLogIn} from 'react-icons/fi'
 import {motion} from 'framer-motion'
 
 import { Link, NavLink } from "react-router-dom";
@@ -23,23 +21,6 @@ const Header = () => {
     toast.success("Logout successfully")
   }
   return (
-    // <nav>
-    //   <motion.div>
-    //     <MdBloodtype />
-    //     <img src={icon} alt="mainIcon" />
-    //   </motion.div>
-    //   <div>
-    //     <Link to="/">Home</Link>
-    //     <Link to="/about">About</Link>
-    //     <Link to="/eligibility">Eligibility</Link>
-    //     <Link to="/contact">Contact</Link>
-    //     {/* <Link to='/gallery'>Gallery</Link> */}
-    //     <Link to={!auth?.user ? "/me" : "login"}>
-    //       {!auth?.user ? <FaUser /> : <FiLogIn />}
-    //     </Link>
-
-    //   </div>
-    // </nav>
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -57,7 +38,7 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               <motion.div>
-                <MdBloodtype />
+                < MdBloodtype />
                 <img src={icon} alt="mainIcon" />
               </motion.div>
             </Link>

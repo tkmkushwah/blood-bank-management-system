@@ -3,7 +3,7 @@ import DashboardLayout from '../Layout/DashboardLayout'
 const Dashboard = () => {
   return (
     <DashboardLayout title={"Dashboard-BloodBank app"}>
-      <h2>Dashboard</h2>
+      <h2> user Dashboard</h2>
     </DashboardLayout>
   );
 }

@@ -1,7 +1,7 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+import RecReqModel from "../models/RecReqModel.js";
 //register callback
 export const registerController = async (req, res) => {
   try {
@@ -42,7 +42,7 @@ export const loginController = async (req, res) => {
       return res.status(200).send({ message: "invalid email or passowrd " });
     }
 
-    const token = await jwt.sign(
+    const token = jwt.sign(
       { _id: user._id },
       process.env.JWT_SECRET_KEY,
       {
@@ -110,6 +110,21 @@ export const forgotPasswordController = async (req, res) => {
 export const testController = (req, res) => {
   try {
     res.send("Protected Routes");
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+export const createBloodReqCntrlr = async (req, res) => {
+  try {
+    const newUser = new RecReqModel(req.body);
+    await newUser.save();
+    const data=req.body.data;
+    res.status(201).send({
+      success: true,
+      message: "new request created",
+      data
+    });
   } catch (error) {
     console.log(error);
     res.send({ error });

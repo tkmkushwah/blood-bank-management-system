@@ -1,11 +1,13 @@
 .form-container {
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 70vh;
     flex-direction: column;
-    background-color: #ffdee9;
-    background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+    background-repeat: norepeat;
+    background-size: cover;
+    background-image: url("../assets/svg/page_bg.svg");
 }
 
 .form-container form {
@@ -28,6 +30,9 @@
 }
 
 .form-container form button {
+    display: block;
+    margin: 10px auto;
+
     border: 1px solid black;
     border-radius: 0;
     background-color: #000;

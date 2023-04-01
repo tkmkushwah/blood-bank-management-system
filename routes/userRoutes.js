@@ -4,8 +4,8 @@ import {
   registerController,
   forgotPasswordController,
   testController,
+  createBloodReqCntrlr,
 } from "../controllers/userCtrl.js";
-
 import { requireSignIn, isAdmin } from "../middleware/authMiddleware.js";
 // route objects
 
@@ -19,8 +19,11 @@ router.post('/register',registerController);
 // Login || POST
 router.post('/login',loginController);
 
+
 // Forgot password || POST
 router.post('/forgot-password',forgotPasswordController);
+
+router.post("/blood-request",requireSignIn, createBloodReqCntrlr);
 
 //user route
 router.get('/user-auth', requireSignIn,(req,res)=>{

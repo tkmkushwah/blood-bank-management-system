@@ -6,6 +6,7 @@ import { useAuth } from "../../context/auth.js";
 import Layout from '../Layout/Layout';
 import { NavLink } from 'react-router-dom';
 import GalleryHome from './GalleryHome';
+import ContactHome from "./ContactHome";
 const Home = () => {
     const [auth, setAuth] = useAuth();
   return (
@@ -17,8 +18,7 @@ const Home = () => {
         <div>
           <h1>Blood Donation</h1>
           <marquee behavior="" direction="">
-            This project is under development .gj cgcjkjtpojihugyftdrsxcyv
-            hgyftdrsaezdxfcg{" "}
+            This project is under development
           </marquee>
           <pre>{JSON.stringify(auth, null, 4)}</pre>
           <p>we are here to provide you best facility</p>
@@ -42,6 +42,7 @@ const Home = () => {
       </section>
       <AboutHome />
       <GalleryHome/>
+      <ContactHome/>
       {/* <HomeCarousel /> */}
     </Layout>
   );

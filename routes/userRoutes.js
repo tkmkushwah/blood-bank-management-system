@@ -8,6 +8,7 @@ import {
   createApplyDonorCntrlr,
   fetchDonars,
   Count,
+  fetchDonarsRequestForReceiver
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -54,8 +55,9 @@ router.get('/donor-auth', requireSignIn,isDonor,(req,res)=>{
 router.get('/test',requireSignIn,isAdmin,testController)
 
 //apis
-router.get("/blood-donars",requireSignIn, fetchDonars);
-router.get("/count",requireSignIn,Count);
+router.get("/blood-donars", fetchDonars);
+router.get("/count",Count);
+router.get("/donar-requests", fetchDonarsRequestForReceiver);
 
 
 export default router

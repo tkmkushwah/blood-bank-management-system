@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import RecReqModel from "../models/RecReqModel.js";
+import ApplyDonerModel from "../models/ApplyDonerModel.js";
 //register callback
 export const registerController = async (req, res) => {
   try {
@@ -163,20 +164,41 @@ export const fetchDonars = async (req, res) => {
   }
 };
 
+// export const createApplyDonorCntrlr = async (req, res) => {
+//   try {
+//     const newDonor = new ApplyDonerModel(req.body);
+//     await newDonor.save();
+//     const data=req.body.data;
+//     res.status(201).send({
+//       success: true,
+//       message: "new request created",
+//       data
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.send({ error });
+//   }
+// };
+
 
 export const Count = async (req, res) => {
   // console.log(req.body)
   const bloodgroups = ["A+","A-","B+","B-"]
   async function prepareObj(){
-    let response = {}
+    let response = {
+      count:{}
+    }
     let arr = await Promise.all(bloodgroups.map( async (item) => {
       let count = await RecReqModel.count({bloodgroup:item})
       // console.log(count,"COUNT")
-      response[item] = count
+      response["count"][item] = count
       return count
     }))
-    console.log(arr,"ARR")
-    return response 
+    
+    let donarsavailable = await ApplyDonerModel.countDocuments({}) 
+    console.log(arr,"ARR",donarsavailable)
+    response['donarsavailable'] = donarsavailable
+    return response
   }
   
   try {
@@ -184,10 +206,25 @@ export const Count = async (req, res) => {
     console.log(countObj)
     res.send({
       success:true,
-      count:countObj
+      count:countObj.count,
+      donarsavailable:countObj.donarsavailable
     })
   } catch (error) {
     console.log(error);
     res.send({ error });
   }
 };
+
+
+export const fetchDonarsRequestForReceiver = async (req, res) => {
+  try {
+    let response = await ApplyDonerModel.find({})
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+} 

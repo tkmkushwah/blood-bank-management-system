@@ -19,6 +19,7 @@ import DashboardLayout from "./components/Layout/DashboardLayout"
 import UserRequest from './components/user/UserRequest';
 import AdminRoute from "./components/routes/AdminRoute";
 import AdminDashborad from "./components/Admin/AdminDashborad";
+import DonarDashboard from "./components/Donor/DonorDashboard";
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -29,6 +30,7 @@ import './styles/contact.scss'
 import './styles/eligibility.scss'
 import './styles/aboutus.scss'
 import './styles/register.scss'
+import ReceiverDashboard from './components/Receiver/ReceiverDashboard';
 
 
 
@@ -66,6 +68,7 @@ const App = () => {
         <Route path="/donor-login" element={<DonorLogin />} />
         <Route path="/patient-login" element={<PatientLogin />} />
         <Route path="/ds" element={<AdminDashborad />} />
+        <Route path="/receiver/dashboard" element={<ReceiverDashboard />} />
       </Routes>
     </>
   );

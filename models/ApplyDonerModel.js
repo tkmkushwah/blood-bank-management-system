@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const RecSchema = new mongoose.Schema(
+const applydonor = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -16,12 +16,17 @@ const RecSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    units: {
+    age: {
       type: String,
       required: true,
     },
-    bloodgroup: {
+    weight: {
       type: String,
+      required: true,
+    },
+
+    bloodgroup: {
+      type: Object,
       required: [true, "Blood group is require"],
     },
     DOB: {
@@ -33,11 +38,29 @@ const RecSchema = new mongoose.Schema(
       required: true,
     },
 
-    doctorapproval: {
+    fitcer: {
       type: Buffer,
+    },
+    card: {
+      type: Buffer,
+    },
+    question1: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    question2: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    question3: {
+      type: String,
+      required: true,
+      trim: true,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("bloodRequests", RecSchema);
+export default mongoose.model("ApplyDonor", applydonor);

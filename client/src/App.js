@@ -64,6 +64,7 @@ const App = () => {
 
         <Route path="/donor-login" element={<DonorLogin />} />
         <Route path="/patient-login" element={<PatientLogin />} />
+        <Route path="/ds" element={<AdminDashborad />} />
       </Routes>
     </>
   );

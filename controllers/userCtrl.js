@@ -116,15 +116,76 @@ export const testController = (req, res) => {
   }
 };
 export const createBloodReqCntrlr = async (req, res) => {
+  console.log(req.body)
   try {
     const newUser = new RecReqModel(req.body);
-    await newUser.save();
-    const data=req.body.data;
+    let response = await newUser.save();
+    // const data=req.body.data;
     res.status(201).send({
       success: true,
       message: "new request created",
-      data
+      data:response
     });
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+export const createApplyDonorCntrlr = async (req, res) => {
+  console.log(req.body);
+  try {
+    const newUser = new RecReqModel(req.body);
+    let response = await newUser.save();
+    // const data=req.body.data;
+    res.status(201).send({
+      success: true,
+      message: "new request created",
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+
+export const fetchDonars = async (req, res) => {
+  // console.log(req.body)
+  try {
+    RecReqModel.find({}, function(err, users) {
+      res.send({
+        success:true,
+        data:users
+      });  
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+
+
+export const Count = async (req, res) => {
+  // console.log(req.body)
+  const bloodgroups = ["A+","A-","B+","B-"]
+  async function prepareObj(){
+    let response = {}
+    let arr = await Promise.all(bloodgroups.map( async (item) => {
+      let count = await RecReqModel.count({bloodgroup:item})
+      // console.log(count,"COUNT")
+      response[item] = count
+      return count
+    }))
+    console.log(arr,"ARR")
+    return response 
+  }
+  
+  try {
+    let countObj = await prepareObj()
+    console.log(countObj)
+    res.send({
+      success:true,
+      count:countObj
+    })
   } catch (error) {
     console.log(error);
     res.send({ error });

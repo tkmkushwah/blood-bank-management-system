@@ -36,23 +36,31 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="form-container ">
+      <div className="form-container">
         <Form
           layout="vertical"
           onFinish={onfinishHandler}
           className="register-form"
         >
-          <h3 className="text-center">Login From</h3>
+          <h3
+            className="text-center"
+            style={{ textEmphasisStyle: "double-circle" }}
+          >
+            Login
+          </h3>
 
-          <Form.Item label="Email" name="email">
-            <Input type="email" required />
-          </Form.Item>
-          <Form.Item label="Password" name="password">
-            <Input type="password" required />
-          </Form.Item>
-          <Link to="/register" className="m-2">
-            Not a user Register here
-          </Link>
+          <div style={{ padding: "10px 50px", marginTop: "20px" }}>
+            <Form.Item name="email">
+              <Input placeholder="Email" type="email" required />
+            </Form.Item>
+            <Form.Item name="password">
+              <Input Placeholder="Password" type="password" required />
+            </Form.Item>
+            <Link to="/register" className="m-2">
+              Not a user Register here
+            </Link>
+          </div>
+
           <button className="btn btn-primary" type="submit">
             Login
           </button>

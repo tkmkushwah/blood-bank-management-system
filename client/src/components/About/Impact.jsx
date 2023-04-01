@@ -1,5 +1,4 @@
 import React from "react";
-import img1 from "../../assets/b_donor_reg.png";
 import Layout from "../Layout/Layout";
 const Impact = () => {
   return (

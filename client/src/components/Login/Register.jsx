@@ -58,42 +58,43 @@ const onfinishHandler=async (values)=>{
           className="register-form"
         >
           <h3 className="text-center">Register From</h3>
-          <Form.Item label="Name" name="name">
-            <Input type="text" required />
-          </Form.Item>
-          <Form.Item label="Email" name="email">
-            <Input type="email" required />
-          </Form.Item>
-          <Form.Item label="Phone" name="phone">
-            <Input type="number" required />
-          </Form.Item>
-          <Form.Item label="Password" name="password">
-            <Input type="password" required />
-          </Form.Item>
-          <Form.Item label="Select Blood Group"name='bloodgroup'>
-            <Select  >
-            {
-              options.map((item,id)=>(
-                <Select.Option key={id} value={item.value}>{item.label}</Select.Option>
-              )
-              )
-            }
-           </Select>
-          </Form.Item>
-          
-          <Form.Item name='DOB'>
-             <Input type="date"
-             onChange={handleChange}
-             ref={dateInputRef} 
-             />
+          <div style={{padding:'10px 50px' ,marginTop:'20px'}}>
+            <Form.Item label="Name" name="name">
+              <Input type="text" required />
+            </Form.Item>
+            <Form.Item name="email">
+              <Input placeholder="Name" type="email" required />
+            </Form.Item>
+            <Form.Item label="Phone" name="phone">
+              <Input type="number" required />
+            </Form.Item>
+            <Form.Item label="Password" name="password">
+              <Input type="password" required />
+            </Form.Item>
+            <Form.Item label="Select Blood Group" name="bloodgroup">
+              <Select>
+                {options.map((item, id) => (
+                  <Select.Option key={id} value={item.value}>
+                    {item.label}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Form.Item>
 
-          </Form.Item>
-          <Form.Item label="Location" name="address">
-            <Input type="string" required />
-          </Form.Item>
-          <Form.Item label="who is your best frient?" name="answer" onChange={(e)=>setAnswer(e.target.value)}>
-            <Input type="string" required />
-          </Form.Item>
+            <Form.Item name="DOB">
+              <Input type="date" onChange={handleChange} ref={dateInputRef} />
+            </Form.Item>
+            <Form.Item label="Location" name="address">
+              <Input type="string" required />
+            </Form.Item>
+            <Form.Item
+              label="who is your best frient?"
+              name="answer"
+              onChange={(e) => setAnswer(e.target.value)}
+            >
+              <Input type="string" required />
+            </Form.Item>
+          </div>
 
           <Link to="/login" className="m-2">
             Already user login here

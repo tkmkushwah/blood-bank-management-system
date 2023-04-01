@@ -4,11 +4,12 @@ import {MdBloodtype} from 'react-icons/md'
 import {motion} from 'framer-motion'
 
 import { Link, NavLink } from "react-router-dom";
-import icon from '../../assets/logo.jpg'
+import icon from '../../assets/logo.png'
 
 import toast from "react-hot-toast";
 import {useAuth} from '../../context/auth.js'
 
+import '../../styles/header.scss'
 const Header = () => {
   const [auth,setAuth]=useAuth();
   const handleLogout=()=>{
@@ -38,8 +39,17 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               <motion.div>
-                < MdBloodtype />
-                <img src={icon} alt="mainIcon" />
+                {/* < MdBloodtype /> */}
+                <img
+                  src={icon}
+                  style={{
+                    height: "70px",
+                    marginLeft: "30px",
+                    borderRadius:'50%',
+             boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
+                  }}
+                  alt="mainIcon"
+                />
               </motion.div>
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

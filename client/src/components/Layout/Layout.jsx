@@ -13,12 +13,15 @@ const Layout = ({ children, title, description, keywords, author }) => {
         <meta name="author" content={author} />
         <title>{title}</title>
       </Helmet>
+
       <Header />
-      <main style={{ minHeight: "70vh" }}>
+
+       <main style={{ minHeight: "70vh" }}>
         <Toaster />
 
         {children}
       </main>
+      
       <Footer />
     </div>
   );

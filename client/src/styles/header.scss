@@ -7,7 +7,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 10px rgba($color: #000000, $alpha: .7);
-    background-color: white;
+    
     >div{
         align-items: center;
         display: flex;
@@ -22,15 +22,6 @@ nav{
             &:hover{
                 color:$lightdark;
             }
-                        >svg {
-                            color: $red;
-                            transition: inherit;
-                            
-            
-                            &:hover {
-                                color: $lightdark;
-                            }
-        }
         
         }
     }

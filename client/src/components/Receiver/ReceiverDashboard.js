@@ -21,7 +21,7 @@ import CallIcon from '@mui/icons-material/Call';
 import CallRoundedIcon from '@mui/icons-material/CallRounded';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import PlaceIcon from '@mui/icons-material/Place';
-import { Input, Select, Tooltip } from 'antd';
+import { Alert, Input, Select, Tooltip } from 'antd';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -29,6 +29,18 @@ import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import { BiChevronDown } from 'react-icons/bi';
+import { ApiBaseUrl } from '../../apiConfig';
+import { Toaster, toast } from 'react-hot-toast';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function ReceiverDashboard() {
 
@@ -37,9 +49,48 @@ export default function ReceiverDashboard() {
     const [showMore, setShowMore] = useState(4)
     const [loadingData, setLoadingData] = useState(false)
 
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [dob, setDob] = useState('')
+    const [bloodgroup, setBloodGroup] = useState([])
+    const [units, setUnits] = useState('')
+    const [address, setAddress] = useState('')
+    const [doctorapproval, setDoctorApproval] = useState('')
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+    const options = [
+        { value: 'A+', label: 'A+' },
+        { value: 'A-', label: 'A-' },
+        { value: 'B+', label: 'B+' },
+        { value: 'B-', label: 'B-' },
+        { value: 'AB+', label: 'AB+' },
+        { value: 'AB-', label: 'AB-' },
+        { value: 'O+', label: 'O+' },
+        { value: 'O-', label: 'O-' },
+        { value: 'A2-', label: 'A2-' },
+        { value: 'A2+', label: 'A2+' },
+        { value: 'A1B-', label: 'A1B-' },
+        { value: 'A1B+', label: 'A1B+' },
+        { value: 'A2B+', label: 'A2B+' },
+        { value: 'A2B-', label: 'A2B-' },
+        { value: 'Bombay Blood group', label: 'Bombay Blood group' },
+        { value: 'INRA', label: 'INRA' },
+        { value: "Don't know", label: "Don't know" },
+    ]
+
     useEffect(() => {
         setLoadingData(true)
-        axios.get("http://localhost:8000/api/v1/user/donar-requests").then((res) => {
+        axios.get(ApiBaseUrl + "/donar_requests").then((res) => {
             console.log(res.data)
             if (res.data.success) {
                 setRequestsForReceiver(res.data.data)
@@ -59,10 +110,81 @@ export default function ReceiverDashboard() {
 
     }
 
+    const handleRequest = () => {
+        axios.post(ApiBaseUrl + "/check_receiver", {
+            "email": "jsx@hsjhjs.com"
+        }).then((res) => {
+            console.log(res.data)
+            if (res.data.success) {
+                const user = res.data.data
+                if (user.requests < 1) {
+                    axios.post(ApiBaseUrl + "/update_receiver_requests", {
+                        email: "jsx@hsjhjs.com"
+                    }).then((resp) => {
+                        console.log(resp.data)
+                        if (res.data.success) {
+                            toast.success("Your blood request have been sent successfully")
+                        }
+                    })
+                } else {
+                    toast.error("You can only send one request at a time")
+                }
+            } else {
+                handleClickOpen()
+            }
+        }).catch((err) => console.log(err))
+    }
+
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            };
+
+            fileReader.onerror = (error) => {
+                reject(error);
+            };
+        });
+    };
+
+    const uploadImage = async (event) => {
+        const file = event.target.files[0];
+        const base64 = await convertBase64(file);
+        return base64
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.post(ApiBaseUrl + '/apply_receiver', {
+            name: name,
+            email: email,
+            phone: Number(phone),
+            DOB: dob,
+            bloodgroup: bloodgroup,
+            units: units,
+            address: address,
+            doctorapproval: doctorapproval
+        }).then((res) => {
+            console.log(res.data)
+            if(res.data.success){
+                toast.success("You are successfully registered")
+            }
+        }).catch(err => console.log(err))
+    }
+
+
+
+
+
+    console.log(bloodgroup, doctorapproval)
     return (
         <SidebarLayout>
+            <Toaster />
             <Grid container spacing={2}>
-                <Grid item xs={6} md={6}>
+                {/* <Grid item xs={6} md={6}>
                     <Card sx={{
                         height: 100,
                         background: lightGreen[200],
@@ -92,123 +214,126 @@ export default function ReceiverDashboard() {
                     </Card>
                 </Grid>
                 <Grid item xs={6} md={6}>
-                    {/* sdjijsd */}
-                </Grid>
+                    
+                </Grid> */}
                 <Grid item xs={12}>
                     <Card sx={{ p: 4 }}>
-                        <Grid sx={{ rowGap: 2 }} container spacing={2}>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Name</InputLabel>
-                                <TextField
-                                    size='small'
-                                    required
-                                    placeholder='Enter Name'
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Email</InputLabel>
-                                <TextField
-                                    size='small'
-                                    type={"email"}
-                                    required
-                                    placeholder='Enter Name'
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Phone</InputLabel>
-                                <TextField
-                                    size='small'
-                                    required
-                                    placeholder='Enter Name'
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>DOB</InputLabel>
-                                <TextField
-                                    size='small'
-                                    type={"date"}
-                                    required
-                                    placeholder='Enter Name'
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Select BloodGroup</InputLabel>
-                                <Select
-                                    showSearch
-                                    style={{
-                                        width: 220,
-                                        marginTop: 2
-                                    }}
-                                    size='large'
-                                    placeholder="Search to Select"
-                                    optionFilterProp="children"
-                                    filterOption={(input, option) => (option?.label ?? '').includes(input)}
-                                    filterSort={(optionA, optionB) =>
-                                        (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-                                    }
-                                    options={[
-                                        {
-                                            value: '1',
-                                            label: 'Not Identified',
-                                        },
-                                        {
-                                            value: '2',
-                                            label: 'Closed',
-                                        },
-                                        {
-                                            value: '3',
-                                            label: 'Communicated',
-                                        },
-                                        {
-                                            value: '4',
-                                            label: 'Identified',
-                                        },
-                                        {
-                                            value: '5',
-                                            label: 'Resolved',
-                                        },
-                                        {
-                                            value: '6',
-                                            label: 'Cancelled',
-                                        },
-                                    ]}
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Units</InputLabel>
-                                <TextField
-                                    size='small'
-                                    required
-                                    placeholder='Enter Name'
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Address</InputLabel>
-                                <TextField
-                                    size='small'
-                                    required
-                                    placeholder='Enter Name'
-                                />
-                            </Grid>
-                            <Grid xs={12} md={6} lg={4}>
-                                <InputLabel>Doctor's Approval</InputLabel>
-                                <Button variant="contained" size='small' component="label" sx={{ mt: 1 }}>
-                                    Upload
-                                    <input hidden accept="image/*" required type="file" />
-                                </Button>
-                            </Grid>
-                            <Grid xs={12} textAlign="center">
-                                <Button type='submit' variant='contained'>Submit</Button>
-                            </Grid>
+                        <Alert
+                            message="Required"
+                            description="Please provide following details by filling the form and after submitting your details you can browse below requests from our recent donars and send request for blood you need and after approval of admin you will be able to get the blood"
+                            type="info"
+                            showIcon
+                        />
+                        {/* <Typography>Please fill the form to get the blood of your need</Typography> */}
+                        <CardContent sx={{ py: 5 }}>
+                            <form onSubmit={handleSubmit}>
+                                <Grid sx={{ rowGap: 2 }} container spacing={2}>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Name</InputLabel>
+                                        <TextField
+                                            size='small'
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            required
+                                            placeholder='Enter name'
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Email</InputLabel>
+                                        <TextField
+                                            size='small'
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            type={"email"}
+                                            required
+                                            placeholder='Enter email'
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Phone</InputLabel>
+                                        <TextField
+                                            size='small'
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
+                                            required
+                                            placeholder='Enter contact number'
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>DOB</InputLabel>
+                                        <TextField
+                                            size='small'
+                                            type={"date"}
+                                            value={dob}
+                                            onChange={(e) => setDob(e.target.value)}
+                                            required
+                                            placeholder='Enter Date of birth'
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Select BloodGroup</InputLabel>
+                                        <Select
+                                            showSearch
+                                            required
+                                            style={{
+                                                width: 220,
+                                                marginTop: 2
+                                            }}
+                                            size='large'
+                                            value={bloodgroup}
+                                            onChange={(e) => {
+                                                setBloodGroup(e)
+                                            }}
+                                            placeholder="Select blood group"
+                                            optionFilterProp="children"
+                                            filterOption={(input, option) => (option?.label ?? '').includes(input)}
+                                            filterSort={(optionA, optionB) =>
+                                                (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                                            }
+                                            options={options}
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Units</InputLabel>
+                                        <TextField
+                                            size='small'
+                                            required
+                                            value={units}
+                                            onChange={(e) => setUnits(e.target.value)}
+                                            placeholder='Enter units'
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Address</InputLabel>
+                                        <TextField
+                                            size='small'
+                                            required
+                                            value={address}
+                                            onChange={(e) => setAddress(e.target.value)}
+                                            placeholder='Enter address'
+                                        />
+                                    </Grid>
+                                    <Grid xs={12} md={6} lg={4}>
+                                        <InputLabel>Doctor's Approval</InputLabel>
+                                        <input accept="image/*" required type="file"
+                                            onChange={(e) => {
+                                                setDoctorApproval(uploadImage(e))
+                                            }} />
+                                    </Grid>
+                                    <Grid xs={12} textAlign="center">
+                                        <Button type='submit' variant='contained'>Submit</Button>
+                                    </Grid>
 
-                        </Grid>
+                                </Grid>
+                            </form>
+                        </CardContent>
                     </Card>
                 </Grid>
                 {/* <Grid item xs={12} md={12}> */}
 
                 {/* </Grid> */}
             </Grid>
-            <Box display={"flex"} alignItems={"center"} sx={{ width: '100%', flexWrap: 'wrap', gap: 2, mt: 2, p: 1, background: lightBlue[50] }}>
+            <Box display={"flex"} alignItems={"center"} sx={{ width: '100%', flexWrap: 'wrap', gap: 2, mt: 2, p: 1, background: grey[200] }}>
                 <Input
                     onChange={(e) => handleSearch(e.target.value)}
                     style={{ marginTop: 20 }}
@@ -224,11 +349,11 @@ export default function ReceiverDashboard() {
                 {!loadingData ? (
                     <>
                         {filteredData?.length > 0 && filteredData.slice(0, showMore).map((item, index) => (
-                            <Card sx={{ width: 250, maxHeight: 350 }} key={index}>
+                            <Card sx={{ width: 250, maxHeight: 350, borderRadius: 2, boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' }} key={index}>
                                 <CardHeader
                                     avatar={
                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                            {item.name[0]}
+                                            {item.name.toUpperCase()[0]}
                                         </Avatar>
                                     }
                                     action={
@@ -279,17 +404,17 @@ export default function ReceiverDashboard() {
                                         <Typography fontWeight={700} color='red'>{item.bloodgroup}</Typography>
                                         {/* </Box> */}
                                     </Box>
-                                    <Box display="flex" alignItems={"center"} justifyContent="space-between" gap={2} sx={{
+                                    {/* <Box display="flex" alignItems={"center"} justifyContent="space-between" gap={2} sx={{
                                         background: grey[200],
                                         p: 1,
                                         borderRadius: 2,
                                         mt: 1
                                     }}>
-                                        {/* <Box display="flex" alignItems={"center"}> */}
+                                         
                                         <Typography fontWeight={700}>Units Available</Typography>
                                         <Typography fontWeight={700} color='red'>{item.units}</Typography>
-                                        {/* </Box> */}
-                                    </Box>
+                                         
+                                    </Box> */}
                                 </CardContent>
                                 <CardActions disableSpacing sx={{
                                     textAlign: 'center', ml: 1, pb: 2
@@ -300,7 +425,9 @@ export default function ReceiverDashboard() {
                             <IconButton aria-label="share">
                                 <ShareIcon />
                             </IconButton> */}
-                                    <Button textAlign="center" variant="contained" color='info' endIcon={<SendIcon />}>
+                                    <Button textAlign="center" variant="contained" color='info' endIcon={<SendIcon />} onClick={() => {
+                                        handleRequest()
+                                    }}>
                                         Send Request
                                     </Button>
                                 </CardActions>
@@ -336,6 +463,24 @@ export default function ReceiverDashboard() {
                 }}>Show More</Button>
                 <BiChevronDown position='absolute' color='white' size={40} />
             </Box>}
+            <Dialog
+                open={open}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={handleClose}
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Register yourself"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description">
+                        You need to register yourself for document verfication then you will be able to send blood request.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>OK</Button>
+                </DialogActions>
+            </Dialog>
+
         </SidebarLayout>
     );
 }

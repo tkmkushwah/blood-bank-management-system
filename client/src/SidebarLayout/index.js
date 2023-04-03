@@ -29,6 +29,7 @@ import { textAlign } from '@mui/system';
 import Chart from "react-apexcharts"
 import { adminMenu } from '../Data/data';
 import { BiChevronDown } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -49,6 +50,7 @@ function SidebarLayout(props) {
             <Divider />
             <List>
                 {adminMenu.map((menu, index) => (
+                    <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
                         <ListItemButton sx={{background:grey[300],borderRadius:2}}>
                             <ListItemIcon>
@@ -57,6 +59,7 @@ function SidebarLayout(props) {
                             <ListItemText primary={menu.name} />
                         </ListItemButton>
                     </ListItem>
+                    </Link>
                 ))}
             </List>
             {/* <Divider />

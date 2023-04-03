@@ -30,6 +30,7 @@ import Chart from "react-apexcharts"
 import { adminMenu } from '../../Data/data';
 import { BiChevronDown } from 'react-icons/bi';
 import SidebarLayout from '../../SidebarLayout';
+import { ApiBaseUrl } from '../../apiConfig';
 
 const drawerWidth = 240;
 
@@ -83,6 +84,7 @@ const LineChart = {
 function ResponsiveDrawer(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [img, setImg] = React.useState('');
 
      
 
@@ -91,6 +93,7 @@ function ResponsiveDrawer(props) {
     const [chartOptions, setChartOptions] = useState(LineChart)
     const [graphsLoading, setGraphsLoading] = useState(false)
     const [donarsAvailable, setDonarsAvailable] = useState(0)
+
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/v1/user/blood-donars').then((res) => {
@@ -113,6 +116,15 @@ function ResponsiveDrawer(props) {
         }).catch(err => console.log(err))
     }, [chartOptions])
 
+    useEffect(() => {
+        axios.get(ApiBaseUrl + '/get_img').then((res) => {
+            console.log(res.data)
+            
+            setImg(toBase64(res.data.data?.img.data.data))
+            // setImg(new Buffer.from(res.data.data?.img.data.data).toString('base64'))
+        })
+    },[])
+
     console.log(chartOptions)
     const randomColors = () => {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -129,12 +141,18 @@ function ResponsiveDrawer(props) {
 
     }
 
+    function toBase64(arr) {
+        //arr = new Uint8Array(arr) if it's an ArrayBuffer
+        return btoa(
+           arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+     }
  
     const [showMore, setShowMore] = useState(3)
 
-    console.log(showMore, filteredData.length, showMore !== filteredData)
+    console.log(showMore, filteredData.length, showMore !== filteredData,img)
     return (
-        <SidebarLayout>
+        // <SidebarLayout>
         <Box sx={{ flexGrow: 1, padding: 2 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={6}>
@@ -263,9 +281,9 @@ function ResponsiveDrawer(props) {
                                 </CardContent>
                             </Card>
                         </Grid>
-                    </Grid>
+                             </Grid>
                 </Box>
-                </SidebarLayout>
+                // </SidebarLayout>
         
     );
 }

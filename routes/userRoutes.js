@@ -8,7 +8,16 @@ import {
   createApplyDonorCntrlr,
   fetchDonars,
   Count,
-  fetchDonarsRequestForReceiver
+  fetchDonarsRequestForReceiver,
+  fetchDonarById,
+  approveDonationRequests,
+  fetchReceiverRequests,
+  addReceiver,
+  sendEmail,
+  CheckReceiverValid,
+  updateReceiverRequests,
+  requestsForDonar,
+  requestsForReceiver
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -57,7 +66,16 @@ router.get('/test',requireSignIn,isAdmin,testController)
 //apis
 router.get("/blood-donars", fetchDonars);
 router.get("/count",Count);
-router.get("/donar-requests", fetchDonarsRequestForReceiver);
+router.get("/donar_requests", fetchDonarsRequestForReceiver);
+router.post("/donar_by_id", fetchDonarById);
+router.post("/approve_donation_request", approveDonationRequests);
+router.get("/receiver_requests", fetchReceiverRequests);
+router.post("/apply_receiver", addReceiver);
+router.get("/send_mail", sendEmail);
+router.post("/check_receiver", CheckReceiverValid);
+router.post("/update_receiver_requests", updateReceiverRequests);
+router.post("/requests_for_donar", requestsForDonar);
+router.post("/requests_for_receiver", requestsForReceiver);
 
 
 export default router

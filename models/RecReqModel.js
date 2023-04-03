@@ -32,10 +32,22 @@ const RecSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
-    doctorapproval: {
-      type: Buffer,
+    requests: {
+      type: Number,
+      default: 0
     },
+    status:{
+      type:String,
+      default:'Pending'
+    },
+    donarId:{
+      type:String,
+      default:""
+    },
+    doctorapproval: {
+      type: String,
+      required:true
+  },
   },
   { timestamps: true }
 );

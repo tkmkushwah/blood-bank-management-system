@@ -31,6 +31,11 @@ import './styles/eligibility.scss'
 import './styles/aboutus.scss'
 import './styles/register.scss'
 import ReceiverDashboard from './components/Receiver/ReceiverDashboard';
+import ApplyDonor from './components/user/ApplyDonor';
+import Admin from './components/Admin';
+import { DonarById } from './components/Admin/DonarRequests/DonarById';
+import DonationRequests from './components/Donor/DonationRequests/DonationRequests';
+import { DonarRequestById } from './components/Donor/DonationRequests/RequestById';
 
 
 
@@ -67,7 +72,20 @@ const App = () => {
 
         <Route path="/donor-login" element={<DonorLogin />} />
         <Route path="/patient-login" element={<PatientLogin />} />
-        <Route path="/ds" element={<AdminDashborad />} />
+        
+        {/* Admim */}
+        <Route path="/admin/donar_requests/:id" element={<DonarById />} />
+        <Route path="/admin/:path" element={<Admin />} />
+        {/* <Route path="/admin/donar_requests" element={<Admin />} /> */}
+        
+       
+       
+        {/* Donar */}
+        <Route path="/donar/dashboard" element={<ApplyDonor />} />
+        <Route path="/donar/requests" element={<DonationRequests />} />
+        <Route path="/donar/requests/:id" element={<DonarRequestById />} />
+
+
         <Route path="/receiver/dashboard" element={<ReceiverDashboard />} />
       </Routes>
     </>

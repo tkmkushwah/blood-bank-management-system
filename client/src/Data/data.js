@@ -24,19 +24,19 @@ export const userMenu = [
 // admin menu
 export const adminMenu = [
   {
-    name: "Home",
-    path: "/",
+    name: "Dashboard",
+    path: "/admin/dashboard",
     icon: "fa-solid fa-house",
   },
 
   {
-    name: "Patient",
-    path: "/admin/patient",
+    name: "Donations",
+    path: "/admin/donar_requests",
     icon: "fa-solid fa-user-doctor",
   },
   {
-    name: "Users",
-    path: "/admin/users",
+    name: "Receivers",
+    path: "/admin/receiver_requests",
     icon: "fa-solid fa-user",
   },
   {

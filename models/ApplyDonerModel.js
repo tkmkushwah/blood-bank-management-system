@@ -59,6 +59,10 @@ const applydonor = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    status:{
+      type:String,
+      default:"Pending"
+    }
   },
   { timestamps: true }
 );

@@ -3,6 +3,21 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import RecReqModel from "../models/RecReqModel.js";
 import ApplyDonerModel from "../models/ApplyDonerModel.js";
+import nodemailer from 'nodemailer'
+
+let mailTransporter = nodemailer.createTransport({
+  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: false,
+  auth: {
+    user: 'deibloodbank48dei@gmail.com',
+    pass: 'Deibloodbank48dei@'
+  }
+});
+
+
+
 //register callback
 export const registerController = async (req, res) => {
   try {
@@ -74,30 +89,30 @@ export const loginController = async (req, res) => {
 // forgot password controller
 export const forgotPasswordController = async (req, res) => {
   try {
-    const {email,answer,newPassword}=req.body;
-    if(!email){
-      res.status(400).send({message:"email is required"})
+    const { email, answer, newPassword } = req.body;
+    if (!email) {
+      res.status(400).send({ message: "email is required" })
     }
-    if(!answer){
-      res.status(400).send({message:"answer is required"})
+    if (!answer) {
+      res.status(400).send({ message: "answer is required" })
     }
-    if(!newPassword){
-      res.status(400).send({message:"newPassword is required"})
+    if (!newPassword) {
+      res.status(400).send({ message: "newPassword is required" })
     }
     //check
-    const user=await userModel.findOne({email,answer})
-    if(!user){
+    const user = await userModel.findOne({ email, answer })
+    if (!user) {
       return res.status(404).send({
-        success:false,
-        message:"wrong email or password"
+        success: false,
+        message: "wrong email or password"
       })
     }
-     const salt = await bcrypt.genSalt(10);
-     const hashed = await bcrypt.hash(newPassword, salt);
-    await userModel.findByIdAndUpdate(user._id,{password:hashed})
+    const salt = await bcrypt.genSalt(10);
+    const hashed = await bcrypt.hash(newPassword, salt);
+    await userModel.findByIdAndUpdate(user._id, { password: hashed })
     res.status(200).send({
-      success:true,
-      message:"password reset successfully"
+      success: true,
+      message: "password reset successfully"
     })
   } catch (error) {
     console.log(error);
@@ -125,7 +140,7 @@ export const createBloodReqCntrlr = async (req, res) => {
     res.status(201).send({
       success: true,
       message: "new request created",
-      data:response
+      data: response
     });
   } catch (error) {
     console.log(error);
@@ -152,11 +167,11 @@ export const createApplyDonorCntrlr = async (req, res) => {
 export const fetchDonars = async (req, res) => {
   // console.log(req.body)
   try {
-    RecReqModel.find({}, function(err, users) {
+    RecReqModel.find({}, function (err, users) {
       res.send({
-        success:true,
-        data:users
-      });  
+        success: true,
+        data: users
+      });
     });
   } catch (error) {
     console.log(error);
@@ -183,31 +198,31 @@ export const fetchDonars = async (req, res) => {
 
 export const Count = async (req, res) => {
   // console.log(req.body)
-  const bloodgroups = ["A+","A-","B+","B-"]
-  async function prepareObj(){
+  const bloodgroups = ["A+", "A-", "B+", "B-"]
+  async function prepareObj() {
     let response = {
-      count:{}
+      count: {}
     }
-    let arr = await Promise.all(bloodgroups.map( async (item) => {
-      let count = await RecReqModel.count({bloodgroup:item})
+    let arr = await Promise.all(bloodgroups.map(async (item) => {
+      let count = await RecReqModel.count({ bloodgroup: item })
       // console.log(count,"COUNT")
       response["count"][item] = count
       return count
     }))
-    
-    let donarsavailable = await ApplyDonerModel.countDocuments({}) 
-    console.log(arr,"ARR",donarsavailable)
+
+    let donarsavailable = await ApplyDonerModel.countDocuments({})
+    console.log(arr, "ARR", donarsavailable)
     response['donarsavailable'] = donarsavailable
     return response
   }
-  
+
   try {
     let countObj = await prepareObj()
     console.log(countObj)
     res.send({
-      success:true,
-      count:countObj.count,
-      donarsavailable:countObj.donarsavailable
+      success: true,
+      count: countObj.count,
+      donarsavailable: countObj.donarsavailable
     })
   } catch (error) {
     console.log(error);
@@ -220,6 +235,124 @@ export const fetchDonarsRequestForReceiver = async (req, res) => {
   try {
     let response = await ApplyDonerModel.find({})
     res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+
+export const fetchDonarById = async (req, res) => {
+  try {
+    console.log(req.body, "ID")
+    let response = await ApplyDonerModel.findById(req.body.id)
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+
+export const approveDonationRequests = async (req, res) => {
+  try {
+    let response = await ApplyDonerModel.updateOne({ email: req.body.email }, { status: "Approved" })
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+
+export const fetchReceiverRequests = async (req, res) => {
+  try {
+    let response = await RecReqModel.find({})
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+
+export const sendEmail = async (req, res) => {
+  let mailDetails = {
+    from: 'deibloodbank48dei@gmail.com',
+    to: 'tikamsingh1901900@gmail.com',
+    subject: 'Blood Bank DEI',
+    text: 'Node.js testing mail'
+  };
+
+  try {
+    mailTransporter.sendMail(mailDetails, function (err, data) {
+      if (err) {
+        console.log('Error Occurs', err);
+      } else {
+        console.log('Email sent successfully');
+        res.send({
+          success: true,
+          message: 'Email sent successfully',
+          data: data
+        })
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const addReceiver = async (req, res) => {
+  const newUser = await RecReqModel.findById("64299b4be818a85ec7ff860e");
+
+  try {
+    //  console.log(buf)
+    res.send({
+      success: true,
+      data: newUser
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const CheckReceiverValid = async (req, res) => {
+  try {
+    const user = await RecReqModel.findOne({ email: req.body.email })
+    console.log(user)
+    if (user === null) {
+      res.send({ success: false,data:user })
+    } else {
+      res.send({
+        success: true,
+        data: user
+      })
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const updateReceiverRequests = async (req, res) => {
+  try {
+    const response = await RecReqModel.updateOne({ email: req.body.email }, { requests: 1})
+    console.log(response)
+    res.send({
       success:true,
       data:response
     })
@@ -227,4 +360,34 @@ export const fetchDonarsRequestForReceiver = async (req, res) => {
     console.log(error);
     res.send({ error });
   }
-} 
+}
+
+export const requestsForDonar = async (req, res) => {
+  try {
+    const response = await ApplyDonerModel.find({ email: req.body.email })
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const requestsForReceiver = async (req, res) => {
+  try {
+    const response = await RecReqModel.find({ email: req.body.email })
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+

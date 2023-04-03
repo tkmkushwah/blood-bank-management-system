@@ -45,3 +45,42 @@ export const adminMenu = [
     icon: "fa-solid fa-user",
   },
 ];
+
+export const donarMenu = [
+  {
+    name: "Dashboard",
+    path: "/donar/dashboard",
+    icon: "fa-solid fa-house",
+  },
+
+  {
+    name: "Requests",
+    path: "/donar/requests",
+    icon: "fa-solid fa-user-doctor",
+  },
+  {
+    name: "Profile",
+    path: "/profile",
+    icon: "fa-solid fa-user",
+  },
+];
+
+
+export const receiverMenu = [
+  {
+    name: "Dashboard",
+    path: "/receiver/dashboard",
+    icon: "fa-solid fa-house",
+  },
+
+  {
+    name: "Requests",
+    path: "/receiver/requests",
+    icon: "fa-solid fa-user-doctor",
+  },
+  {
+    name: "Profile",
+    path: "/profile",
+    icon: "fa-solid fa-user",
+  },
+];

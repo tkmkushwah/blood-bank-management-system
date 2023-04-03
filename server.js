@@ -4,10 +4,6 @@ import dotenv from 'dotenv'
 import userRoutes from './routes/userRoutes.js'
 import morgan from 'morgan'
 import cors from 'cors'
-import ImageModel from './models/ImageModel.js';
-import multer from 'multer';
-import fs from 'fs'
-import path from 'path';
 
 dotenv.config();
 connectDB();

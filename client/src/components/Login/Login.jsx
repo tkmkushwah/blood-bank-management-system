@@ -50,14 +50,14 @@ const Login = () => {
           </h3>
 
           <div style={{ padding: "10px 50px", marginTop: "20px" }}>
-            <Form.Item name="email">
+            <Form.Item label="Email" name="email">
               <Input placeholder="Email" type="email" required />
             </Form.Item>
-            <Form.Item name="password">
+            <Form.Item label="Password" name="password">
               <Input Placeholder="Password" type="password" required />
             </Form.Item>
             <Link to="/register" className="m-2">
-              Not a user Register here
+              Not a user? Register here
             </Link>
           </div>
 

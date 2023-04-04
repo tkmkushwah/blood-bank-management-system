@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <section
       className="contact"
-      style={{ borderRadius: "3%", margin: "50px 0" }}
+      style={{ borderRadius: "1%", margin: "50px 0" }}
     >
       <motion.form
         initial={{

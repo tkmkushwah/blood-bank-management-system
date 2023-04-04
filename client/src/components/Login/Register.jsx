@@ -1,54 +1,38 @@
-import React, { useRef, useState } from 'react';
-import { Form, Input, message ,Select} from "antd";
-import { Link,useNavigate } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { Form, Input, message, Select } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Layout from '../Layout/Layout';
+import Layout from "../Layout/Layout";
 
 const Register = () => {
-const [date, setDate] = useState('');
-const [answer, setAnswer] = useState('');
-const dateInputRef = useRef(null);
+  const [date, setDate] = useState("");
+  const [answer, setAnswer] = useState("");
+  const dateInputRef = useRef(null);
 
-const handleChange = (e) => {
-setDate(e.target.value);
-};
+  const handleChange = (e) => {
+    setDate(e.target.value);
+  };
 
-const navigate=useNavigate()
+  const navigate = useNavigate();
 
-const onfinishHandler=async (values)=>{
-  try {
-    const res=await axios.post('/api/v1/user/register',values)
-    if(res.data.success)
-    {
-      message.success('register successfully')
-      navigate('/login');
-    }else{
-      message.error(res.data.message)
+  const onfinishHandler = async (values) => {
+    try {
+      const res = await axios.post("/api/v1/user/register", values);
+      if (res.data.success) {
+        message.success("register successfully");
+        navigate("/login");
+      } else {
+        message.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      message.error("something went wrong");
     }
-  } catch (error) {
-    console.log(error)
-    message.error('something went wrong')
-  }
-}
-  const options=[
-   { value:'A+',label:'A+'},
-   { value:'A-',label:'A-'},
-   { value:'B+',label:'B+'},
-   { value:'B-',label:'B-'},
-   { value:'AB+',label:'AB+'},
-   { value:'AB-',label:'AB-'},
-   { value:'O+',label:'O+'},
-   { value:'O-',label:'O-'},
-   { value:'A2-',label:'A2-'},
-   { value:'A2+',label:'A2+'},
-   { value:'A1B-',label:'A1B-'},
-   { value:'A1B+',label:'A1B+'},
-   { value:'A2B+',label:'A2B+'},
-   { value:'A2B-',label:'A2B-'},
-   { value:'Bombay Blood group',label:'Bombay Blood group'},
-   { value:'INRA',label:'INRA'},
-  { value:"Don't know",label:"Don't know"},
-   ]
+  };
+  const options = [
+    { value: "Donor", label: "Donor" },
+    { value: "Reveiver", label: "Receiver" }
+  ];
   return (
     <Layout>
       <div className="form-container ">
@@ -57,55 +41,63 @@ const onfinishHandler=async (values)=>{
           onFinish={onfinishHandler}
           className="register-form"
         >
-          <h3 className="text-center" style={{textEmphasisStyle:'double-circle'}}>Register</h3>
+          <h3
+            className="text-center"
+            style={{ textEmphasisStyle: "double-circle" }}
+          >
+            Register
+          </h3>
           <div style={{ padding: "10px 50px", marginTop: "20px" }}>
-            <Form.Item name="name">
-              <Input placeholder="Name" type="text" required />
+            <Form.Item label="Name" name="name">
+              <Input placeholder="Enter Name" type="text" required />
             </Form.Item>
-            <Form.Item name="email">
-              <Input placeholder="Email" type="email" required />
+            <Form.Item label="Email" name="email">
+              <Input placeholder="Enter email" type="email" required />
             </Form.Item>
-            <Form.Item name="phone">
-              <Input placeholder="Phone Number" type="number" required />
+            <Form.Item label="Phone" name="phone">
+              <Input
+                placeholder="Phone Number ex:- 8585858585"
+                type="number"
+                required
+              />
             </Form.Item>
-            <Form.Item name="password">
+            <Form.Item label="Password" name="password">
               <Input placeholder="Password" type="password" required />
             </Form.Item>
-            <Form.Item name="bloodgroup">
-              <Select placeholder="select blood group">
+
+            {/* <Form.Item name="DOB">
+              <Input type="date" onChange={handleChange} ref={dateInputRef} />
+            </Form.Item> */}
+
+            {/* <Form.Item name="address">
+              <Input placeholder="Address" type="string" required />
+            </Form.Item> */}
+
+            <Form.Item
+              label="who is your best frient?"
+              name="answer"
+              onChange={(e) => setAnswer(e.target.value)}
+            >
+              <Input placeholder="Ex:- Binod" type="string" required />
+            </Form.Item>
+            <Form.Item label="What are you?" name="usertype">
+              <Select placeholder="Ex:- Donor">
+
                 {options.map((item, id) => (
                   <Select.Option key={id} value={item.value}>
                     {item.label}
                   </Select.Option>
                 ))}
+                
+                {/* <Select.Option>Receiver</Select.Option>
+                <Select.Option>Donor</Select.Option> */}
               </Select>
             </Form.Item>
-
-            <Form.Item name="DOB">
-              <Input
-                type="date"
-                onChange={handleChange}
-                ref={dateInputRef}
-              />
-            </Form.Item>
-            <Form.Item name="address">
-              <Input placeholder="Address" type="string" required />
-            </Form.Item>
-            <Form.Item
-              name="answer"
-              onChange={(e) => setAnswer(e.target.value)}
-            >
-              <Input
-                placeholder="who is your best frient?"
-                type="string"
-                required
-              />
-            </Form.Item>
+            <Link to="/login" className="m-2">
+              Already user? login here
+            </Link>
           </div>
 
-          <Link to="/login" className="m-2">
-            Already user login here
-          </Link>
           <button className="btn btn-primary" type="submit">
             Submit
           </button>

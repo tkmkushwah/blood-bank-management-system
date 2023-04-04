@@ -5,7 +5,7 @@ const AboutHome = () => {
   return (
     <section
       className="about-us"
-      style={{ borderRadius: "3%", margin: "50px 0" }}
+      style={{ borderRadius: "1%", margin: "50px 0" }}
     >
       <h1 style={{ textAlign: "center", paddingTop: "30px" }}>About Us</h1>
 

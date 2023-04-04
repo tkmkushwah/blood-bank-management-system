@@ -8,6 +8,7 @@ import axios from 'axios'
 import { Alert } from 'antd'
 import { toast } from 'react-hot-toast'
 import { ApiBaseUrl } from '../../../apiConfig'
+import { yellow } from '@mui/material/colors'
 
 export const DonarRequestById = () => {
   const { id } = useParams()
@@ -21,6 +22,7 @@ export const DonarRequestById = () => {
       console.log(res.data)
       if (res.data.success) {
         let user = res.data.data
+        delete user["__v"]
         delete user["card"]
         delete user["fitcer"]
         setSpecificDonarData(user)
@@ -33,7 +35,7 @@ export const DonarRequestById = () => {
     <SidebarLayout>
       <Card sx={{ p: 2 }}>
         {!loadingData ? <>
-          <Typography variant='h6'>Your Request</Typography>
+          <Typography variant='h6'>Your Request <span style={{ color: yellow[700] }}>{`(Request status: ${setSpecificDonarData.status})`}</span></Typography>
           <CardContent  >
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               {Object.keys(specificDonarData).map((_, index) => (

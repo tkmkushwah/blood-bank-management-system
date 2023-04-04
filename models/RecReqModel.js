@@ -42,7 +42,7 @@ const RecSchema = new mongoose.Schema(
     },
     donarId:{
       type:String,
-      default:""
+      default:"donar_id"
     },
     doctorapproval: {
       type: String,

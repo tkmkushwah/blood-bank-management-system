@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -14,6 +13,7 @@ import { Box, Button, CircularProgress, Typography, styled } from '@mui/material
 import { useNavigate } from 'react-router';
 import { blue, green, yellow } from '@mui/material/colors';
 import { ApiBaseUrl } from '../../../apiConfig';
+import SidebarLayout from '../../../SidebarLayout';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -57,7 +57,7 @@ const columns = [
 
 
 
-export default function ReceiverRequets() {
+export default function ReceiverApply() {
     const navigate = useNavigate()
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -74,7 +74,9 @@ export default function ReceiverRequets() {
 
     useEffect(() => {
         setLoadingData(true)
-        axios.get( ApiBaseUrl + "/receiver_requests").then((res) => {
+        axios.post( ApiBaseUrl + "/requests_for_receiver",{
+          email:"tikamsingh1901900@gmail.com"
+        }).then((res) => {
             console.log(res.data)
             if (res.data.success) {
                 setReceiverRequests(res.data.data)
@@ -89,6 +91,7 @@ export default function ReceiverRequets() {
     }
 
     return (
+      <SidebarLayout>
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
             <TableContainer sx={{ maxHeight: 440 }}>
                 <Table stickyHeader aria-label="sticky table">
@@ -157,5 +160,6 @@ export default function ReceiverRequets() {
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </Paper>
+        </SidebarLayout>
     );
 }

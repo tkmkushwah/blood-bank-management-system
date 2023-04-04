@@ -259,10 +259,37 @@ export const fetchDonarById = async (req, res) => {
   }
 }
 
+export const fetchReceiverById = async (req, res) => {
+  try {
+    console.log(req.body, "ID")
+    let response = await RecReqModel.findById(req.body.id)
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
 
 export const approveDonationRequests = async (req, res) => {
   try {
     let response = await ApplyDonerModel.updateOne({ email: req.body.email }, { status: "Approved" })
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const approveReceiverRequests = async (req, res) => {
+  try {
+    let response = await RecReqModel.updateOne({ email: req.body.email }, { status: "Approved",requests:0 })
     res.send({
       success: true,
       data: response
@@ -389,5 +416,7 @@ export const requestsForReceiver = async (req, res) => {
     res.send({ error });
   }
 }
+
+ 
 
 

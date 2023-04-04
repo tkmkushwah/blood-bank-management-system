@@ -11,7 +11,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { Box, Button, CircularProgress, Typography, styled } from '@mui/material';
 import { useNavigate } from 'react-router';
-import { blue } from '@mui/material/colors';
+import { blue, green, lightGreen, yellow } from '@mui/material/colors';
 import { ApiBaseUrl } from '../../../apiConfig';
 
 
@@ -130,8 +130,8 @@ export default function DonarRequests() {
                                         <TableCell>
                                             {row.units}
                                         </TableCell>
-                                        <TableCell>
-                                            <Typography variant='warning'> Pending</Typography>
+                                        <TableCell sx={{color:row.status === "Pending" ? yellow[700] : green[400]}}>
+                                          {row.status}
                                         </TableCell>
                                         <TableCell>
                                             <Button variant='contained' size='small' onClick={() => handleStatus(row)}>

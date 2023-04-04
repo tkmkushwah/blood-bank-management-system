@@ -17,7 +17,9 @@ import {
   CheckReceiverValid,
   updateReceiverRequests,
   requestsForDonar,
-  requestsForReceiver
+  requestsForReceiver,
+  fetchReceiverById,
+  approveReceiverRequests
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -68,7 +70,9 @@ router.get("/blood-donars", fetchDonars);
 router.get("/count",Count);
 router.get("/donar_requests", fetchDonarsRequestForReceiver);
 router.post("/donar_by_id", fetchDonarById);
+router.post("/receiver_by_id", fetchReceiverById);
 router.post("/approve_donation_request", approveDonationRequests);
+router.post("/approve_receiver_request", approveReceiverRequests);
 router.get("/receiver_requests", fetchReceiverRequests);
 router.post("/apply_receiver", addReceiver);
 router.get("/send_mail", sendEmail);

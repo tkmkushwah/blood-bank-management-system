@@ -35,7 +35,11 @@ import ApplyDonor from './components/user/ApplyDonor';
 import Admin from './components/Admin';
 import { DonarById } from './components/Admin/DonarRequests/DonarById';
 import DonationRequests from './components/Donor/DonationRequests/DonationRequests';
-import { DonarRequestById } from './components/Donor/DonationRequests/RequestById';
+import { DonarRequestById } from './components/Donor/DonationRequests/DonarRequestById';
+import ReceiverRequets from './components/Admin/ReceiverRequests/ReceiverRequets';
+import { ReceiverById } from './components/Admin/ReceiverRequests/ReceiverById';
+import ReceiverApply from './components/Receiver/ReceiverRequets/ReceiverApply';
+import { ReceiverRequestById } from './components/Receiver/ReceiverRequets/ReceiverRequestById';
 
 
 
@@ -75,6 +79,7 @@ const App = () => {
         
         {/* Admim */}
         <Route path="/admin/donar_requests/:id" element={<DonarById />} />
+        <Route path="/admin/receiver_requests/:id" element={<ReceiverById />} />
         <Route path="/admin/:path" element={<Admin />} />
         {/* <Route path="/admin/donar_requests" element={<Admin />} /> */}
         
@@ -87,6 +92,8 @@ const App = () => {
 
 
         <Route path="/receiver/dashboard" element={<ReceiverDashboard />} />
+        <Route path="/receiver/requests" element={<ReceiverApply />} />
+        <Route path="/receiver/requests/:id" element={<ReceiverRequestById />} />
       </Routes>
     </>
   );

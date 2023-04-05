@@ -20,6 +20,15 @@
         color: black;
         font-weight: bold;
       }
+      > .list {
+        text-decoration: none;
+        list-style: none;
+        color: black;
+        > .listItem {
+          text-decoration: none;
+          color: black;
+        }
+      }
     }
   }
 }

@@ -6,9 +6,6 @@ const Impact = () => {
       <section className="about-us">
         <h1>Impact of Blood Donation</h1>
         <div className="container">
-          {/* <div className="logo">
-            <img src={img1} alt="dh" />
-          </div> */}
           <div className="about">
             <b>Your role in the world matters.</b>
             <br />
@@ -53,7 +50,7 @@ const Impact = () => {
               and cultural and religious beliefs that can prevent individuals
               from donating blood. Efforts are underway to address these
               challenges, including initiatives to increase awareness about
-              blood donation and encourage more people to donate. 
+              blood donation and encourage more people to donate.
             </p>
           </div>
         </div>

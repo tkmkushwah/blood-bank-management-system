@@ -27,36 +27,33 @@ const AboutHome = () => {
             blood donation research.
             <br />
           </p>
-          <select className="learnWhy">
-            <option className="learnWhy1">
-              <h4>Know More</h4>
-            </option>
-            <option className="learnWhy1">
-              <NavLink to="/Impact">
-                <h4>Impact of Blood Donation</h4>
-              </NavLink>
-            </option>
-            <option className="learnWhy1">
-              <NavLink to="/about/Eligibility">
-                <h4>Eligibility</h4>
-              </NavLink>
-            </option>
-            <option className="learnWhy1">
-              <NavLink to="/BloodTypes">
-                <h4>Blood Types</h4>
-              </NavLink>
-            </option>
-            <option className="learnWhy1">
-              <NavLink to="/">
-                <h4>Blood Donation Process</h4>
-              </NavLink>
-            </option>
-            <option className="learnWhy1">
-              <NavLink to="/Research">
-                <h4>Blood Donation Research</h4>
-              </NavLink>
-            </option>
-          </select>
+          <ul className="list">
+            <li className="listItem">
+              <h3>
+                <b>Know More</b>
+              </h3>
+            </li>
+            <li className="listItem">
+              <h4>
+                <NavLink to="/bloodtypes">Blood Types</NavLink>
+              </h4>
+            </li>
+            <li className="listItem">
+              <h4>
+                <NavLink to="/eligibility">Eligibility</NavLink>
+              </h4>
+            </li>
+            <li className="listItem">
+              <h4>
+                <NavLink to="/impact">Impact</NavLink>
+              </h4>
+            </li>
+            <li className="listItem">
+              <h4>
+                <NavLink to="/research">Research</NavLink>
+              </h4>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

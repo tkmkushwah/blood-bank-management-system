@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import RecReqModel from "../models/RecReqModel.js";
 import ApplyDonerModel from "../models/ApplyDonerModel.js";
 import nodemailer from 'nodemailer'
+import dotenv from 'dotenv'
+dotenv.config(); 
 
 let mailTransporter = nodemailer.createTransport({
   service: 'gmail',
@@ -326,10 +328,10 @@ export const fetchReceiverRequests = async (req, res) => {
 
 export const sendEmail = async (req, res) => {
   let mailDetails = {
-    from: 'saurabh09b@gmail.com',
-    to: 'tikamsingh1901900@gmail.com,saurabh09b@gmail.com',
-    subject: 'Blood Bank DEI',
-    text: 'Node.js testing mail'
+    from: process.env.EMAIL,
+    to: req.body.recipient.toString(),
+    subject: req.body.subject,
+    html: req.body.text
   };
 
   try {

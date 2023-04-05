@@ -65,7 +65,21 @@ export const ReceiverById = () => {
             console.log(res.data)
             if (res.data.success) {
                 toast.success('Request Aproved')
-            }
+                axios.post(ApiBaseUrl + "/send_mail",{
+                  recipient:specificReceiverData.email,
+                  subject:"Blood Request Approved (Blood bank DEI)",
+                  text:`<p>Hi ${specificReceiverData.name},</p>
+                  <br>
+                  <p>Your blood request has been approved.</p>
+                  <p>Thanks and Regards</p>
+                  <p>Admin (Blood Bank DEI)</p>
+                  `
+                }).then((res) => {
+        
+                }).catch((err) => {
+                  console.log(err)
+                })
+              }
         }).catch((er) => console.log(er))
     }
 

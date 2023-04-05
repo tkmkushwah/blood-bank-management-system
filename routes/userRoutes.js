@@ -75,7 +75,7 @@ router.post("/approve_donation_request", approveDonationRequests);
 router.post("/approve_receiver_request", approveReceiverRequests);
 router.get("/receiver_requests", fetchReceiverRequests);
 router.post("/apply_receiver", addReceiver);
-router.get("/send_mail", sendEmail);
+router.post("/send_mail", sendEmail);
 router.post("/check_receiver", CheckReceiverValid);
 router.post("/update_receiver_requests", updateReceiverRequests);
 router.post("/requests_for_donar", requestsForDonar);

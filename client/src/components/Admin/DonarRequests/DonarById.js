@@ -8,7 +8,7 @@ import axios from 'axios'
 import { Alert } from 'antd'
 import { toast } from 'react-hot-toast'
 import { ApiBaseUrl } from '../../../apiConfig'
-import { yellow } from '@mui/material/colors'
+import { green, yellow } from '@mui/material/colors'
 
 export const DonarById = () => {
   const { id } = useParams()
@@ -35,11 +35,27 @@ export const DonarById = () => {
 
   const handleApproval = () => {
     axios.post(ApiBaseUrl + "/approve_donation_request", {
-      id: id
+      email: specificDonarData.email
     }).then((res) => {
       console.log(res.data)
       if (res.data.success) {
         toast.success('Donation Aproved')
+        axios.post(ApiBaseUrl + "/send_mail",{
+          recipient:specificDonarData.email,
+          subject:"Donation Approved Blood Bank",
+          text:`<p>Hi ${specificDonarData.name},</p>
+          <br>
+          <p>Your donation request has been accepted.</p> 
+          <p>We really appreciate your donation! Your contribution will help us change lives literally!</p>
+          <br>
+          <p>Thanks and Regards</p>
+          <p>Admin (Blood Bank DEI)</p>
+          `
+        }).then((res) => {
+
+        }).catch((err) => {
+          console.log(err)
+        })
       }
     }).catch((er) => console.log(er))
   }
@@ -54,7 +70,7 @@ export const DonarById = () => {
     <SidebarLayout>
       <Card sx={{ p: 2 }}>
         {!loadingData ? <>
-          <Typography variant='h6'>Donar Information <span style={{ color: yellow[700] }}>{`(Request status: ${specificDonarData.status})`}</span></Typography>
+          <Typography variant='h6'>Donar Information <span style={{color: specificDonarData.status === "Pending" ? yellow[700] : green[400] }}>{`(Request status: ${specificDonarData.status})`}</span></Typography>
           <CardContent  >
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               {Object.keys(specificDonarData).map((_, index) => (

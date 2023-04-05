@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from 'react-hot-toast'
 import { useAuth } from "../../context/auth";
 import Layout from '../Layout/Layout'
+import { ApiBaseUrl } from "../../apiConfig";
 
 const Login = () => {
     const [auth, setAuth] = useAuth();
@@ -14,7 +15,7 @@ const Login = () => {
   //formHandler
   const onfinishHandler = async (values) => {
     try {
-      const res = await axios.post("/api/v1/user/login", values);
+      const res = await axios.post( ApiBaseUrl + "/login", values);
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -23,9 +24,19 @@ const Login = () => {
           user: res.data.user,
           token: res.data.token,
         });
+        localStorage.setItem("email",res.data.user.email)
         localStorage.setItem("auth", JSON.stringify(res.data));
+        let userType = res.data.user.usertype
+        localStorage.setItem("userType",userType)
         message.success("login successfull");
-        navigate(location.state || "/");
+        if(userType === "Donor"){
+          navigate("/donar/dashboard")
+        } else if (userType === "Receiver"){
+          navigate("/receiver/dashboard")
+        } else {
+          localStorage.setItem("userType","admin")
+          navigate("/admin/dashboard")
+        }
       } else {
         message.error(res.data.message);
       }

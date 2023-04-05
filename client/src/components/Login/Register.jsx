@@ -31,7 +31,7 @@ const Register = () => {
   };
   const options = [
     { value: "Donor", label: "Donor" },
-    { value: "Reveiver", label: "Receiver" }
+    { value: "Receiver", label: "Receiver" }
   ];
   return (
     <Layout>

@@ -7,12 +7,9 @@ import nodemailer from 'nodemailer'
 
 let mailTransporter = nodemailer.createTransport({
   service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: false,
   auth: {
-    user: 'deibloodbank48dei@gmail.com',
-    pass: 'Deibloodbank48dei@'
+    user: process.env.EMAIL,
+    pass: process.env.APP_PASSWORD
   }
 });
 
@@ -76,6 +73,7 @@ export const loginController = async (req, res) => {
         DOB: user.DOB,
         adddress: user.address,
         role: user.role,
+        usertype:user.usertype
       },
       token,
     });
@@ -167,12 +165,14 @@ export const createApplyDonorCntrlr = async (req, res) => {
 export const fetchDonars = async (req, res) => {
   // console.log(req.body)
   try {
-    RecReqModel.find({}, function (err, users) {
-      res.send({
-        success: true,
-        data: users
-      });
-    });
+    const donors = await RecReqModel.find({})
+    const receivers = await ApplyDonerModel.find({})
+    res.send({
+      success:true,
+      data:{
+        donors:donors,
+        receivers:receivers
+    }})
   } catch (error) {
     console.log(error);
     res.send({ error });
@@ -198,7 +198,7 @@ export const fetchDonars = async (req, res) => {
 
 export const Count = async (req, res) => {
   // console.log(req.body)
-  const bloodgroups = ["A+", "A-", "B+", "B-"]
+  const bloodgroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'A2-', 'A2+', 'A1B-', 'A1B+', 'A2B+', 'A2B-']
   async function prepareObj() {
     let response = {
       count: {}
@@ -210,9 +210,15 @@ export const Count = async (req, res) => {
       return count
     }))
 
-    let donarsavailable = await ApplyDonerModel.countDocuments({})
+    let donarsavailable = await ApplyDonerModel.countDocuments({status:"Approved"})
     console.log(arr, "ARR", donarsavailable)
     response['donarsavailable'] = donarsavailable
+    let donationpending = await ApplyDonerModel.countDocuments({status:"Pending"})
+    response['donationpending'] = donationpending
+    let bloodrequests = await RecReqModel.countDocuments({status:"Pending"})
+    response['bloodrequests'] = bloodrequests
+    let bloodrequestsapproved = await RecReqModel.countDocuments({status:"Approved"})
+    response['bloodrequestsapproved'] = bloodrequestsapproved
     return response
   }
 
@@ -222,7 +228,10 @@ export const Count = async (req, res) => {
     res.send({
       success: true,
       count: countObj.count,
-      donarsavailable: countObj.donarsavailable
+      donarsavailable: countObj.donarsavailable,
+      bloodrequests:countObj.bloodrequests,
+      donationpending:countObj.donationpending,
+      bloodrequestsapproved:countObj.bloodrequestsapproved
     })
   } catch (error) {
     console.log(error);
@@ -317,8 +326,8 @@ export const fetchReceiverRequests = async (req, res) => {
 
 export const sendEmail = async (req, res) => {
   let mailDetails = {
-    from: 'deibloodbank48dei@gmail.com',
-    to: 'tikamsingh1901900@gmail.com',
+    from: 'saurabh09b@gmail.com',
+    to: 'tikamsingh1901900@gmail.com,saurabh09b@gmail.com',
     subject: 'Blood Bank DEI',
     text: 'Node.js testing mail'
   };

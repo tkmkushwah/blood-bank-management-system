@@ -27,7 +27,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import { textAlign } from '@mui/system';
 import Chart from "react-apexcharts"
-import { adminMenu } from '../Data/data';
+import { adminMenu, donarMenu, receiverMenu } from '../Data/data';
 import { BiChevronDown } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +49,31 @@ function SidebarLayout(props) {
             <img textAlign='center' src={newlogo} height={160} />
             <Divider />
             <List>
-                {adminMenu.map((menu, index) => (
+                {localStorage.getItem("userType") === "admin" && adminMenu.map((menu, index) => (
+                    <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
+                    <ListItem key={index}>
+                        <ListItemButton sx={{background:grey[300],borderRadius:2}}>
+                            <ListItemIcon>
+                                <i className={menu.icon}></i>
+                            </ListItemIcon>
+                            <ListItemText primary={menu.name} />
+                        </ListItemButton>
+                    </ListItem>
+                    </Link>
+                ))}
+                {localStorage.getItem("userType") === "Donor" && donarMenu.map((menu, index) => (
+                    <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
+                    <ListItem key={index}>
+                        <ListItemButton sx={{background:grey[300],borderRadius:2}}>
+                            <ListItemIcon>
+                                <i className={menu.icon}></i>
+                            </ListItemIcon>
+                            <ListItemText primary={menu.name} />
+                        </ListItemButton>
+                    </ListItem>
+                    </Link>
+                ))}
+                {localStorage.getItem("userType") === "Receiver" && receiverMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
                         <ListItemButton sx={{background:grey[300],borderRadius:2}}>
@@ -108,7 +132,7 @@ function SidebarLayout(props) {
                 </Toolbar>
             </AppBar>
             <Box
-                component="nav"
+                // component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >

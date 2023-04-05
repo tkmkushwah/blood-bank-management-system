@@ -66,7 +66,7 @@ router.get('/donor-auth', requireSignIn,isDonor,(req,res)=>{
 router.get('/test',requireSignIn,isAdmin,testController)
 
 //apis
-router.get("/blood-donars", fetchDonars);
+router.get("/donars_receivers", fetchDonars);
 router.get("/count",Count);
 router.get("/donar_requests", fetchDonarsRequestForReceiver);
 router.post("/donar_by_id", fetchDonarById);

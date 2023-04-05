@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import SidebarLayout from '../../../SidebarLayout'
-import { Box, Button, Card, CardActions, CardContent, CardHeader, CircularProgress, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, CardHeader, CircularProgress, Grid, IconButton, Typography } from '@mui/material'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
@@ -41,9 +41,9 @@ export const ReceiverById = () => {
                         setDonarObj(res.data.data)
                         setLoadingdonarData(false)
                     }
-                }).catch((er) => {console.log(er);setLoadingdonarData(false)})
+                }).catch((er) => { console.log(er); setLoadingdonarData(false) })
 
-                
+
                 const obj = res.data.data
                 delete obj["_id"]
                 delete obj["requests"]
@@ -69,7 +69,14 @@ export const ReceiverById = () => {
         }).catch((er) => console.log(er))
     }
 
-    console.log(completeObj,"com")
+    console.log(completeObj, "com")
+    
+    const handleDownload = () => {
+        var a = document.createElement("a"); 
+        a.href = specificReceiverData.doctorapproval
+        a.download = "doctorapproval";
+        a.click()
+      }
     return (
         <SidebarLayout>
             <Card sx={{ p: 2 }}>
@@ -81,7 +88,10 @@ export const ReceiverById = () => {
                                 <Grid item xs={12} sm={4} md={4} key={index}>
                                     <Box>
                                         <Typography>{_}</Typography>
-                                        <Alert message={specificReceiverData[_]} type="info" />
+                                        {_ === "doctorapproval" ? <Box sx={{ display: 'flex', alignItems: "center", gap: 2 }}>
+                                            <img src={specificReceiverData[_]} height={140} width={200} />
+                                            <IconButton color='primary' onClick={handleDownload}> <i className="fa fa-light fa-download" ></i></IconButton>
+                                        </Box> : <Alert message={specificReceiverData[_]} type="info" />}
                                     </Box>
                                 </Grid>
                             ))}
@@ -123,8 +133,8 @@ export const ReceiverById = () => {
                             <Alert message={donarObj.status} type="info" />
                         </Box>
                     </Grid>
-                </Grid> : <CircularProgress/> }
-                
+                </Grid> : <CircularProgress />}
+
             </Card>
         </SidebarLayout>
     )

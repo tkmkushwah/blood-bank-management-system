@@ -112,14 +112,14 @@ export default function ReceiverDashboard() {
 
     const handleRequest = () => {
         axios.post(ApiBaseUrl + "/check_receiver", {
-            "email": "jsx@hsjhjs.com"
+            "email": localStorage.getItem("email")
         }).then((res) => {
             console.log(res.data)
             if (res.data.success) {
                 const user = res.data.data
                 if (user.requests < 1) {
                     axios.post(ApiBaseUrl + "/update_receiver_requests", {
-                        email: "jsx@hsjhjs.com"
+                        email: localStorage.getItem("email")
                     }).then((resp) => {
                         console.log(resp.data)
                         if (res.data.success) {

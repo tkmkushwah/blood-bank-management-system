@@ -49,7 +49,7 @@ function SidebarLayout(props) {
             <img textAlign='center' src={newlogo} height={160} />
             <Divider />
             <List>
-                {localStorage.getItem("userType") === "admin" && adminMenu.map((menu, index) => (
+                {adminMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
                         <ListItemButton sx={{background:grey[300],borderRadius:2}}>
@@ -61,7 +61,7 @@ function SidebarLayout(props) {
                     </ListItem>
                     </Link>
                 ))}
-                {localStorage.getItem("userType") === "Donor" && donarMenu.map((menu, index) => (
+                {/* {localStorage.getItem("userType") === "Donor" && donarMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
                         <ListItemButton sx={{background:grey[300],borderRadius:2}}>
@@ -72,7 +72,7 @@ function SidebarLayout(props) {
                         </ListItemButton>
                     </ListItem>
                     </Link>
-                ))}
+                ))} */}
                 {localStorage.getItem("userType") === "Receiver" && receiverMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>

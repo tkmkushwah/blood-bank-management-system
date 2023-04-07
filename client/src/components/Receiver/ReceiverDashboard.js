@@ -153,6 +153,7 @@ export default function ReceiverDashboard() {
     const uploadImage = async (event) => {
         const file = event.target.files[0];
         const base64 = await convertBase64(file);
+        setDoctorApproval(base64)
         return base64
     };
 
@@ -317,7 +318,7 @@ export default function ReceiverDashboard() {
                                         <InputLabel>Doctor's Approval</InputLabel>
                                         <input accept="image/*" required type="file"
                                             onChange={(e) => {
-                                                setDoctorApproval(uploadImage(e))
+                                               uploadImage(e)
                                             }} />
                                     </Grid>
                                     <Grid xs={12} textAlign="center">

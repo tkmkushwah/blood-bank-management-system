@@ -354,13 +354,15 @@ export const sendEmail = async (req, res) => {
 }
 
 export const addReceiver = async (req, res) => {
-  const newUser = await RecReqModel.findById("64299b4be818a85ec7ff860e");
+  const newUser = new RecReqModel(req.body);
+  const data = await newUser.save();
 
   try {
     //  console.log(buf)
     res.send({
       success: true,
-      data: newUser
+      data: data,
+      // message:"You are "
     })
   } catch (error) {
     console.log(error);

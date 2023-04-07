@@ -150,7 +150,7 @@ export const createBloodReqCntrlr = async (req, res) => {
 export const createApplyDonorCntrlr = async (req, res) => {
   console.log(req.body);
   try {
-    const newUser = new RecReqModel(req.body);
+    const newUser = new ApplyDonerModel(req.body);
     let response = await newUser.save();
     // const data=req.body.data;
     res.status(201).send({

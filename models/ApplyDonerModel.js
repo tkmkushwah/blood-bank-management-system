@@ -67,4 +67,4 @@ const applydonor = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("ApplyDonor", applydonor);
+export default mongoose.model("donorRequests", applydonor);

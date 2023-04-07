@@ -26,6 +26,8 @@ export const DonarById = () => {
         delete obj["createdAt"]
         delete obj["updatedAt"]
         delete obj["__v"]
+        delete obj["card"]
+        delete obj["fitcer"]
         setSpecificDonarData(res.data.data)
         setLoadingData(false)
       }

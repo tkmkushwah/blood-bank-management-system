@@ -22,7 +22,7 @@ const AboutHome = () => {
             <br />
             see the impact of blood donations, discover fun and interesting
             <br />
-            facts about blood types, and learn how Vitalant is involved in
+            facts about blood types, and learn how Inida is involved in
             <br />
             blood donation research.
             <br />

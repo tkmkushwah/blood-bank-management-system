@@ -20,7 +20,7 @@ const About = () => {
               <br />
               see the impact of blood donations, discover fun and interesting
               <br />
-              facts about blood types, and learn how our website is involved in
+              facts about blood types, and learn how India is involved in
               <br />
               blood donation research.
               <br />
@@ -30,10 +30,10 @@ const About = () => {
                 <h3><b>Know More</b></h3>
               </li>
               <li className="listItem">
-              <h4><NavLink to="/BloodTypes">Blood Types</NavLink></h4>
+              <h4><NavLink to="/bloodtypes">Blood Types</NavLink></h4>
               </li>
               <li className="listItem">
-              <h4><NavLink to="/eligibility">Eligibility</NavLink></h4>
+                <h4><NavLink to="/eligibility">Eligibility</NavLink></h4>
               </li>
               <li>
               <h4><NavLink to="/impact">Impact</NavLink></h4>

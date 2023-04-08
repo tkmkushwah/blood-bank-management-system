@@ -1,44 +1,49 @@
 import React from 'react'
-import img1 from '../../assets/birthdaycake-h.png'
-import img2 from '../../assets/Eat-h.png'
-import img3 from '../../assets/drink-water.png'
-import img4 from '../../assets/Eight-weeks-h.png'
-import img5 from '../../assets/heart-h.png'
-import img6 from '../../assets/license-h.png'
-import img7 from '../../assets/scale-h.png'
 import Layout from '../Layout/Layout'
 
 const Eligibility = () => {
   return (
     <Layout>
-      {" "}
       <section className="eligibility">
         <div className="container">
-          <h2>Basic Requirements & Recommendations</h2>
+          <h2>Basic Requirements by Donation Type</h2>
           <div className="container2">
             <div>
-              <img src={img1} alt="img1" />
-              <p>Must be at least 16 years old</p>
-              <img src={img2} alt="img1" />
-              <p>Drink plenty of non-alcoholic liquids</p>
-              <img src={img3} alt="img1" />
-              <p>Wait eight weeks between whole blood donations</p>
+              <h3>Whole Blood Donation</h3>
+              <ul>
+              <li>Donation frequency: Every 56 days, up to 6 times a year</li>
+              <li>You must be in good health and feeling well</li>
+              <li>You must be at least 16 years old in most states</li>
+              <li>You must weigh at least 110 lbs</li>
+              </ul>
             </div>
             <div>
-              <img src={img4} alt="img1" />
-              <p>Eat within two hours ahead of your donation</p>
-              <img src={img5} alt="img1" />
-              <p>Be in good general health</p>
-              <img src={img6} alt="img1" />
-              <p>Bring your ID</p>
+              <h3>Power Red Donation</h3>
+              <ul>
+                <li>Donation frequency: Every 112 days, upto 3 times/year</li>
+                <li>You must be in good health and feeling well</li>
+                <li><b>Male donors</b> must be at least 17 years old in most states, at least 5'11' tall and weight at least 130 lbs.</li>
+                <li><b>Female donors</b> must be at least 19 years old, at least 5'5" tall and weigh at least 150 lbs</li>
+              </ul>
             </div>
             <div>
-              <img src={img7} alt="img1" />
-              <p>Weigh at least 110 pounds</p>
-              <img src={img2} alt="img1" />
-              <p>age must be sixteen</p>
-              <img src={img3} alt="img1" />
-              <p>age must be sixteen</p>
+              <h3>Platelet Donation</h3>
+              <ul>
+                <li>Donation frequency: Every 7 days, upto 24 times/year</li>
+                <li>You must be in good health and feelinf well</li>
+                <li>You must be at least 17 years old in most states</li>
+                <li>You must weigh at least 110 lbs</li>
+              </ul>
+            </div>
+            <div>
+              <h3>AB Elite Plasma Donation</h3>
+              <ul>
+                <li>Donation frequency: Every 28 days, up to 13 times/year</li>
+                <li>You must have type AB blood</li>
+                <li>You must be in good health and feeling well</li>
+                <li>You must be at least 17 years old</li>
+                <li>You must weigh at least 110 lbs</li>
+              </ul>
             </div>
           </div>
         </div>

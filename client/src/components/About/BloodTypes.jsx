@@ -41,7 +41,7 @@ const BloodTypes = () => {
               lives—including your own!
               <br />
             </p>
-            <h4>Why Matching Blood Types is Important</h4>
+            <b><h4>Why Matching Blood Types is Important</h4></b>
             <p>
               Blood circulates through our bodies carrying nutrients, oxygen,
               <br />

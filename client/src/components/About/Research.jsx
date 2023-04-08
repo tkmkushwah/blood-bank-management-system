@@ -7,9 +7,6 @@ const Research = () => {
       <section className="about-us">
         <h1>Research</h1>
         <div className="container">
-          {/* <div className="logo">
-            <img src={img1} alt="dh" />
-          </div> */}
           <div className="about">
             <br />
             <p>

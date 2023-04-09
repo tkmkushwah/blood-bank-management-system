@@ -20,6 +20,7 @@ import UserRequest from './components/user/UserRequest';
 import AdminRoute from "./components/routes/AdminRoute";
 import AdminDashborad from "./components/Admin/AdminDashborad";
 import DonarDashboard from "./components/Donor/DonorDashboard";
+import ProfilePage from './Profile/ProfilePage';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -60,13 +61,14 @@ const App = () => {
         </Route>
 
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/blood-request" element={<UserRequest />} />
 
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route path="/about" element={<About />} />
-        
+
         <Route path="eligibility" element={<Eligibility />} />
         <Route path="/about/bloodTypes" element={<BloodTypes />} />
         <Route path="impact" element={<Impact />} />
@@ -76,24 +78,24 @@ const App = () => {
 
         <Route path="/donor-login" element={<DonorLogin />} />
         <Route path="/patient-login" element={<PatientLogin />} />
-        
+
         {/* Admim */}
         <Route path="/admin/donar_requests/:id" element={<DonarById />} />
         <Route path="/admin/receiver_requests/:id" element={<ReceiverById />} />
         <Route path="/admin/:path" element={<Admin />} />
         {/* <Route path="/admin/donar_requests" element={<Admin />} /> */}
-        
-       
-       
+
         {/* Donar */}
         <Route path="/donar/dashboard" element={<ApplyDonor />} />
         <Route path="/donar/requests" element={<DonationRequests />} />
         <Route path="/donar/requests/:id" element={<DonarRequestById />} />
 
-
         <Route path="/receiver/dashboard" element={<ReceiverDashboard />} />
         <Route path="/receiver/requests" element={<ReceiverApply />} />
-        <Route path="/receiver/requests/:id" element={<ReceiverRequestById />} />
+        <Route
+          path="/receiver/requests/:id"
+          element={<ReceiverRequestById />}
+        />
       </Routes>
     </>
   );

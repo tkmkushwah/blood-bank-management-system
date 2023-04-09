@@ -110,7 +110,8 @@ export default function ReceiverDashboard() {
 
     }
 
-    const handleRequest = () => {
+    const handleRequest = (item) => {
+        console.log(item._id)
         axios.post(ApiBaseUrl + "/check_receiver", {
             "email": localStorage.getItem("email")
         }).then((res) => {
@@ -119,7 +120,8 @@ export default function ReceiverDashboard() {
                 const user = res.data.data
                 if (user.requests < 1) {
                     axios.post(ApiBaseUrl + "/update_receiver_requests", {
-                        email: localStorage.getItem("email")
+                        email: localStorage.getItem("email"),
+                        donor_id:item._id
                     }).then((resp) => {
                         console.log(resp.data)
                         if (res.data.success) {
@@ -427,7 +429,7 @@ export default function ReceiverDashboard() {
                                 <ShareIcon />
                             </IconButton> */}
                                     <Button textAlign="center" variant="contained" color='info' endIcon={<SendIcon />} onClick={() => {
-                                        handleRequest()
+                                        handleRequest(item)
                                     }}>
                                         Send Request
                                     </Button>

@@ -390,7 +390,7 @@ export const CheckReceiverValid = async (req, res) => {
 
 export const updateReceiverRequests = async (req, res) => {
   try {
-    const response = await RecReqModel.updateOne({ email: req.body.email }, { requests: 1})
+    const response = await RecReqModel.updateOne({ email: req.body.email }, { requests: 1,donarId:req.body.donor_id})
     console.log(response)
     res.send({
       success:true,

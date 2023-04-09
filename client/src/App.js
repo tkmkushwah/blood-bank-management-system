@@ -86,7 +86,7 @@ const App = () => {
         {/* <Route path="/admin/donar_requests" element={<Admin />} /> */}
 
         {/* Donar */}
-        <Route path="/donar/dashboard" element={<ApplyDonor />} />
+        <Route path="/donar/dashboard" element={<DonarDashboard />} />
         <Route path="/donar/requests" element={<DonationRequests />} />
         <Route path="/donar/requests/:id" element={<DonarRequestById />} />
 

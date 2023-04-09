@@ -30,7 +30,7 @@ const applydonor = new mongoose.Schema(
       required: [true, "Blood group is require"],
     },
     DOB: {
-      type: Date,
+      type: String,
       required: [true, "DOB group is require"],
     },
     address: {

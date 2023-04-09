@@ -25,7 +25,7 @@ const RecSchema = new mongoose.Schema(
       required: [true, "Blood group is require"],
     },
     DOB: {
-      type: Date,
+      type: String,
       required: [true, "DOB group is require"],
     },
     address: {
@@ -52,4 +52,4 @@ const RecSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("bloodRequests", RecSchema);
+export default mongoose.model("blood_requests", RecSchema);

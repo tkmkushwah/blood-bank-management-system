@@ -34,7 +34,7 @@ export const ReceiverById = () => {
                     if (res.data.success) {
                         let obj = res.data.data
                         delete obj["_id"]
-                        delete obj["status"]
+                        // delete obj["status"]
                         delete obj["createdAt"]
                         delete obj["updatedAt"]
                         delete obj["__v"]

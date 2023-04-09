@@ -75,7 +75,7 @@ export default function DonationRequests() {
     useEffect(() => {
         setLoadingData(true)
         axios.post( ApiBaseUrl + "/requests_for_donar",{
-          email:"tikamsingh1901900@gmail.com"
+          email:localStorage.getItem("email")
         }).then((res) => {
             console.log(res.data)
             if (res.data.success) {

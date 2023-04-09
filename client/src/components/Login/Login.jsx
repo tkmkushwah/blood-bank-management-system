@@ -33,8 +33,7 @@ const Login = () => {
           navigate("/donar/dashboard")
         } else if (userType === "Receiver"){
           navigate("/receiver/dashboard")
-        } else {
-          localStorage.setItem("userType","admin")
+        } else if (userType === "admin") {
           navigate("/admin/dashboard")
         }
       } else {

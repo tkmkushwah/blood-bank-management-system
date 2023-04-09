@@ -44,14 +44,12 @@ export const DonarById = () => {
         toast.success('Donation Aproved')
         axios.post(ApiBaseUrl + "/send_mail",{
           recipient:specificDonarData.email,
-          subject:"Donation Approved Blood Bank",
+          subject:"Donation Approved (Blood Bank DEI)",
           text:`<p>Hi ${specificDonarData.name},</p>
           <br>
-          <p>Your donation request has been accepted.</p> 
-          <p>We really appreciate your donation! Your contribution will help us change lives literally!</p>
-          <br>
-          <p>Thanks and Regards</p>
-          <p>Admin (Blood Bank DEI)</p>
+          <p>Your donation request has been accepted. <br> We really appreciate your donation! Your contribution will help us change lives literally!</p> 
+          <p>We will inform you once the request for your blood group will be raised.</p>
+          <p>Thanks and Regards <br> Admin (Blood Bank DEI)</p>
           `
         }).then((res) => {
 

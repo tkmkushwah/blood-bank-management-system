@@ -26,7 +26,7 @@ const applydonor = new mongoose.Schema(
     },
 
     bloodgroup: {
-      type: Object,
+      type: String,
       required: [true, "Blood group is require"],
     },
     DOB: {
@@ -39,10 +39,10 @@ const applydonor = new mongoose.Schema(
     },
 
     fitcer: {
-      type: Buffer,
+      type: String,
     },
     card: {
-      type: Buffer,
+      type: String,
     },
     question1: {
       type: String,
@@ -67,4 +67,4 @@ const applydonor = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("donorRequests", applydonor);
+export default mongoose.model("donor_requests", applydonor);

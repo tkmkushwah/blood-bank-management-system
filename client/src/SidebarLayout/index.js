@@ -72,7 +72,7 @@ function SidebarLayout(props) {
                         </ListItemButton>
                     </ListItem>
                     </Link>
-                ))} */}
+                ))}
                 {localStorage.getItem("userType") === "Receiver" && receiverMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
@@ -84,7 +84,7 @@ function SidebarLayout(props) {
                         </ListItemButton>
                     </ListItem>
                     </Link>
-                ))}
+                ))} */}
             </List>
             {/* <Divider />
       <List>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
-
+import { NavLink } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -46,7 +46,7 @@ function SidebarLayout(props) {
     const drawer = (
         <div>
             {/* <Toolbar /> */}
-            <img textAlign='center' src={newlogo} height={160} />
+            <NavLink to="/"> <img textAlign='center' src={newlogo} height={160} /></NavLink>
             <Divider />
             <List>
                 {localStorage.getItem("userType") === "admin" && adminMenu.map((menu, index) => (

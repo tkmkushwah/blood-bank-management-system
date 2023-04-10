@@ -45,8 +45,8 @@ const Header = () => {
                   style={{
                     height: "70px",
                     marginLeft: "30px",
-                    borderRadius:'50%',
-             boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'
+                    borderRadius: "50%",
+                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
                   }}
                   alt="mainIcon"
                 />
@@ -100,10 +100,17 @@ const Header = () => {
                             auth?.user?.role === 1 ? "admin" : "user"
                           }`}
                           className="dropdown-item"
-                        >
-                        </NavLink>
+                        ></NavLink>
                       </li>
                       <li>
+                        <NavLink
+                          to={`/${localStorage
+                            .getItem("userType")
+                            .toLowerCase()}/dashboard`}
+                          className="nav-link "
+                        >
+                          Dashboard
+                        </NavLink>
                         <NavLink
                           onClick={handleLogout}
                           to="/login"

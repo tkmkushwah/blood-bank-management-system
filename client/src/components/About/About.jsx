@@ -30,16 +30,16 @@ const About = () => {
                 <h3><b>Know More</b></h3>
               </li>
               <li className="listItem">
-              <h4><NavLink to="/bloodtypes">Blood Types</NavLink></h4>
+              <h4><NavLink to="/bloodtypes" className="nav-link">Blood Types</NavLink></h4>
               </li>
               <li className="listItem">
-                <h4><NavLink to="/eligibility">Eligibility</NavLink></h4>
+                <h4><NavLink to="/eligibility" className="nav-link">Eligibility</NavLink></h4>
               </li>
               <li>
-              <h4><NavLink to="/impact">Impact</NavLink></h4>
+              <h4><NavLink to="/impact" className="nav-link">Impact</NavLink></h4>
               </li>
               <li className="listItem">
-              <h4><NavLink to="/research">Research</NavLink></h4>
+              <h4><NavLink to="/research" className="nav-link">Research</NavLink></h4>
               </li>
             </ul>
           </div>

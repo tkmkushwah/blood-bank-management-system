@@ -5,6 +5,7 @@ import RecReqModel from "../models/RecReqModel.js";
 import ApplyDonerModel from "../models/ApplyDonerModel.js";
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
+import BloodBank from "../models/BloodBank.js";
 dotenv.config(); 
 
 let mailTransporter = nodemailer.createTransport({
@@ -430,6 +431,60 @@ export const requestsForReceiver = async (req, res) => {
   }
 }
 
- 
+export const addBloodBank = async (req, res) => {
+  const newBloodBank = new BloodBank(req.body);
+  const data = await newBloodBank.save();
+  try {
+    //  console.log(buf)
+    res.send({
+      success: true,
+      data: data,
+      // message:"You are "
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+} 
 
+export const fetchBloodBank = async (req, res) => {
+  try {
+    const response = await BloodBank.find()
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
 
+export const updateBloodBank = async (req, res) => {
+  try {
+    const response = await BloodBank.findByIdAndUpdate(req.body.id,{bloodgroup:req.body.bloodgroup})
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const deleteBloodBank = async (req, res) => {
+  try {
+    const response = await BloodBank.findByIdAndDelete(req.body.id)
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}

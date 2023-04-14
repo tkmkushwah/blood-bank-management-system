@@ -27,7 +27,7 @@ export const DonarById = () => {
         delete obj["updatedAt"]
         delete obj["__v"]
         delete obj["card"]
-        delete obj["fitcer"]
+        // delete obj["fitcer"]
         setSpecificDonarData(res.data.data)
         setLoadingData(false)
       }
@@ -77,14 +77,19 @@ export const DonarById = () => {
                 <Grid item xs={12} sm={4} md={4} key={index}>
                   <Box>
                     <Typography>{_}</Typography>
-                    {_ === "doctorapproval" ? <Box sx={{ display: 'flex', alignItems: "center", gap: 2 }}>
+                    {_ === "fitcer" ? <Box sx={{ display: 'flex', alignItems: "center", gap: 2 }}>
+              
                       <img src={specificDonarData[_]} height={140} width={200} />
                     <IconButton color='primary' onClick={handleDownload}> <i className="fa fa-light fa-download" ></i></IconButton>
+                    
                     </Box> : <Alert message={specificDonarData[_]} type="info" />}
                   </Box>
+                  
                 </Grid>
+                
               ))}
             </Grid>
+            
           </CardContent>
           <Box sx={{ display: 'flex', textAlign: "center", gap: 2, p: 2 }}>
             <Button variant="contained" color="success" onClick={handleApproval}>

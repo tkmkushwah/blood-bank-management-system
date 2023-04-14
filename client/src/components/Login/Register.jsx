@@ -74,7 +74,7 @@ const Register = () => {
             </Form.Item> */}
 
             <Form.Item
-              label="who is your best frient?"
+              label="Who is your best friend?"
               name="answer"
               onChange={(e) => setAnswer(e.target.value)}
             >

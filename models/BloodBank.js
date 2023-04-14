@@ -9,25 +9,22 @@ const blood_bank_schema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: false,
+      required: true,
       unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
     },
     phone: {
       type: Number,
-      required: false,
+      required: true,
     },
-    bloodgroup: {
+
+    answer: {
       type: String,
-      required: [false, "Blood group is require"],
+      required: true,
     },
-    address: {
-      type: String,
-      required: false,
-    },
-    status:{
-      type:String,
-      default:"Pending"
-    }
   },
   { timestamps: true }
 );

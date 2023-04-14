@@ -44,6 +44,35 @@ export const registerController = async (req, res) => {
     });
   }
 };
+
+// bloodbank regestration
+
+export const bankregisterController = async (req, res) => {
+  try {
+    const existingUser = await BloodBank.findOne({ email: req.body.email });
+
+    if (existingUser) {
+      return res
+        .status(200)
+        .send({ message: "Bank Already Exist", success: false });
+    }
+
+    const password = req.body.password;
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    req.body.password = hashedPassword;
+    const newUser = new BloodBank(req.body);
+    await newUser.save();
+    res.status(201).send({ message: "Register Sucessfully", success: true });
+  } catch (error) {
+    if (error) console.log(error);
+    res.status(500).send({
+      success: false,
+      message: `Register Controller ${error.message}`,
+    });
+  }
+};
+
 //login handler
 export const loginController = async (req, res) => {
   try {
@@ -431,21 +460,21 @@ export const requestsForReceiver = async (req, res) => {
   }
 }
 
-export const addBloodBank = async (req, res) => {
-  const newBloodBank = new BloodBank(req.body);
-  const data = await newBloodBank.save();
-  try {
-    //  console.log(buf)
-    res.send({
-      success: true,
-      data: data,
-      // message:"You are "
-    })
-  } catch (error) {
-    console.log(error);
-    res.send({ error });
-  }
-} 
+// export const addBloodBank = async (req, res) => {
+//   const newBloodBank = new BloodBank(req.body);
+//   const data = await newBloodBank.save();
+//   try {
+//     //  console.log(buf)
+//     res.send({
+//       success: true,
+//       data: data,
+//       // message:"You are "
+//     })
+//   } catch (error) {
+//     console.log(error);
+//     res.send({ error });
+//   }
+// } 
 
 export const fetchBloodBank = async (req, res) => {
   try {

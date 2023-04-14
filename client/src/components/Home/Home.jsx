@@ -45,6 +45,12 @@ const Home = () => {
             <button>
               <NavLink to="/register">Register</NavLink>
             </button>
+            <button>
+              <NavLink to="/bloodbanklogin">Bloodbank Login</NavLink>
+            </button>
+            <button>
+              <NavLink to="/bankregister">Bloodbank Regestration</NavLink>
+            </button>
           </div>
         </div>
       </section>

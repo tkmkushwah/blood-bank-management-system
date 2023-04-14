@@ -20,9 +20,10 @@ import {
   requestsForReceiver,
   fetchReceiverById,
   approveReceiverRequests,
-  addBloodBank,
+  // addBloodBank,
   fetchBloodBank,
   updateBloodBank,
+  bankregisterController,
   deleteBloodBank
 } from "../controllers/userCtrl.js";
 import {
@@ -38,6 +39,8 @@ const router =express.Router();
 
 //Register || POST
 router.post('/register',registerController);
+// bank regestration post
+router.post('/bankregister',bankregisterController);
 
 // Login || POST
 router.post('/login',loginController);
@@ -84,7 +87,7 @@ router.post("/check_receiver", CheckReceiverValid);
 router.post("/update_receiver_requests", updateReceiverRequests);
 router.post("/requests_for_donar", requestsForDonar);
 router.post("/requests_for_receiver", requestsForReceiver);
-router.post("/addBloodBank",addBloodBank)
+// router.post("/addBloodBank",addBloodBank)
 router.get("/getBloodBank",fetchBloodBank)
 router.put("/updateBloodBank",updateBloodBank)
 router.delete("/deleteBloodBank",deleteBloodBank)

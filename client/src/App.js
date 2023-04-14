@@ -21,6 +21,8 @@ import AdminRoute from "./components/routes/AdminRoute";
 import AdminDashborad from "./components/Admin/AdminDashborad";
 import DonarDashboard from "./components/Donor/DonorDashboard";
 import ProfilePage from './Profile/ProfilePage';
+import BankLogin from './components/Login/BankLogin';
+import BankRegister from './components/Login/BankRegister';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -61,6 +63,8 @@ const App = () => {
         </Route>
 
         <Route path="/login" element={<Login />} />
+        <Route path="/bloodbanklogin" element={<BankLogin />} />
+        <Route path="/bankregister" element={<BankRegister />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/blood-request" element={<UserRequest />} />
 
@@ -96,6 +100,7 @@ const App = () => {
           path="/receiver/requests/:id"
           element={<ReceiverRequestById />}
         />
+        
       </Routes>
     </>
   );

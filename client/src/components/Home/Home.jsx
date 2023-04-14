@@ -27,17 +27,20 @@ const Home = () => {
             we are here to provide you best facilities
           </p>
           <br />
-          <div>
+          
+          <div className="eligibility-btn-container">
             <NavLink to="/eligibility">
               <img src={eligibilityIcon} alt="icon" />
             </NavLink>
+
             <button>
               <NavLink to="/eligibility">Are you eligible?</NavLink>
             </button>
           </div>
+
           <div
-            className="button-container"
-            style={{ display: "flex", marginTop: "50px" }}
+            className="login-btn-container"
+            style={{ display:"flex" ,justifyContent: "space-between", marginTop: "50px" }}
           >
             <button>
               <NavLink to="/login">Login</NavLink>

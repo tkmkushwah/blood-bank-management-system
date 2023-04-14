@@ -1,13 +1,9 @@
-// Profile.js
-import React from "react";
-import '../styles/profile.scss';
+import React from 'react'
 
 const ProfilePage = () => {
   return (
-    <div className="profile">
-     profuke
-    </div>
-  );
-};
+    <div>ProfilePage</div>
+  )
+}
 
-export default ProfilePage;
+export default ProfilePage

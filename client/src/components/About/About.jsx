@@ -8,9 +8,10 @@ const About = () => {
       <section className="about-us">
         <h1>LEARN</h1>
         <div className="container">
-          <div className="logo">
+          <div className="logo" >
             <img src={img1} alt="dh" />
           </div>
+
           <div className="about">
             <h1>Learn About Blood Donation</h1>
             <p>
@@ -25,23 +26,23 @@ const About = () => {
               blood donation research.
               <br />
             </p>
-            <ul className="list">
-              <li className="listItem">
+            <div className="list" >
+              
                 <h3><b>Know More</b></h3>
-              </li>
-              <li className="listItem">
+              
+              
               <h4><NavLink to="/bloodtypes" className="nav-link">Blood Types</NavLink></h4>
-              </li>
-              <li className="listItem">
-                <h4><NavLink to="/eligibility" className="nav-link">Eligibility</NavLink></h4>
-              </li>
-              <li>
+           
+              
+              <h4><NavLink to="/eligibility" className="nav-link">Eligibility</NavLink></h4>
+              
+             
               <h4><NavLink to="/impact" className="nav-link">Impact</NavLink></h4>
-              </li>
-              <li className="listItem">
+             
+              
               <h4><NavLink to="/research" className="nav-link">Research</NavLink></h4>
-              </li>
-            </ul>
+            
+            </div>
           </div>
         </div>
       </section>

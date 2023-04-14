@@ -4,7 +4,6 @@
   height: 90vh;
   overflow-x: hidden;
   background-image: url("../assets/bg.jpg");
-  background-color: #e68781;
   background-repeat: no-repeat;
   object-fit: contain;
     background-position: center;
@@ -14,12 +13,11 @@
   background-size: cover;
 
 >div{
-  >div{
+  >.login-btn-container,.eligibility-btn-container{
     width: 25%;
     margin: 0 auto;
-    text-align: center;
     
-    
+       
   >button {
     background-color: $mainColor;
     padding: .5rem;

@@ -6,28 +6,37 @@
   background-repeat: norepeat;
   background-size: cover;
   text-align: center;
+
   > .container {
     padding: 3rem 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%;
+
+    >.logo{
+      width: 30%;
+      padding: 50px;
+    }
     > .about {
+      width: 70%;
       text-align: left;
       line-height: 1.4rem;
-      padding-left: 50px;
-      > .deco {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-      }
+      padding: 50px;
+     
       > .list {
-        text-decoration: none;
-        list-style: none;
-        color: black;
-        > .listItem {
+        
+        >h4>a{
+          color: rgb(201, 35, 76);
           text-decoration: none;
-          color: black;
         }
+        &:hover{
+          >h4>a {
+              color: rgb(201, 35, 146);
+              text-decoration: underline;
+            }
+        }
+        
+        
       }
     }
   }

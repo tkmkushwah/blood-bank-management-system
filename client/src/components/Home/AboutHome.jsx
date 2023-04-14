@@ -7,12 +7,12 @@ const AboutHome = () => {
       className="about-us"
       style={{ borderRadius: "1%", margin: "50px 0" }}
     >
-      <h1 style={{ textAlign: "center", paddingTop: "30px" }}>About Us</h1>
-
+      <h1 style={{ textAlign: "center", paddingTop: "30px" }}>LEARN</h1>
       <div className="container">
         <div className="logo">
           <img src={img1} alt="dh" />
         </div>
+
         <div className="about">
           <h1>Learn About Blood Donation</h1>
           <p>
@@ -22,38 +22,40 @@ const AboutHome = () => {
             <br />
             see the impact of blood donations, discover fun and interesting
             <br />
-            facts about blood types, and learn how Inida is involved in
+            facts about blood types, and learn how India is involved in
             <br />
             blood donation research.
             <br />
           </p>
-          <ul className="list">
-            <li className="listItem">
-              <h3>
-                <b>Know More</b>
-              </h3>
-            </li>
-            <li className="listItem">
-              <h4>
-                <NavLink to="/bloodtypes">Blood Types</NavLink>
-              </h4>
-            </li>
-            <li className="listItem">
-              <h4>
-                <NavLink to="/eligibility">Eligibility</NavLink>
-              </h4>
-            </li>
-            <li className="listItem">
-              <h4>
-                <NavLink to="/impact">Impact</NavLink>
-              </h4>
-            </li>
-            <li className="listItem">
-              <h4>
-                <NavLink to="/research">Research</NavLink>
-              </h4>
-            </li>
-          </ul>
+          <div className="list">
+            <h3>
+              <b>Know More</b>
+            </h3>
+
+            <h4>
+              <NavLink to="/bloodtypes" className="nav-link">
+                Blood Types
+              </NavLink>
+            </h4>
+
+            <h4>
+              <NavLink to="/eligibility" className="nav-link">
+                Eligibility
+              </NavLink>
+            </h4>
+
+            <h4>
+              <NavLink to="/impact" className="nav-link">
+                Impact
+              </NavLink>
+            </h4>
+
+            <h4>
+              <NavLink to="/research" className="nav-link">
+                Research
+              </NavLink>
+            </h4>
+          </div>
         </div>
       </div>
     </section>

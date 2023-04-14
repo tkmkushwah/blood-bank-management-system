@@ -60,7 +60,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <NavLink to="/about" className="nav-link ">
-                  About
+                  Learn
                 </NavLink>
               </li>
               <li className="nav-item">

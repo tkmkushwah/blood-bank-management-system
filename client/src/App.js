@@ -23,6 +23,7 @@ import DonarDashboard from "./components/Donor/DonorDashboard";
 import ProfilePage from './Profile/ProfilePage';
 import BankLogin from './components/Login/BankLogin';
 import BankRegister from './components/Login/BankRegister';
+import BankDashborad from './components/BloodBank/BankDadhborad';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -100,6 +101,7 @@ const App = () => {
           path="/receiver/requests/:id"
           element={<ReceiverRequestById />}
         />
+      <Route path="/bankdashborad" element={<BankDashborad />} />
         
       </Routes>
     </>

@@ -54,18 +54,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/dashboard" element={<PrivateRoute />}>
+        {/* <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
-        </Route>
+        </Route> */}
 
-        <Route path="/dashboard" element={<AdminRoute />}>
+        {/* <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashborad />} />
-        </Route>
+        </Route> */}
 
         <Route path="/login" element={<Login />} />
         <Route path="/bloodbanklogin" element={<BankLogin />} />
         <Route path="/bankregister" element={<BankRegister />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="/blood-request" element={<UserRequest />} />
 
         <Route path="/register" element={<Register />} />
@@ -78,14 +78,16 @@ const App = () => {
         <Route path="/impact" element={<Impact />} />
         <Route path="/research" element={<Research />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboardlayout" element={<DashboardLayout />} />
 
-        <Route path="/donor-login" element={<DonorLogin />} />
-        <Route path="/patient-login" element={<PatientLogin />} />
+        {/* <Route path="/dashboardlayout" element={<DashboardLayout />} /> */}
+
+        {/* <Route path="/donor-login" element={<DonorLogin />} />
+        <Route path="/patient-login" element={<PatientLogin />} /> */}
 
         {/* Admim */}
         <Route path="/admin/donar_requests/:id" element={<DonarById />} />
         <Route path="/admin/receiver_requests/:id" element={<ReceiverById />} />
+        
         <Route path="/admin/:path" element={<Admin />} />
         {/* <Route path="/admin/donar_requests" element={<Admin />} /> */}
 

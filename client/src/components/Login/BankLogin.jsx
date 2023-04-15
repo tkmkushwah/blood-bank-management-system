@@ -29,7 +29,7 @@ const BankLogin = () => {
         localStorage.setItem("email",res.data.user.email)
         localStorage.setItem("auth", JSON.stringify(res.data));
         message.success("login successfull");
-        navigate("/")
+        navigate("/bankdashborad")
         
       } else {
         message.error(res.data.message);

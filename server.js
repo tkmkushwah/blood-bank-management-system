@@ -1,11 +1,12 @@
 import express from 'express';
 import connectDB from './config/database.js'
-import dotenv from 'dotenv'
 import userRoutes from './routes/userRoutes.js'
+import bankRoutes from "./routes/bankRoutes.js";
+
 import morgan from 'morgan'
 import cors from 'cors'
 
-dotenv.config();
+
 connectDB();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 
 
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/bloodBank", bankRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(process.env.PORT, () => {

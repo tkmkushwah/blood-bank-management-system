@@ -5,7 +5,6 @@ import axios from "axios";
 import toast from 'react-hot-toast'
 import { useAuth } from "../../context/auth";
 import Layout from '../Layout/Layout'
-import { ApiBaseUrl } from "../../apiConfig";
 
 const BankLogin = () => {
     const [auth, setAuth] = useAuth();
@@ -15,7 +14,10 @@ const BankLogin = () => {
   //formHandler
   const onfinishHandler = async (values) => {
     try {
-      const res = await axios.post( ApiBaseUrl + "/getBloodBank", values);
+      const res = await axios.post(
+        "/api/v1/bloodBank/bloodbanklogin",
+        values
+      );
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -27,7 +29,7 @@ const BankLogin = () => {
         localStorage.setItem("email",res.data.user.email)
         localStorage.setItem("auth", JSON.stringify(res.data));
         message.success("login successfull");
-        navigate("/home")
+        navigate("/")
         
       } else {
         message.error(res.data.message);
@@ -49,7 +51,7 @@ const BankLogin = () => {
             className="text-center"
             style={{ textEmphasisStyle: "double-circle" }}
           >
-            Login
+           BloodBank Login
           </h3>
 
           <div style={{ padding: "10px 50px", marginTop: "20px" }}>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {MdBloodtype} from 'react-icons/md'
+// import {MdBloodtype} from 'react-icons/md'
 import {motion} from 'framer-motion'
 
 import { Link, NavLink } from "react-router-dom";
@@ -64,17 +64,17 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink to="/eligibility" className="nav-link ">
+                  Eligibility
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink to="/contact" className="nav-link ">
                   Contact
                 </NavLink>
               </li>
               {!auth?.user ? (
                 <>
-                  <li className="nav-item">
-                    <NavLink to="/register" className="nav-link">
-                      Register
-                    </NavLink>
-                  </li>
                   <li className="nav-item">
                     <NavLink to="/login" className="nav-link">
                       Login

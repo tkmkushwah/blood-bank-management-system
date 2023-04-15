@@ -17,7 +17,7 @@ const BankRegister = () => {
 
   const onfinishHandler = async (values) => {
     try {
-      const res = await axios.post("/api/v1/user/bankregister", values);
+      const res = await axios.post("/api/v1/bloodBank/bankregister", values);
       if (res.data.success) {
         message.success("register successfully");
         navigate("/bloodbanklogin");
@@ -29,10 +29,7 @@ const BankRegister = () => {
       message.error("something went wrong");
     }
   };
-//   const options = [
-//     { value: "Donor", label: "Donor" },
-//     { value: "Receiver", label: "Receiver" }
-//   ];
+
   return (
     <Layout>
       <div className="form-container ">

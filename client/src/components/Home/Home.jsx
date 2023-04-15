@@ -27,32 +27,30 @@ const Home = () => {
             we are here to provide you best facilities
           </p>
           <br />
-          
+
           <div className="eligibility-btn-container">
             <NavLink to="/eligibility">
               <img src={eligibilityIcon} alt="icon" />
             </NavLink>
 
             <button>
-              <NavLink to="/eligibility">Are you eligible?</NavLink>
+              <NavLink to="/bloodbanklogin">Are you BloodBank?</NavLink>
             </button>
           </div>
 
           <div
             className="login-btn-container"
-            style={{ display:"flex" ,justifyContent: "space-between", marginTop: "50px" }}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "50px",
+            }}
           >
             <button>
               <NavLink to="/login">Login</NavLink>
             </button>
             <button>
               <NavLink to="/register">Register</NavLink>
-            </button>
-            <button>
-              <NavLink to="/bloodbanklogin">Bloodbank Login</NavLink>
-            </button>
-            <button>
-              <NavLink to="/bankregister">Bloodbank Regestration</NavLink>
             </button>
           </div>
         </div>

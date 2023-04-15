@@ -18,24 +18,26 @@
             text-transform: uppercase;
             font-family: "Roboto";
             }
-            >.container2{
+            >.container2
+            {
                 
                 margin-top: 1.5rem;
                 display: flex;
-                justify-content: space-evenly;
-                >div{
-                   
-                >img {
-                        padding: 1rem 0.5rem;
-                        height: 100px;
-                        width: 100px;
+                justify-content: space-between;
+                
+                > .eligibility-box{
+                    >h5{
+                        color: $mainColor;
+                       font-weight: bold;
+                        text-align: center;
                     }
-                    >p{
-                        font-family: sans-serif;
-                        text-emphasis-position: initial;
-                        color: rgb(0, 3, 7);
-                    }
+                    
+                    width: 25%;
+                    margin:10px;
+                    padding: 2%;
+                    box-shadow: 0px 0px 4px grey;
                 }
+                
             }
         }
 }

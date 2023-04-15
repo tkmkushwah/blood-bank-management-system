@@ -1,0 +1,22 @@
+@import "colors";
+
+.impact {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../assets/svg/page_bg.png");
+    background-repeat: norepeat;
+    background-size: cover;
+    text-align: center;
+
+    >.container {
+        justify-content: center;
+        width: 80%;
+        >.about {
+            width: 100%;
+            text-align: left;
+            line-height: 1.7rem;
+            padding: 20px;
+
+        }
+    }
+}

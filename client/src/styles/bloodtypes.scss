@@ -1,0 +1,35 @@
+@import "colors";
+
+.blood-types {
+    padding-top: 20px;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../assets/svg/page_bg.png");
+    background-repeat: norepeat;
+    background-size: cover;
+    text-align: center;
+
+    >.container {
+        // border: 2px solid red;
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        height: auto;
+
+        // >.logo {
+        //     width: 30%;
+        //     padding: 30px;
+        // }
+
+        >.about {
+            width: 100%;
+            text-align: left;
+            line-height: 2rem;
+            padding: 50px;
+>h5{
+color: $mainColor;
+font-weight: bold;
+}
+        }
+    }
+}

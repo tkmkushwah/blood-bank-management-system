@@ -1,9 +1,10 @@
 import React from "react";
 import Layout from "../Layout/Layout";
+import '../../styles/impact.scss';
 const Impact = () => {
   return (
     <Layout>
-      <section className="about-us">
+      <section className="impact">
         <h1>Impact of Blood Donation</h1>
         <div className="container">
           <div className="about">

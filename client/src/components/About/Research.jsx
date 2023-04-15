@@ -1,10 +1,11 @@
 import React from "react";
-import img1 from "../../assets/b_donor_reg.png";
+// import img1 from "../../assets/b_donor_reg.png";
+import "../../styles/impact.scss";
 import Layout from "../Layout/Layout";
 const Research = () => {
   return (
     <Layout>
-      <section className="about-us">
+      <section className="impact">
         <h1>Research</h1>
         <div className="container">
           <div className="about">

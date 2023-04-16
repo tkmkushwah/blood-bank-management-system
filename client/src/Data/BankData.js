@@ -2,12 +2,12 @@ export const userMenu = [
     {
       name: "Dashboard",
       path: "/bankdashborad",
-      icon: "fa-solid fa-house",
+      icon: "fa-solid fa-user",
     },
   
     {
-      name: "Add Blood Data",
-      path: "/bankdashborad/add-data",
+      name: "Requests",
+      path: "/bankdashborad/requests",
       icon: "fa-solid fa-user-doctor",
     },
     {
@@ -16,9 +16,9 @@ export const userMenu = [
       icon: "fa-solid fa-user",
     },
     {
-      name: "Profile",
-      path: "/profile",
-      icon: "fa-solid fa-user",
+      name: "Home",
+      path: "/",
+      icon: "fa-solid fa-home",
     },
   ];
   

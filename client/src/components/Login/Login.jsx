@@ -30,7 +30,7 @@ const Login = () => {
         localStorage.setItem("userType",userType)
         message.success("login successfull");
         if(userType === "Donor"){
-          navigate("/donar/dashboard")
+          navigate("/donor/dashboard")
         } else if (userType === "Receiver"){
           navigate("/receiver/dashboard")
         } else if (userType === "admin") {

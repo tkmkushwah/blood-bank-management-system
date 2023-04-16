@@ -25,6 +25,7 @@ import {
   requireSignIn,
   isAdmin,
   isDonor,
+  isReceiver,
 } from "../middleware/authMiddleware.js";
 // route objects
 
@@ -47,19 +48,19 @@ router.post("/apply-donor",requireSignIn, createApplyDonorCntrlr);
 
 
 //user route
-// router.get('/user-auth', requireSignIn,(req,res)=>{
-//     res.status(200).send({ok:true});
-// });
+router.get("/user-auth", requireSignIn, isReceiver, (req, res) => {
+  res.status(200).send({ ok: true });
+});
 
 // //admin route
-// router.get('/admin-auth', requireSignIn,isAdmin,(req,res)=>{
-//     res.status(200).send({ok:true});
-// });
+router.get('/admin-auth', requireSignIn,isAdmin,(req,res)=>{
+    res.status(200).send({ok:true});
+});
 
 // //Donor route
-// router.get('/donor-auth', requireSignIn,isDonor,(req,res)=>{
-//     res.status(200).send({ok:true});
-// });
+router.get("/donor-auth", requireSignIn, isDonor, (req, res) => {
+  res.status(200).send({ ok: true });
+});
 
 //dummy (test) route
 // router.get('/test',requireSignIn,isAdmin,testController)

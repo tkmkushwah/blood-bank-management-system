@@ -163,6 +163,7 @@ function ResponsiveDrawer(props) {
  
 
     console.log(showMore, filteredData.length, showMore !== filteredData, img)
+    
     return (
         // <SidebarLayout>
         <Box sx={{ flexGrow: 1, padding: 2 }}>

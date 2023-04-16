@@ -38,7 +38,7 @@ export const isAdmin = async (req, res, next) => {
 export const isDonor = async (req, res, next) => {
   try {
     const user = await  userModel.findById(req.user._id);
-    if (user.role !== 2) {
+    if (user.usertype !== "Donor") {
       return res
         .status(401)
         .send({ success: false, message: "unautherised access" });
@@ -50,5 +50,22 @@ export const isDonor = async (req, res, next) => {
     res
       .status(401)
       .send({ success: false, message: "error in Donor middleware" });
+  }
+};
+export const isReceiver = async (req, res, next) => {
+  try {
+    const user = await  userModel.findById(req.user._id);
+    if (user.usertype !== "Receiver") {
+      return res
+        .status(401)
+        .send({ success: false, message: "unautherised access" });
+    } else {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res
+      .status(401)
+      .send({ success: false, message: "error in Receiver middleware" });
   }
 };

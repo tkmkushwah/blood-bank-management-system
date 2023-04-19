@@ -79,8 +79,8 @@ export const receiverMenu = [
     icon: "fa-solid fa-user-doctor",
   },
   {
-    name: "Profile",
-    path: "/profile",
+    name: "BloodBank",
+    path: "/receiver/reqbloodbank",
     icon: "fa-solid fa-user",
   },
 ];

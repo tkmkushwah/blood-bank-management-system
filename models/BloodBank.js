@@ -28,6 +28,9 @@ const blood_bank_schema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    usertype:{
+      type:String,
+    },
   },
   { timestamps: true }
 );

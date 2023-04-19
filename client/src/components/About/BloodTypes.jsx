@@ -19,35 +19,49 @@ const BloodTypes = () => {
             </b>
             <br />
             <p>
-              Human blood falls into four different blood groups: A, B, AB and
-              O. Your blood also has what is known as an Rh factor: It either
-              contains a certain protein or it doesn’t. (This is the positive
-              [+] or negative [-] after your blood type.) The possible
-              combinations create eight different blood types: A+, A-, B+, B-,
-              AB+, AB-, O+ and O-. You don’t need to know your blood type to
-              donate blood. Donating blood is a great way to find out your blood
-              type - we’ll tell you after you donate. And, whatever your type,
-              every donor is needed and every donation transforms
-              lives—including your own!
+              <ul>
+                <li>
+                  Human blood can be categorized into four blood groups: A, B,
+                  AB, and O.
+                </li>
+                <li>
+                  The blood also has an Rh factor which can be positive (+) or
+                  negative (-).
+                </li>
+                <li>
+                  The combination of blood group and Rh factor creates eight
+                  blood types: A+, A-, B+, B-, AB+, AB-, O+, and O-.
+                </li>
+                <li>
+                  Donating blood is a way to find out one's blood type, and
+                  every donor is needed.
+                </li>
+              </ul>
             </p>
-            
-              <h5>Why Matching Blood Types is Important ?</h5>
-           
+
+            <h5>Why Matching Blood Types is Important ?</h5>
+
             <p>
-              Blood circulates through our bodies carrying nutrients, oxygen,
-              antibodies and other necessities of life to every cell and tissue.
-              Blood also removes waste from our cells and has a major role in
-              the body’s defense against infection. When a patient needs blood,
-              the blood donor and recipient must have compatible blood types to
-              ensure a safe, successful transfusion. That’s why each blood type
-              can be transfused only into people with certain other blood types.
-              O-negative is the universal red cell donor, which means O-negative
-              whole blood can be transfused into all blood types. O-negative is
-              the most in-demand blood type because it can be used in emergency
-              and other situations where the patient’s blood type is unknown.
-              Read more about the special qualities of type O blood. AB-negative
-              and AB-positive are the universal plasma donors, meaning their
-              plasma can be given to patients with any blood type.
+              <li>
+                Blood is responsible for transporting nutrients, oxygen,
+                antibodies, and other necessities of life to every cell and
+                tissue in the body.
+              </li>
+              <li>
+                Blood also plays a crucial role in removing waste from our cells
+                and defending the body against infections.
+              </li>
+              <li>
+                For a successful blood transfusion, the donor's and recipient's
+                blood types must be compatible.
+              </li>
+              <li>
+                O-negative is the universal red cell donor, meaning it can be
+                transfused into all blood types and is in high demand for
+                emergency situations. AB-negative and AB-positive are the universal plasma donors,
+                meaning their plasma can be given to patients with any blood
+                type.
+              </li>
             </p>
           </div>
         </div>

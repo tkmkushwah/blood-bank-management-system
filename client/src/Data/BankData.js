@@ -1,4 +1,4 @@
-export const bankMenu = [
+ const bankMenu = [
     {
       name: "Dashboard",
       path: "/bankdashborad",
@@ -22,3 +22,4 @@ export const bankMenu = [
     },
   ];
   
+  export default bankMenu;

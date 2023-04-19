@@ -25,10 +25,7 @@ import DonarDashboard from "./components/Donor/DonorDashboard";
 import BankLogin from './components/Login/BankLogin';
 import BankRegister from './components/Login/BankRegister';
 import BankDashborad from './components/BloodBank/BankDadhborad';
-import UpdateData from './components/BloodBank/UpdateData';
-import BankRequest from './components/BloodBank/BankRequest';
 import DonorPrivate from './components/routes/DonorPrivate.jsx'
-import ReqToBB from './components/Receiver/ReqToBB';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -116,14 +113,6 @@ const App = () => {
           path="/receiver/requests/:id"
           element={<ReceiverRequestById />}
         />
-<<<<<<< HEAD
-=======
-        <Route path="/bankdashborad" element={<BankDashborad />} />
-      
-      <Route path="/bankdashborad/update-data" element={<UpdateData />} />
-      <Route path="/bankdashborad/requests" element={<BankRequest />} />
-      <Route path="/receiver/reqbloodbank" element={<ReqToBB />} />
->>>>>>> 4570e1bd287b1db61758282c38a4dfd3a62da07f
       </Routes>
     </>
   );

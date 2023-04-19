@@ -6,17 +6,17 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+// import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import newlogo from '../../assets/newlogo.jpg'
-import axios from 'axios';
+// import axios from 'axios';
 import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid';
@@ -27,10 +27,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import { textAlign } from '@mui/system';
 import Chart from "react-apexcharts"
-import {bankMenu} from '../../Data/BankData';
 import { BiChevronDown } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-
+import bankMenu from '../../Data/BankData.js'
 const drawerWidth = 240;
 
  
@@ -44,29 +43,34 @@ function BankDashboardLayout(props) {
 
     
     const drawer = (
-        <div>
-            {/* <Toolbar /> */}
-            <NavLink to="/"> <img textAlign='center' src={newlogo} height={160} /></NavLink>
-            <Divider />
-            <List>
-<<<<<<< HEAD
-                {localStorage.getItem("userType") === "bloodbank" && userMenu.map((menu, index) => (
-=======
-                {localStorage.getItem("userType") === "admin" && bankMenu.map((menu, index) => (
->>>>>>> 4570e1bd287b1db61758282c38a4dfd3a62da07f
-                    <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
-                    <ListItem key={index}>
-                        <ListItemButton sx={{background:grey[300],borderRadius:2}}>
-                            <ListItemIcon>
-                                <i className={menu.icon}></i>
-                            </ListItemIcon>
-                            <ListItemText primary={menu.name} />
-                        </ListItemButton>
-                    </ListItem>
-                    </Link>
-                ))}
-            </List>
-            {/* <Divider />
+      <div>
+        {/* <Toolbar /> */}
+        <NavLink to="/">
+          {" "}
+          <img textAlign="center" src={newlogo} height={160} />
+        </NavLink>
+        <Divider />
+        <List>
+          {localStorage.getItem("userType") === "bloodbank" &&
+            bankMenu.map((menu, index) => (
+              <Link
+                to={menu.path}
+                style={{ textDecoration: "none", color: grey[800] }}
+              >
+                <ListItem key={index}>
+                  <ListItemButton
+                    sx={{ background: grey[300], borderRadius: 2 }}
+                  >
+                    <ListItemIcon>
+                      <i className={menu.icon}></i>
+                    </ListItemIcon>
+                    <ListItemText primary={menu.name} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+            ))}
+        </List>
+        {/* <Divider />
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -79,7 +83,7 @@ function BankDashboardLayout(props) {
           </ListItem>
         ))}
       </List> */}
-        </div>
+      </div>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;

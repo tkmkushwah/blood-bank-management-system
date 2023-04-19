@@ -3,7 +3,7 @@ import {
   loginController,
   registerController,
   forgotPasswordController,
-  testController,
+  // testController,
   createBloodReqCntrlr,
   createApplyDonorCntrlr,
   fetchDonars,

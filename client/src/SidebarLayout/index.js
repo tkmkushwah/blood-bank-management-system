@@ -19,16 +19,16 @@ import newlogo from '../assets/newlogo.jpg'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, CircularProgress, Paper, styled, Typography,Button } from '@mui/material';
 import { blue, blueGrey, deepPurple, grey, indigo, pink, red } from '@mui/material/colors';
-import {  Input, Tooltip } from 'antd';
-import SearchIcon from '@mui/icons-material/Search';
-import InfoIcon from '@mui/icons-material/Info';
-import { textAlign } from '@mui/system';
-import Chart from "react-apexcharts"
+// import {  Input, Tooltip } from 'antd';
+// import SearchIcon from '@mui/icons-material/Search';
+// import InfoIcon from '@mui/icons-material/Info';
+// import { textAlign } from '@mui/system';
+// import Chart from "react-apexcharts"
 import { adminMenu, donarMenu, receiverMenu } from '../Data/data';
-import { BiChevronDown } from 'react-icons/bi';
+// import { BiChevronDown } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -107,71 +107,99 @@ function SidebarLayout(props) {
 
      
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
-                }}
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+
+        <AppBar
+          position="fixed"
+          sx={{
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}px` },
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
             >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Blood Bank Management
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Box
-                // component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-                aria-label="mailbox folders"
+              <MenuIcon />
+            </IconButton>
+
+            <Typography variant="h6" noWrap component="div">
+              Blood Bank Management
+            </Typography>
+            {/* <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              style={{
+                justifyContent: "space-between",
+                border: "3px solid red",
+                alignSelf: "right",
+                marginLeft: "70%",
+              }}
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                    open
-                >
-                    {drawer}
-                </Drawer>
-            </Box>
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, p: 2, width: { sm: `calc(100% - ${drawerWidth}px)`, background: '#F8F8FF' } }}
-            >
-                <Toolbar />
-                
-                {children}
-            </Box>
+              
+            </Typography> */}
+          </Toolbar>
+        </AppBar>
+        <Box
+          // component="nav"
+          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+          aria-label="mailbox folders"
+        >
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
+          >
+            {drawer}
+          </Drawer>
+          <Drawer
+            variant="permanent"
+            sx={{
+              display: { xs: "none", sm: "block" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
+            open
+          >
+            {drawer}
+          </Drawer>
         </Box>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 2,
+            width: {
+              sm: `calc(100% - ${drawerWidth}px)`,
+              background: "#F8F8FF",
+            },
+          }}
+        >
+          <Toolbar />
+
+          {children}
+        </Box>
+      </Box>
     );
 }
 

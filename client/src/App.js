@@ -12,6 +12,7 @@ import Login from './components/Login/Login';
 // import DonorLogin from './components/Login/DonorLogin';
 // import PatientLogin from './components/Login/PatientLogin';
 import PrivateRoute from "./components/routes/Private";
+import BankRoutes from "./components/routes/BankRoutes";
 import Dashboard from './components/user/Dashboard';
 import Register from "./components/Login/Register";
 import ForgotPassword from "./components/Login/ForgotPassword";
@@ -68,6 +69,10 @@ const App = () => {
           <Route path=":path" element={<Admin />} />
         </Route>
 
+        <Route path="/bloodbank" element={<BankRoutes />}>
+          <Route path="dashboard" element={<BankDashborad />} />
+        </Route>
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -108,7 +113,6 @@ const App = () => {
           path="/receiver/requests/:id"
           element={<ReceiverRequestById />}
         />
-        <Route path="/bankdashborad" element={<BankDashborad />} />
       </Routes>
     </>
   );

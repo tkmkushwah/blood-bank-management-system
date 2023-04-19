@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import userModel from "../models/userModel.js";
+import BloodBank from "../models/BloodBank.js";
 
 //protected routes token base
 export const requireSignIn = async (req, res, next) => {
@@ -67,5 +68,22 @@ export const isReceiver = async (req, res, next) => {
     res
       .status(401)
       .send({ success: false, message: "error in Receiver middleware" });
+  }
+};
+export const isBank = async (req, res, next) => {
+  try {
+    const user = await  BloodBank.findById(req.user._id);
+    if (user.usertype !== "bloodbank") {
+      return res
+        .status(401)
+        .send({ success: false, message: "unautherised access" });
+    } else {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res
+      .status(401)
+      .send({ success: false, message: "error in bank middleware" });
   }
 };

@@ -28,8 +28,12 @@ const BankLogin = () => {
         });
         localStorage.setItem("email",res.data.user.email)
         localStorage.setItem("auth", JSON.stringify(res.data));
+
+        let userType = res.data.user.usertype;
+        localStorage.setItem("userType", userType);
+        
         message.success("login successfull");
-        navigate("/bankdashborad")
+        navigate("/bloodbank/dashboard");
         
       } else {
         message.error(res.data.message);
@@ -73,6 +77,7 @@ const BankLogin = () => {
             className="btn btn-primary"
             type="submit"
             onClick={() => {
+
               navigate("/forgot-password");
             }}
           >

@@ -20,7 +20,10 @@ const blood_bank_schema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-
+    usertype: {
+      type: String,
+      default: "bloodbank",
+    },
     answer: {
       type: String,
       required: true,

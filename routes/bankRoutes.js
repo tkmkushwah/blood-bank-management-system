@@ -7,8 +7,15 @@ import {
   deleteBloodBank,
   addBloodBank,
 } from "../controllers/bloodBankCtrl.js";
-
+import { isBank, requireSignIn } from "../middleware/authMiddleware.js";
 const router = express.Router();
+
+router.get("/bank-auth",requireSignIn, isBank, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+
+
+
 // bank regestration post
 router.post("/bankregister", bankregisterController);
 

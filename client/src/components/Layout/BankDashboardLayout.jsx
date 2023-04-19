@@ -49,7 +49,7 @@ function BankDashboardLayout(props) {
             <NavLink to="/"> <img textAlign='center' src={newlogo} height={160} /></NavLink>
             <Divider />
             <List>
-                {localStorage.getItem("userType") === "admin" && userMenu.map((menu, index) => (
+                {localStorage.getItem("userType") === "bloodbank" && userMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
                         <ListItemButton sx={{background:grey[300],borderRadius:2}}>

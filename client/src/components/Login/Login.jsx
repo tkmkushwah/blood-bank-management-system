@@ -26,8 +26,10 @@ const Login = () => {
         });
         localStorage.setItem("email",res.data.user.email)
         localStorage.setItem("auth", JSON.stringify(res.data));
+
         let userType = res.data.user.usertype
         localStorage.setItem("userType",userType)
+        
         message.success("login successfull");
         if(userType === "Donor"){
           navigate("/donor/dashboard")

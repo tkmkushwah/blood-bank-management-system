@@ -51,8 +51,9 @@ export const bankloginController = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        usertype: user.usertype,
         phone: user.phone,
-        adddress: user.address,
+        answer:user.answer,
       },
       token,
     });
@@ -60,7 +61,7 @@ export const bankloginController = async (req, res) => {
     console.log(error);
     res
       .status(500)
-      .send({ message: `error in logincontroller${error.message}` });
+      .send({ message: `error in bankloginController${error.message}` });
   }
 };
 

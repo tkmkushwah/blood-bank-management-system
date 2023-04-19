@@ -11,47 +11,16 @@ const Impact = () => {
             <b>Your role in the world matters.</b>
             <br />
             <p>
-              Blood donation is a crucial element in ensuring the availability
-              of safe and sufficient blood supply for medical purposes. In
-              India, the need for blood is high due to various factors,
-              including a high incidence of accidents, a large population, and a
-              high prevalence of diseases that require blood transfusions. The
-              impact of blood donation in India has been significant and has
-              helped to save countless lives. One of the most significant
-              impacts of blood donation in India is the ability to save lives.
-              According to the World Health Organization (WHO), approximately
-              234 million major operations are performed worldwide each year,
-              many of which require blood transfusions. In India, blood
-              transfusions are required in a variety of medical emergencies,
-              including childbirth, accidents, and surgeries. Blood donation
-              helps to ensure that there is a sufficient supply of blood
-              available to meet these medical emergencies, thereby saving
-              countless lives. Blood donation also has a positive impact on the
-              health of the donor. According to the American Journal of
-              Epidemiology, blood donors have a lower risk of developing
-              cardiovascular disease and certain cancers. Additionally, blood
-              donation helps to stimulate the production of new blood cells,
-              which can improve overall health and well-being. Another impact of
-              blood donation in India is the social impact. Blood donation is
-              often seen as a selfless act of kindness and generosity, and it
-              brings communities together. Blood donation drives and awareness
-              campaigns have helped to increase awareness about the importance
-              of blood donation and encourage more people to donate. This has
-              resulted in a growing number of voluntary donors, which is crucial
-              in ensuring a safe and sufficient supply of blood. In addition to
-              the social impact, blood donation has also had an economic impact
-              in India. Blood transfusions can be costly, and blood donations
-              help to reduce the burden on the healthcare system and patients.
-              Additionally, blood donation can help to reduce the time and
-              resources required to find suitable donors, which can be crucial
-              in medical emergencies. Despite the positive impact of blood
-              donation in India, there are still challenges that need to be
-              addressed. These include a shortage of trained medical personnel
-              to handle blood donation procedures, inadequate infrastructure,
-              and cultural and religious beliefs that can prevent individuals
-              from donating blood. Efforts are underway to address these
-              challenges, including initiatives to increase awareness about
-              blood donation and encourage more people to donate.
+              <ul>
+              <li>Blood donation is crucial for ensuring a safe and sufficient blood supply for medical purposes.</li>
+              <li>In India, there is a high need for blood due to a large population, a high incidence of accidents, and a prevalence of diseases that require blood transfusions.</li>
+              <li>Blood donation saves countless lives in India, especially in medical emergencies such as childbirth, accidents, and surgeries.</li>
+              <li>Blood donation has social impacts, bringing communities together and increasing awareness about the importance of blood donation.</li>
+              <li>Blood donation has economic impacts in India, reducing the burden on the healthcare system and patients and reducing the time and resources required to find suitable donors.</li>
+              <li>Challenges to blood donation in India include a shortage of trained medical personnel, inadequate infrastructure, and cultural and religious beliefs that can prevent individuals from donating.</li>
+              <li>Initiatives are underway to address these challenges and encourage more people to donate blood in India.</li>
+              <li>Blood donation has positive impacts on the health of the donor, including a lower risk of developing cardiovascular disease and certain cancers.</li>
+              </ul>
             </p>
           </div>
         </div>

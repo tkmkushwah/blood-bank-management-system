@@ -27,6 +27,7 @@ import BankDashborad from './components/BloodBank/BankDadhborad';
 import UpdateData from './components/BloodBank/UpdateData';
 import BankRequest from './components/BloodBank/BankRequest';
 import DonorPrivate from './components/routes/DonorPrivate.jsx'
+import ReqToBB from './components/Receiver/ReqToBB';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -114,6 +115,7 @@ const App = () => {
       
       <Route path="/bankdashborad/update-data" element={<UpdateData />} />
       <Route path="/bankdashborad/requests" element={<BankRequest />} />
+      <Route path="/receiver/reqbloodbank" element={<ReqToBB />} />
       </Routes>
     </>
   );

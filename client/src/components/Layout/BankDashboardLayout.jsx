@@ -27,7 +27,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import { textAlign } from '@mui/system';
 import Chart from "react-apexcharts"
-import {userMenu} from '../../Data/BankData';
+import {bankMenu} from '../../Data/BankData';
 import { BiChevronDown } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ function BankDashboardLayout(props) {
             <NavLink to="/"> <img textAlign='center' src={newlogo} height={160} /></NavLink>
             <Divider />
             <List>
-                {localStorage.getItem("userType") === "admin" && userMenu.map((menu, index) => (
+                {localStorage.getItem("userType") === "admin" && bankMenu.map((menu, index) => (
                     <Link to={menu.path} style={{textDecoration:'none',color:grey[800]}}>
                     <ListItem key={index}>
                         <ListItemButton sx={{background:grey[300],borderRadius:2}}>

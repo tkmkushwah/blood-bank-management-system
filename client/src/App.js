@@ -39,6 +39,7 @@ import './styles/register.scss'
 import ReceiverDashboard from './components/Receiver/ReceiverDashboard';
 // import ApplyDonor from './components/user/ApplyDonor';
 import Admin from './components/Admin';
+import BloodBank from './components/BloodBank'
 import { DonarById } from './components/Admin/DonarRequests/DonarById';
 import DonationRequests from './components/Donor/DonationRequests/DonationRequests';
 import { DonarRequestById } from './components/Donor/DonationRequests/DonarRequestById';
@@ -70,7 +71,7 @@ const App = () => {
         </Route>
 
         <Route path="/bloodbank" element={<BankRoutes />}>
-          <Route path="dashboard" element={<BankDashborad />} />
+          <Route path=":path" element={<BloodBank />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

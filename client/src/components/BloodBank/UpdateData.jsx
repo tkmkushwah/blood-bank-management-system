@@ -3,7 +3,7 @@ import BankDashboardLayout from '../Layout/BankDashboardLayout'
 const UpdateData = () => {
   return (
     <BankDashboardLayout>
-         <div>UpdateData</div>
+         <div>kam kro</div>
     </BankDashboardLayout>
    
   )

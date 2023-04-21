@@ -7,12 +7,12 @@
 
    {
      name: "Requests",
-     path: "/blood_requests",
+     path: "/bloodbank/blood_requests",
      icon: "fa-solid fa-user-doctor",
    },
    {
      name: "Update Data",
-     path: "/update_data",
+     path: "/bloodbank/update_data",
      icon: "fa-solid fa-user",
    },
    {

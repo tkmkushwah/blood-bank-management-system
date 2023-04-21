@@ -49,13 +49,13 @@ export const adminMenu = [
 export const donarMenu = [
   {
     name: "Dashboard",
-    path: "/donar/dashboard",
+    path: "/donor/dashboard",
     icon: "fa-solid fa-house",
   },
 
   {
     name: "Requests",
-    path: "/donar/requests",
+    path: "/donor/requests",
     icon: "fa-solid fa-user-doctor",
   },
   {

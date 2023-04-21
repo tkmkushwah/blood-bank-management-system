@@ -32,6 +32,7 @@ const UpdateData = () => {
 
   return (
     <BankDashboardLayout>
+<<<<<<< HEAD
       <div className="form-container ">
         <Form
           layout="vertical"
@@ -200,6 +201,9 @@ const UpdateData = () => {
           </button>
         </Form>
       </div>
+=======
+         <div>kam kro</div>
+>>>>>>> 3f40869052d19d1b891467831985b2868c88aee9
     </BankDashboardLayout>
   );
 };

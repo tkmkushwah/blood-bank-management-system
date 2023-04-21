@@ -1,18 +1,18 @@
  const bankMenu = [
     {
       name: "Dashboard",
-      path: "/bankdashborad",
+      path: "/bloodbank/dashboard",
       icon: "fa-solid fa-user",
     },
   
     {
       name: "Requests",
-      path: "/bankdashborad/requests",
+      path: "requests",
       icon: "fa-solid fa-user-doctor",
     },
     {
       name: "Update Data",
-      path: "/bankdashborad/update-data",
+      path: "update-data",
       icon: "fa-solid fa-user",
     },
     {

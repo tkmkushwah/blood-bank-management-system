@@ -1,6 +1,7 @@
 import BloodBank from "../models/BloodBank.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import BankBloodData from "../models/BankBloodData.js";
 
 export const bankregisterController = async (req, res) => {
   try {
@@ -66,7 +67,7 @@ export const bankloginController = async (req, res) => {
 };
 
 export const addBloodBank = async (req, res) => {
-  const newBloodBank = new BloodBank(req.body);
+  const newBloodBank = new BankBloodData(req.body);
   const data = await newBloodBank.save();
   try {
     //  console.log(buf)

@@ -18,9 +18,9 @@ const UpdateData = () => {
 
   const onfinishHandler = async (values) => {
     try {
-      const res = await axios.post("/api/v1/bloodBank//addBloodBank", values);
+      const res = await axios.post("/api/v1/bloodBank/update_data", values);
       if (res.data.success) {
-        message.success("register successfully");
+        message.success("Submitted successfully");
       } else {
         message.error(res.data.message);
       }
@@ -32,7 +32,6 @@ const UpdateData = () => {
 
   return (
     <BankDashboardLayout>
-<<<<<<< HEAD
       <div className="form-container ">
         <Form
           layout="vertical"
@@ -41,9 +40,8 @@ const UpdateData = () => {
         >
           <h3
             className="text-center"
-
           >
-            BLOODBANK  DATA FORM
+            BLOODS AVAILABLE (UNITS)
           </h3>
           <div style={{ padding: "10px 50px", marginTop: "20px" }}>
             <div className="input-group">
@@ -137,7 +135,7 @@ const UpdateData = () => {
             </div>
 
             <div className="input-group">
-            <Form.Item label="A2+ Units" name="bloodGroupA2N">
+            <Form.Item label="A2+ Units" name="bloodGroupA2">
               <Input
                 placeholder="A2+"
                 type="number"
@@ -201,9 +199,6 @@ const UpdateData = () => {
           </button>
         </Form>
       </div>
-=======
-         <div>kam kro</div>
->>>>>>> 3f40869052d19d1b891467831985b2868c88aee9
     </BankDashboardLayout>
   );
 };

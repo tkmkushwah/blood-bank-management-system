@@ -1,26 +1,26 @@
-import React from 'react'
+import React from "react";
 
 // import {MdBloodtype} from 'react-icons/md'
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
 import { Link, NavLink } from "react-router-dom";
-import icon from '../../assets/logo.png'
+import icon from "../../assets/logo.png";
 
 import toast from "react-hot-toast";
-import {useAuth} from '../../context/auth.js'
+import { useAuth } from "../../context/auth.js";
 
-import '../../styles/header.scss'
+import "../../styles/header.scss";
 const Header = () => {
-  const [auth,setAuth]=useAuth();
-  const handleLogout=()=>{
+  const [auth, setAuth] = useAuth();
+  const handleLogout = () => {
     setAuth({
       ...auth,
-      user:null,
-      token:"",
-    })
+      user: null,
+      token: "",
+    });
     localStorage.removeItem("auth");
-    toast.success("Logout successfully")
-  }
+    toast.success("Logout successfully");
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -61,6 +61,11 @@ const Header = () => {
               <li className="nav-item">
                 <NavLink to="/about" className="nav-link ">
                   Learn
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/bloodbanks" className="nav-link ">
+                  BloodBanks
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -121,6 +126,6 @@ const Header = () => {
       </nav>
     </>
   );
-}
+};
 
-export default Header
+export default Header;

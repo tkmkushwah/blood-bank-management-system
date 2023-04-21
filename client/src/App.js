@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Eligibility from './components/About/Eligibility';
+import BloodBanks from "./components/About/BloodBanks";
 import BloodTypes from './components/About/BloodTypes';
 import Impact from './components/About/Impact';
 import Research from './components/About/Research';
@@ -24,7 +25,7 @@ import DonarDashboard from "./components/Donor/DonorDashboard";
 // import ProfilePage from './Profile/ProfilePage';
 import BankLogin from './components/Login/BankLogin';
 import BankRegister from './components/Login/BankRegister';
-import BankDashborad from './components/BloodBank/BankDadhborad';
+// import BankDashborad from './components/BloodBank/BankDadhborad';
 import DonorPrivate from './components/routes/DonorPrivate.jsx'
 import UpdateData from './components/BloodBank/UpdateData';
 
@@ -87,6 +88,7 @@ const App = () => {
 
         <Route path="/about" element={<About />} />
         <Route path="/eligibility" element={<Eligibility />} />
+        <Route path="/bloodbanks" element={<BloodBanks />} />
         <Route path="/bloodTypes" element={<BloodTypes />} />
         <Route path="/impact" element={<Impact />} />
         <Route path="/research" element={<Research />} />
@@ -109,7 +111,10 @@ const App = () => {
         <Route path="/donar/requests" element={<DonationRequests />} />
         <Route path="/donar/requests/:id" element={<DonarRequestById />} />
 
-        <Route path="/bloodbank/dashboard/update-data" element={<UpdateData />} />
+        <Route
+          path="/bloodbank/dashboard/update-data"
+          element={<UpdateData />}
+        />
 
         {/* <Route path="/receiver/dashboard" element={<ReceiverDashboard />} /> */}
         <Route path="/receiver/requests" element={<ReceiverApply />} />

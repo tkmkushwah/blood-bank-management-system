@@ -1,42 +1,40 @@
 import mongoose from "mongoose";
 
-const blood_data_schema = new mongoose.Schema(
+const BloodData = new mongoose.Schema(
   {
-   
-   
     bloodGroupA: {
       type: Number,
       required: true,
     },
     bloodGroupB: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupAB: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupO: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupAN: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupBN: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupABN: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupON: {
-        type: Number,
-        required: true,
-      },
-      bloodGroupA2N: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupAB: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupO: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupAN: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupBN: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupABN: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupON: {
+      type: Number,
+      required: true,
+    },
+    bloodGroupA2N: {
       type: Number,
       required: true,
     },
@@ -64,10 +62,8 @@ const blood_data_schema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-
-   
   },
   { timestamps: true }
 );
 
-export default mongoose.model("blood_data_schema", blood_data_schema);
+export default mongoose.model("BloodData", BloodData);

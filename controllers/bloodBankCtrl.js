@@ -98,7 +98,7 @@ export const fetchBloodBank = async (req, res) => {
 
 export const updateBloodBank = async (req, res) => {
   try {
-    const response = await BloodBank.findByIdAndUpdate(req.body.id,{bloodgroup:req.body.bloodgroup})
+    const response = await BankBloodData.findByIdAndUpdate(req.body.id,{bloodgroup:req.body.bloodgroup})
     console.log(response)
     res.send({
       success:true,

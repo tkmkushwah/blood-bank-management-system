@@ -24,6 +24,6 @@ router.post("/bloodbanklogin", bankloginController);
 
 router.post("/addBloodBank",addBloodBank)
 router.get("/getBloodBank",fetchBloodBank)
-router.put("/updateBloodBank",updateBloodBank)
+router.post("/update_data", updateBloodBank);
 router.delete("/deleteBloodBank",deleteBloodBank)
 export default router;

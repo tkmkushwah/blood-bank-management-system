@@ -18,7 +18,7 @@ const UpdateData = () => {
 
   const onfinishHandler = async (values) => {
     try {
-      const res = await axios.post("/api/v1/bloodBank/update_data", values);
+      const res = await axios.post("/api/v1/bloodBank/addData", values);
       if (res.data.success) {
         message.success("Submitted successfully");
       } else {

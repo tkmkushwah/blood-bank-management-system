@@ -36,7 +36,6 @@ const UpdateData = () => {
         <Form
           layout="vertical"
           onFinish={onfinishHandler}
-          className="blood-bank-form"
         >
           <h3
             className="text-center"

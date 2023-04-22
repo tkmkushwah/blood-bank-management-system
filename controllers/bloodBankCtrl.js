@@ -123,3 +123,31 @@ export const deleteBloodBank = async (req, res) => {
     res.send({ error });
   }
 }
+
+export const fetchBanksdata = async (req, res) => {
+  try {
+    let response = await BloodBank.find({})
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const fetchBankById = async (req, res) => {
+  try {
+    console.log(req.body, "ID")
+    let response = await BloodBank.findById(req.body.id)
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+

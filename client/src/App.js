@@ -49,7 +49,7 @@ import { DonarRequestById } from './components/Donor/DonationRequests/DonarReque
 import { ReceiverById } from './components/Admin/ReceiverRequests/ReceiverById';
 import ReceiverApply from './components/Receiver/ReceiverRequets/ReceiverApply';
 import { ReceiverRequestById } from './components/Receiver/ReceiverRequets/ReceiverRequestById';
-
+import { BloodbankById } from './components/About/BloodbankById';
 
 
 
@@ -110,7 +110,7 @@ const App = () => {
         {/* <Route path="/donar/dashboard" element={<DonarDashboard />} /> */}
         <Route path="/donar/requests" element={<DonationRequests />} />
         <Route path="/donar/requests/:id" element={<DonarRequestById />} />
-
+        <Route path="/bloodbanks/:id" element={<BloodbankById />} />
         <Route
           path="/bloodbank/dashboard/update-data"
           element={<UpdateData />}

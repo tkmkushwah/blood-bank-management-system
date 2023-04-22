@@ -28,6 +28,10 @@ const blood_bank_schema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    address:{
+      type:String,
+      required:true,
+    },
   },
   { timestamps: true }
 );

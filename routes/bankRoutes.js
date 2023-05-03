@@ -8,6 +8,12 @@ import {
   addBloodBank,
   fetchBanksdata,
   fetchBankById,
+  fetchBankForReceiver,
+  updateRecToBankRequests,
+  addBankReceiver,
+  CheckBankReceiverValid,
+  bankcheckController,
+  BankrequestsForReceiver,
 } from "../controllers/bloodBankCtrl.js";
 import { isBank, requireSignIn } from "../middleware/authMiddleware.js";
 const router = express.Router();
@@ -30,5 +36,11 @@ router.post("/xyz", updateBloodBank);
 router.get("/bank_data", fetchBanksdata);
 router.delete("/deleteBloodBank",deleteBloodBank)
 router.post("/bank_by_id", fetchBankById);
+router.get("/bank_requests",fetchBankForReceiver );
+router.post("/update_rectobank_requests",updateRecToBankRequests);
+router.post("/apply_bankreceiver",   addBankReceiver);
+router.post("/check_bankreceiver", CheckBankReceiverValid);
+router.get("/recReqToBank", bankcheckController);
+router.post("/bankrequests_for_receiver", BankrequestsForReceiver);
 
 export default router;

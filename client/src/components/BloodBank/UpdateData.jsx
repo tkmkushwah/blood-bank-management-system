@@ -43,6 +43,30 @@ const UpdateData = () => {
             BLOODS AVAILABLE (UNITS)
           </h3>
           <div style={{ padding: "10px 50px", marginTop: "20px" }}>
+          <div className="input-group">
+          <Form.Item label="Bloodbank Name" name="name">
+              <Input placeholder="Enter Name" type="text" required />
+            </Form.Item>
+            </div>
+            <div className="input-group">
+            <Form.Item label="Bank Email" name="email">
+              <Input placeholder="Enter email" type="email" required />
+            </Form.Item>
+            </div>
+            <div className="input-group">
+            <Form.Item label="Phone" name="phone">
+              <Input
+                placeholder="Phone Number ex:- 8585858585"
+                type="number"
+                required
+              />
+            </Form.Item>
+            </div>
+            <div className="input-group">
+            <Form.Item label="Address"name="address">
+              <Input placeholder="Address" type="string" required />
+            </Form.Item>
+            </div>
             <div className="input-group">
             <Form.Item label="A+ Units" name="bloodGroupA">
               <Input

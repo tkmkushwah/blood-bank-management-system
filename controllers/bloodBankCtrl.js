@@ -2,6 +2,7 @@ import BloodBank from "../models/BloodBank.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import BankBloodData from "../models/BankBloodData.js";
+import RecBankModel from "../models/RecBankModel.js";
 
 export const bankregisterController = async (req, res) => {
   try {
@@ -126,7 +127,7 @@ export const deleteBloodBank = async (req, res) => {
 
 export const fetchBanksdata = async (req, res) => {
   try {
-    let response = await BloodBank.find({})
+    let response = await BankBloodData.find({})
     res.send({
       success: true,
       data: response
@@ -140,10 +141,111 @@ export const fetchBanksdata = async (req, res) => {
 export const fetchBankById = async (req, res) => {
   try {
     console.log(req.body, "ID")
-    let response = await BloodBank.findById(req.body.id)
+    let response = await BankBloodData.findById(req.body.id)
     res.send({
       success: true,
       data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const fetchBankForReceiver = async (req, res) => {
+  try {
+    let response = await BankBloodData.find({})
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const updateRecToBankRequests = async (req, res) => {
+  try {
+    const response = await RecBankModel.updateOne({ email: req.body.email }, { requests: 1,donarId:req.body.donor_email})
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const addBankReceiver = async (req, res) => {
+  const newUser = new RecBankModel (req.body);
+  const data = await newUser.save();
+
+  try {
+    //  console.log(buf)
+    res.send({
+      success: true,
+      data: data,
+      // message:"You are "
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const CheckBankReceiverValid = async (req, res) => {
+  try {
+    const user = await RecBankModel.findOne({ email: req.body.email })
+    console.log(user)
+    if (user === null) {
+      res.send({ success: false,data:user })
+    } else {
+      res.send({
+        success: true,
+        data: user
+      })
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const bankcheckController = async (req, res) => {
+  try {
+    const bank = await BankBloodData.findOne({ email: req.body.email });
+    if (!bank) {
+      return res
+        .status(200)
+        .send({ message: "bank not found", success: false });
+    }
+    const receiver=await RecBankModel.findOne({donor_id:req.body.donorId})
+    console.log(bank._id)
+    console.log(donor_id)
+
+    if(bank._id===donor_id)
+    {
+      console.log("hello")
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ message: `error in bankloginController${error.message}` });
+  }
+};
+
+export const BankrequestsForReceiver = async (req, res) => {
+  try {
+    const response = await RecBankModel.find({ email: req.body.email })
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
     })
   } catch (error) {
     console.log(error);

@@ -28,6 +28,7 @@ import BankRegister from './components/Login/BankRegister';
 // import BankDashborad from './components/BloodBank/BankDadhborad';
 import DonorPrivate from './components/routes/DonorPrivate.jsx'
 import UpdateData from './components/BloodBank/UpdateData';
+import ReceiverBankRequests from './components/Receiver/ReceiverBloodRequests/ReceiverBankRequests';
 
 import './styles/header.scss'
 import './styles/app.scss'
@@ -50,7 +51,7 @@ import { ReceiverById } from './components/Admin/ReceiverRequests/ReceiverById';
 import ReceiverApply from './components/Receiver/ReceiverRequets/ReceiverApply';
 import { ReceiverRequestById } from './components/Receiver/ReceiverRequets/ReceiverRequestById';
 import { BloodbankById } from './components/About/BloodbankById';
-
+import { BankDetailsById } from './components/Receiver/ReceiverBloodRequests/BankDetailsById';
 
 
 
@@ -111,6 +112,7 @@ const App = () => {
         <Route path="/donar/requests" element={<DonationRequests />} />
         <Route path="/donar/requests/:id" element={<DonarRequestById />} />
         <Route path="/bloodbanks/:id" element={<BloodbankById />} />
+        <Route path="/receiver/reqbloodbank/:id" element={<BloodbankById />} />
         <Route
           path="/bloodbank/dashboard/update-data"
           element={<UpdateData />}
@@ -118,6 +120,7 @@ const App = () => {
 
         {/* <Route path="/receiver/dashboard" element={<ReceiverDashboard />} /> */}
         <Route path="/receiver/requests" element={<ReceiverApply />} />
+        <Route path="/receiver/reqbloodbank" element={<ReceiverBankRequests/>} />
         <Route
           path="/receiver/requests/:id"
           element={<ReceiverRequestById />}

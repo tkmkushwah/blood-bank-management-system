@@ -49,7 +49,7 @@ const UpdateData = () => {
             </Form.Item>
             </div>
             <div className="input-group">
-            <Form.Item label="Bank Email" name="email">
+            <Form.Item label="Bank Email" name="bankemail">
               <Input placeholder="Enter email" type="email" required />
             </Form.Item>
             </div>

@@ -241,7 +241,7 @@ export const bankcheckController = async (req, res) => {
 
 export const BankrequestsForReceiver = async (req, res) => {
   try {
-    const response = await RecBankModel.find({ email: req.body.email })
+    const response = await RecBankModel.find({ donarId: req.body.donarId })
     console.log(response)
     res.send({
       success:true,

@@ -6,7 +6,7 @@ const BankDadhborad = () => {
   return (
     <BankDashboardLayout title={"Dashboard-BloodBank app"}>
      {/* <InnerContent/> */}
-
+    <BankReuestsCheck/>
     </BankDashboardLayout>
   )
 }

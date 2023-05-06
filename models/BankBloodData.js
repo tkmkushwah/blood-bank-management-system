@@ -7,7 +7,7 @@ const BloodData = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    email: {
+    bankemail: {
       type: String,
       required: true,
       unique: true,
@@ -87,4 +87,4 @@ const BloodData = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("BloodData", BloodData);
+export default mongoose.model("BloodbankData", BloodData);

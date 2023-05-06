@@ -122,7 +122,7 @@ export default function ReceiverDashboard() {
                 if (user.requests < 1) {
                     axios.post(ApiBaseUrl+"/update_rectobank_requests", {
                         email: localStorage.getItem("email"),
-                        donor_id:item._id
+                        donor_id:item.bankemail
                     }).then((resp) => {
                         console.log(resp.data)
                         if (res.data.success) {

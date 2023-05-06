@@ -73,8 +73,8 @@ export default function ReceiverApply() {
 
     useEffect(() => {
         setLoadingData(true)
-        axios.post("/bank_requestsbankrequests_for_receiver",{
-          email:localStorage.getItem("email")
+        axios.post("/api/v1/bloodBank/bankrequests_for_receiver",{
+          donarId:localStorage.getItem("email") 
         }).then((res) => {
             console.log(res.data)
             if (res.data.success) {

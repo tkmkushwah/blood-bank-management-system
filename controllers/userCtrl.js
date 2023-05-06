@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import RecReqModel from "../models/RecReqModel.js";
 import ApplyDonerModel from "../models/ApplyDonerModel.js";
 import nodemailer from 'nodemailer'
+import RecBankModel from "../models/RecBankModel.js";
+import BankBloodData from "../models/BankBloodData.js";
 import dotenv from 'dotenv'
 // import BloodBank from "../models/BloodBank.js";
 dotenv.config(); 
@@ -437,4 +439,70 @@ export const requestsForReceiver = async (req, res) => {
     res.send({ error });
   }
 }
+
+//bank
+
+export const fetchBankForReceiver = async (req, res) => {
+  try {
+    let response = await BankBloodData.find({})
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const CheckBankReceiverValid = async (req, res) => {
+  try {
+    const user = await RecBankModel.findOne({ email: req.body.email })
+    console.log(user)
+    if (user === null) {
+      res.send({ success: false,data:user })
+    } else {
+      res.send({
+        success: true,
+        data: user
+      })
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const updateRecToBankRequests = async (req, res) => {
+  try {
+    const response = await RecBankModel.updateOne({ email: req.body.email }, { requests: 1,donarId:req.body.donor_id})
+    console.log(response)
+    res.send({
+      success:true,
+      data:response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const addBankReceiver = async (req, res) => {
+  const newUser = new RecBankModel(req.body);
+  const data = await newUser.save();
+
+  try {
+    //  console.log(buf)
+    res.send({
+      success: true,
+      data: data,
+      // message:"You are "
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+
 

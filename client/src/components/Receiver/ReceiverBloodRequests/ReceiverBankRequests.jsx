@@ -91,7 +91,7 @@ export default function ReceiverDashboard() {
 
     useEffect(() => {
         setLoadingData(true)
-        axios.get("/api/v1/bloodBank/bank_requests").then((res) => {
+        axios.get(ApiBaseUrl+"/bank_requests").then((res) => {
             console.log(res.data)
             if (res.data.success) {
                 setRequestsForReceiver(res.data.data)
@@ -113,16 +113,16 @@ export default function ReceiverDashboard() {
 
     const handleRequest = (item) => {
         console.log(item.email)
-        axios.post("/api/v1/bloodBank/check_bankreceiver", {
+        axios.post(ApiBaseUrl+"/check_bankreceiver", {
             "email": localStorage.getItem("email")
         }).then((res) => {
             console.log(res.data)
             if (res.data.success) {
                 const user = res.data.data
                 if (user.requests < 1) {
-                    axios.post("/api/v1/bloodBank/update_rectobank_requests", {
+                    axios.post(ApiBaseUrl+"/update_rectobank_requests", {
                         email: localStorage.getItem("email"),
-                        donor_email:item.email
+                        donor_id:item._id
                     }).then((resp) => {
                         console.log(resp.data)
                         if (res.data.success) {
@@ -162,7 +162,7 @@ export default function ReceiverDashboard() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('/api/v1/bloodBank/apply_bankreceiver', {
+        axios.post(ApiBaseUrl + '/apply_bankreceiver', {
             name: name,
             email: email,
             phone: Number(phone),

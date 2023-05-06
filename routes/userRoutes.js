@@ -19,7 +19,11 @@ import {
   requestsForDonar,
   requestsForReceiver,
   fetchReceiverById,
-  approveReceiverRequests
+  approveReceiverRequests,
+  fetchBankForReceiver,
+  CheckBankReceiverValid,
+  updateRecToBankRequests,
+  addBankReceiver
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -81,6 +85,12 @@ router.post("/check_receiver", CheckReceiverValid);
 router.post("/update_receiver_requests", updateReceiverRequests);
 router.post("/requests_for_donar", requestsForDonar);
 router.post("/requests_for_receiver", requestsForReceiver);
+
+//bank
+router.get("/bank_requests",fetchBankForReceiver );
+router.post("/check_bankreceiver", CheckBankReceiverValid);
+router.post("/update_rectobank_requests",updateRecToBankRequests);
+router.post("/apply_bankreceiver",   addBankReceiver);
 
 export default router
 

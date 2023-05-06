@@ -52,4 +52,4 @@ const RecSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("RecReqBank", RecSchema);
+export default mongoose.model("recreqbank", RecSchema);

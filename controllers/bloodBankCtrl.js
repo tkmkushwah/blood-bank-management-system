@@ -167,7 +167,7 @@ export const fetchBankForReceiver = async (req, res) => {
 
 export const updateRecToBankRequests = async (req, res) => {
   try {
-    const response = await RecBankModel.updateOne({ email: req.body.email }, { requests: 1,donarId:req.body.donor_email})
+    const response = await RecBankModel.updateOne({ email: req.body.email }, { requests: 1,donarId:req.body.donor_id})
     console.log(response)
     res.send({
       success:true,

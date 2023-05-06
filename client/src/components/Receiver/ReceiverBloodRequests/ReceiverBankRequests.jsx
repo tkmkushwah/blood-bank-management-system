@@ -164,7 +164,7 @@ export default function ReceiverDashboard() {
         e.preventDefault()
         axios.post(ApiBaseUrl + '/apply_bankreceiver', {
             name: name,
-            email: email,
+            recemail: email,
             phone: Number(phone),
             DOB: dob,
             bloodgroup: bloodgroup,

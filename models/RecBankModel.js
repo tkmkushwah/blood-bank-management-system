@@ -7,7 +7,7 @@ const RecSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    email: {
+    recemail: {
       type: String,
       required: true,
       unique: true,

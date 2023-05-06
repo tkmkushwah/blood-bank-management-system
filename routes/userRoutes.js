@@ -23,7 +23,9 @@ import {
   fetchBankForReceiver,
   CheckBankReceiverValid,
   updateRecToBankRequests,
-  addBankReceiver
+  addBankReceiver,
+  fetchRequestById,
+  approvebankDonationRequests
 } from "../controllers/userCtrl.js";
 import {
   requireSignIn,
@@ -91,6 +93,9 @@ router.get("/bank_requests",fetchBankForReceiver );
 router.post("/check_bankreceiver", CheckBankReceiverValid);
 router.post("/update_rectobank_requests",updateRecToBankRequests);
 router.post("/apply_bankreceiver",   addBankReceiver);
+router.post("/approve_bankdonation_request", approvebankDonationRequests);
+
+router.post("/request_by_id", fetchRequestById);
 
 export default router
 

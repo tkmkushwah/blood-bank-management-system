@@ -52,6 +52,7 @@ import ReceiverApply from './components/Receiver/ReceiverRequets/ReceiverApply';
 import { ReceiverRequestById } from './components/Receiver/ReceiverRequets/ReceiverRequestById';
 import { BloodbankById } from './components/About/BloodbankById';
 import { BankDetailsById } from './components/Receiver/ReceiverBloodRequests/BankDetailsById';
+import { RequestsById } from './components/BloodBank/RequestsById';
 
 
 
@@ -125,6 +126,7 @@ const App = () => {
           path="/receiver/requests/:id"
           element={<ReceiverRequestById />}
         />
+      <Route path="/bloodbank/dashboard/:id" element={<RequestsById/>} />
       </Routes>
     </>
   );

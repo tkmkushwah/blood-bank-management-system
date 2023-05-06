@@ -504,5 +504,32 @@ export const addBankReceiver = async (req, res) => {
   }
 }
 
+export const fetchRequestById = async (req, res) => {
+  try {
+    console.log(req.body, "ID")
+    let response = await RecBankModel.findById(req.body.id)
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
+export const approvebankDonationRequests = async (req, res) => {
+  try {
+    let response = await RecBankModel.updateOne({ email: req.body.email }, { status: "Approved" })
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
+
 
 

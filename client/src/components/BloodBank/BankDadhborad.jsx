@@ -4,7 +4,8 @@ import InnerContent from "./InnerContent.jsx";
 import BankReuestsCheck from './BankReuestsCheck';
 const BankDadhborad = () => {
   return (
-    <BankDashboardLayout title={"Dashboard-BloodBank app"}>
+    <BankDashboardLayout>
+    
      {/* <InnerContent/> */}
     <BankReuestsCheck/>
     </BankDashboardLayout>

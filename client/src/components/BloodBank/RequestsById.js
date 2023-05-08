@@ -8,6 +8,8 @@ import { Alert } from 'antd'
 import { toast } from 'react-hot-toast'
 import { ApiBaseUrl } from '../../apiConfig'
 import { green, yellow } from '@mui/material/colors'
+import BankDashboardLayout from '../Layout/BankDashboardLayout'
+
 
 export const RequestsById = () => {
   const { id } = useParams()
@@ -67,7 +69,7 @@ export const RequestsById = () => {
     a.click()
   }
   return (
-    
+      <BankDashboardLayout>
       <Card sx={{ p: 2 }}>
         {!loadingData ? <>
           <Typography variant='h6'>Donar Information <span style={{color: specificDonarData.status === "Pending" ? yellow[700] : green[400] }}>{`(Request status: ${specificDonarData.status})`}</span></Typography>
@@ -101,6 +103,7 @@ export const RequestsById = () => {
           </Box>
         </> : <CircularProgress />}
       </Card>
+      </BankDashboardLayout>
   )
 }
 

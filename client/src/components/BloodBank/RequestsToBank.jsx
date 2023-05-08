@@ -3,7 +3,7 @@ import BankDashboardLayout from "../Layout/BankDashboardLayout";
 const RequestsToBank = () => {
   return (
     <BankDashboardLayout>
-      <div>kam kro</div>
+      <div></div>
     </BankDashboardLayout>
   );
 };

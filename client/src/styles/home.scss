@@ -1,60 +1,168 @@
 @import "colors";
-.home {
-  text-align: center;
+.Home {
+ margin: 0%;
+ padding: 0%;
   height: 90vh;
   overflow-x: hidden;
   background-image: url("../assets/bg.jpg");
   background-repeat: no-repeat;
   object-fit: contain;
-    background-position: center;
+   background-position:0;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+>.container{
+  margin-top: 50vh;
+  >.eligibility-btn-ctnr {
+    // border: 2px solid red;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+   
+      >button {
+        background-color: $mainColor;
+        padding: .5rem;
+        outline: none;
+        box-shadow: 5px 10px 18px $lightdark;
+        margin: 0.5rem;
+        width: 97%;
+        border-radius: 5px;
+        border: none;
+  
+        >a {
+          text-decoration: none;
+          color: aliceblue;
+          text-transform: uppercase;
+        }
+  
+        &:hover {
+          background-color: $lightdark;
+          box-shadow: 5px 10px 18px $mainColor;
+  
+          >a {
+            text-transform: uppercase;
+            font-weight: bolder;
+            text-decoration: none;
+            color: $mainColor;
+          }
+        }
+      }
+  
+    }
+  
+    >.login-btn-cntr {
+      display: flex;
+      // border: 2px solid red;
+      justify-content: space-evenly;
+      width: 40%;
 
->div{
-  >.login-btn-container,.eligibility-btn-container{
-    width: 25%;
-    margin: 0 auto;
-    
-       
   >button {
-    background-color: $mainColor;
-    padding: .5rem;
+      background-color: $mainColor;
+      padding: .5rem;
       outline: none;
       box-shadow: 5px 10px 18px $lightdark;
       margin: 0.5rem;
-      width: 90%;
+      width: 100%;
       border-radius: 5px;
       border: none;
-      >a{
+  
+      >a {
         text-decoration: none;
         color: aliceblue;
+        text-transform: uppercase;
       }
-
-    &:hover {
-      background-color: $lightdark;
-      box-shadow: 5px 10px 18px $mainColor;
-      >a {
-          text-decoration: none;
-          color: $mainColor;
-        }
+  
+      &:hover {
+        background-color: $lightdark;
+        box-shadow: 5px 10px 18px $mainColor;
+  
+        >a {
+            text-transform: uppercase;
+            font-weight: bolder;
+            text-decoration: none;
+            color: $mainColor;
+          }
+      }
     }
-  }
+    }
+}
+
+  
+
+}
+.about-us {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../assets/svg/page_bg.png");
+  background-repeat: norepeat;
+  background-size: cover;
+  text-align: center;
+
+  > .container {
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+
+    >.logo{
+      width: 30%;
+      padding: 20px;
+    }
+    > .about {
+      width: 70%;
+      text-align: left;
+      line-height: 1.4rem;
+      padding: 20px;
+     
+      > .list {
+        
+        >h4>a{
+          color: rgb(201, 35, 76);
+          text-decoration: none;
+        }
+        &:hover{
+          >h4>a {
+              color: rgb(201, 35, 146);
+              text-decoration: underline;
+            }
+        }
+        
+        
+      }
+    }
   }
 }
-    
+@media screen and (max-width: 600px) {
+  .Home {
+      margin: 0%;
+      padding: 0%;
+      height: 90vh;
+      overflow-x: hidden;
+      background-image: url("../assets/bg.jpg");
+      background-repeat: no-repeat;
+      object-fit: contain;
+      background-position: 0;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
   
-  div {
-    padding-left: 8rem;
-    > h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-    }
-
-    > p {
-      font-size: 1.2rem;
-    }
+  >.container {
+      // position: absolute;
+      margin-top: 50vh 0;
     
-  }
+      >.eligibility-btn-ctnr{
+      margin: 0 auto;
+       
+        
+      }
+             >.login-btn-cntr{
+              margin: 0 auto;
+             }
+     
+    
+    }
+  
+    }
 }

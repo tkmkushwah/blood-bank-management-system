@@ -41,3 +41,50 @@
     }
   }
 }
+@media screen and (max-width: 600px) {
+.about-us {
+    height: fit-content;
+    width: 100%;
+    background-image: url("../assets/svg/page_bg.png");
+    background-repeat: norepeat;
+    background-size: cover;
+    text-align: center;
+
+    >.container {
+      padding: 3rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+     
+
+      >.logo {
+        width: 100%;
+        padding: 20px;
+      }
+
+      >.about {
+        width: 100%;
+        text-align: left;
+        line-height: 1.4rem;
+        padding: 20px;
+
+        >.list {
+
+          >h4>a {
+            color: rgb(201, 35, 76);
+            text-decoration: none;
+          }
+
+          &:hover {
+            >h4>a {
+              color: rgb(201, 35, 146);
+              text-decoration: underline;
+            }
+          }
+
+
+        }
+      }
+    }
+  }
+}

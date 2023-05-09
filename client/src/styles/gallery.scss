@@ -19,3 +19,18 @@
             }
         }
 }
+@media screen and (max-width: 600px) {
+.gallery{
+    height: fit-content;
+    >.images {
+            display: flex;
+            flex-direction: column;
+            >img {
+                width: 80%;
+                margin: 10px auto;
+                box-shadow: 2px 2px 18px grey;
+                border-radius: 5px;
+            }
+        }
+}
+}

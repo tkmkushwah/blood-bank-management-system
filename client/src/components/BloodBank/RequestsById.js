@@ -49,7 +49,7 @@ export const RequestsById = () => {
           subject:"Donation Approved (Blood Bank DEI)",
           text:`<p>Hi ${specificDonarData.name},</p>
           <br>
-          <p>Your donation request has been accepted. <br> We really appreciate your donation! Your contribution will help us change lives literally!</p> 
+          <p>Your request for required bloodgroup ${res.data.bloodgroup}  has been accepted. <br> We really appreciate your donation! Your contribution will help us change lives literally!</p> 
           <p>We will inform you once the request for your blood group will be raised.</p>
           <p>Thanks and Regards <br> Admin (Blood Bank DEI)</p>
           `

@@ -28,7 +28,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const columns = [
     { id: 'name', label: 'Name', minWidth: 100 },
-    { id: 'email', label: 'Email', minWidth: 100 },
+    { id: 'bankemail', label: 'Email', minWidth: 100 },
     { id: 'address', label: 'Address', minWidth: 100 },
     {
         id: 'phone',
@@ -122,7 +122,7 @@ export default function DonarRequests() {
                                             {row.name}
                                         </TableCell>
                                         <TableCell>
-                                            {row.email}
+                                            {row.bankemail}
                                         </TableCell>
                                         <TableCell>
                                             {row.address}

@@ -87,4 +87,4 @@ const BloodData = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("BloodbankData", BloodData);
+export default mongoose.model("BloodbankData2", BloodData);

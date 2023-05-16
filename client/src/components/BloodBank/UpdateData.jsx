@@ -31,7 +31,6 @@ const UpdateData = () => {
   };
 
   return (
-    <BankDashboardLayout>
       <div className="form-container ">
         <Form
           layout="vertical"
@@ -222,7 +221,6 @@ const UpdateData = () => {
           </button>
         </Form>
       </div>
-    </BankDashboardLayout>
   );
 };
 

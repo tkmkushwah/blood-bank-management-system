@@ -7,23 +7,5 @@ nav{
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 10px rgba($color: #000000, $alpha: .7);
-    
-    >div{
-        align-items: center;
-        display: flex;
-        svg{
-        font-size: 3rem;
-        }
-        >a{
-            margin:0 2rem;
-            color: $dark;
-            text-decoration: none;
-            transition: color 0.5s;
-            &:hover{
-                color:$lightdark;
-            }
-        
-        }
-    }
-
+  
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import SidebarLayout from '../../../SidebarLayout'
-import { Box, Button, Card, CardActions, CardContent, CardHeader, CircularProgress, Grid, IconButton, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent,  CircularProgress, Grid, IconButton, Typography } from '@mui/material'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'

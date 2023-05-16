@@ -7,7 +7,7 @@ const AboutHome = () => {
       className="about-us"
       style={{ borderRadius: "1%", margin: "50px 0" }}
     >
-      <h1 style={{ textAlign: "center",paddingTop: "30px"  }}>LEARN</h1>
+      <h1 style={{ textAlign: "center", paddingTop: "30px" }}>LEARN</h1>
       <div className="container">
         <div className="logo">
           <img src={img1} alt="dh" />

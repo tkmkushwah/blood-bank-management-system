@@ -7,6 +7,7 @@ import nodemailer from 'nodemailer'
 import RecBankModel from "../models/RecBankModel.js";
 import BankBloodData from "../models/BankBloodData.js";
 import dotenv from 'dotenv'
+import ContactModel from "../models/ContactModel.js";
 // import BloodBank from "../models/BloodBank.js";
 dotenv.config(); 
 
@@ -531,5 +532,16 @@ export const approvebankDonationRequests = async (req, res) => {
   }
 }
 
-
+export const fetchMessageForAdmin = async (req, res) => {
+  try {
+    let response = await ContactModel.find({})
+    res.send({
+      success: true,
+      data: response
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+}
 

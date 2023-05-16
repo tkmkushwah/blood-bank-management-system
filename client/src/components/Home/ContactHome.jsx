@@ -1,6 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import img from "../../assets/b_donor_reg.png";
+import { Form, Input, message, Select } from "antd";
+import axios from "axios";
+
+const onfinishHandler = async (values) => {
+  try {
+    const res = await axios.post("/api/v1/bloodBank/addQuarry", values);
+    if (res.data.success) {
+      message.success("successfully");
+    } else {
+      message.error(res.data.message);
+    }
+  } catch (error) {
+    console.log(error);
+    message.error("something went wrong");
+  }
+};
 
 const Contact = () => {
   return (
@@ -8,7 +24,9 @@ const Contact = () => {
       className="contact"
       style={{ borderRadius: "1%", margin: "50px 0" }}
     >
-      <motion.form
+      <Form
+      
+      layout="verticle"
         initial={{
           x: "-100vw",
           opacity: 0,
@@ -18,15 +36,21 @@ const Contact = () => {
           opacity: 1,
         }}
         transition={{ delay: 0.2 }}
+        onFinish={onfinishHandler}
       >
         <h2>Contact Us</h2>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-
-        <textarea placeholder="Message..." cols="30" rows="10"></textarea>
+        <Form.Item label=" Name" name="name">
+              <Input placeholder="Enter Name" type="text" required />
+            </Form.Item>
+            <Form.Item label="Email" name="email">
+              <Input placeholder="Enter email" type="email" required />
+            </Form.Item>
+            <Form.Item label="Message" name="message">
+              <Input.TextArea placeholder="Enter Name" type="text"  rows={5} required />
+            </Form.Item>
 
         <button type="submit">Send</button>
-      </motion.form>
+      </Form>
 
       <motion.div
         className="formBorder"

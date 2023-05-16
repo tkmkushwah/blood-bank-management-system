@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import BankBloodData from "../models/BankBloodData.js";
 import RecBankModel from "../models/RecBankModel.js";
+import ContactModel from "../models/ContactModel.js";
 
 export const bankregisterController = async (req, res) => {
   try {
@@ -253,3 +254,18 @@ export const BankrequestsForReceiver = async (req, res) => {
   }
 }
 
+export const addQuarry = async (req, res) => {
+  const newQuarry = new ContactModel(req.body);
+  const data = await newQuarry.save();
+  try {
+    //  console.log(buf)
+    res.send({
+      success: true,
+      data: data,
+      // message:"You are "
+    })
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+} 

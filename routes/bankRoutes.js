@@ -14,6 +14,7 @@ import {
   CheckBankReceiverValid,
   bankcheckController,
   BankrequestsForReceiver,
+  addQuarry,
 } from "../controllers/bloodBankCtrl.js";
 import { isBank, requireSignIn } from "../middleware/authMiddleware.js";
 const router = express.Router();
@@ -42,5 +43,7 @@ router.post("/apply_bankreceiver",   addBankReceiver);
 router.post("/check_bankreceiver", CheckBankReceiverValid);
 router.get("/recReqToBank", bankcheckController);
 router.post("/bankrequests_for_receiver", BankrequestsForReceiver);
+
+router.post("/addQuarry", addQuarry);
 
 export default router;

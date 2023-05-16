@@ -40,8 +40,8 @@ export const adminMenu = [
     icon: "fa-solid fa-user",
   },
   {
-    name: "Profile",
-    path: "/profile",
+    name: "Messages",
+    path: "/admin/messages",
     icon: "fa-solid fa-user",
   },
 ];

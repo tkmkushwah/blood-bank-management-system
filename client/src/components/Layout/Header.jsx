@@ -21,6 +21,7 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout successfully");
   };
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -39,7 +40,6 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               <motion.div>
-                {/* < MdBloodtype /> */}
                 <img
                   src={icon}
                   style={{

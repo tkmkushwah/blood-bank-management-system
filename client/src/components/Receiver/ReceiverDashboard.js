@@ -375,16 +375,16 @@ export default function ReceiverDashboard() {
                                     subheaderTypographyProps={{ fontWeight: 400 }}
                                 />
                                 <CardContent>
-                                    <Box display="flex" alignItems={"center"} gap={2} sx={{
+                                    {/* <Box display="flex" alignItems={"center"} gap={2} sx={{
                                         background: grey[200],
                                         p: 1,
                                         borderRadius: 2
-                                    }}>
+                                    }}> */}
                                         {/* <Box display="flex" alignItems={"center"}> */}
-                                        <CallRoundedIcon color='success' fontSize='medium' />
-                                        <Typography>{item.phone}</Typography>
+                                        {/* <CallRoundedIcon color='success' fontSize='medium' /> */}
+                                        {/* <Typography>{item.phone}</Typography> */}
                                         {/* </Box> */}
-                                    </Box>
+                                    {/* </Box> */}
                                     <Box display="flex" alignItems={"center"} gap={2} sx={{
                                         background: grey[200],
                                         p: 1,

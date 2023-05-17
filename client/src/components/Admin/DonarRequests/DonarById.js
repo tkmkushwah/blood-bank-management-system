@@ -49,6 +49,7 @@ export const DonarById = () => {
           <br>
           <p>Your donation request has been accepted. <br> We really appreciate your donation! Your contribution will help us change lives literally!</p> 
           <p>We will inform you once the request for your blood group will be raised.</p>
+          <b>For Further process contact Radha Rani BloodBank Water Works Agra , radharanihelp@gmail.com</b>
           <p>Thanks and Regards <br> Admin (Blood Bank DEI)</p>
           `
         }).then((res) => {

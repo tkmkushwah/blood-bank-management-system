@@ -73,6 +73,7 @@ export const ReceiverById = () => {
                   <p>Your blood request for ${donarObj.bloodgroup} bloodgroup has been approved. you can communicate with our donor.<br> Below are the contact details of donor</p>
                   <p>Contact Details fo Donor:</p>
                   <p>Mobile Number: <strong>${donarObj.phone}</strong> <br> Email: <strong>${donarObj.email}</strong> <br> Address: <strong>${donarObj.address}</strong> </p>
+                  <p>Further processes will done under the supervision of Radha Rani Bloodbank ,radharanihelp@gmail.com,water works agra.</p>
                   <p>Thanks and Regards <br> Admin (Blood Bank DEI)</p>
                   `
                 }).then((res) => {
@@ -85,6 +86,8 @@ export const ReceiverById = () => {
                             He/She will communicate with you, so we request you to help him/her and contribute to change lives.</p>
                             <p>In case he didn't respond, you can make contact with our receiver</p>
                             <p>Contact Details: <br> Mobile Number: <strong>${specificReceiverData.phone}</strong> <br> Email: <strong>${specificReceiverData.email}</strong> <br> Address: <strong>${specificReceiverData.address}</strong> </p>
+                            <p>Further processes will done under the supervision of Radha Rani Bloodbank ,radharanihelp@gmail.com,water works agra.</p>
+
                             <p>Thanks and Regards <br> Admin (Blood Bank DEI)</p>
                             `
                           }).then((res) => {
